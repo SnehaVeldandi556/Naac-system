@@ -1,69 +1,206 @@
-import Image from "next/image";
+// app/naac-upload/page.tsx
+'use client';
+import { useState, useCallback } from 'react';
+import { parseFile } from '@/lib/naac/parseFile';
+import { detectHeaderRow } from '@/lib/naac/detectHeaderRow';
+import {
+  autoGuessMapping,
+  CANONICAL_FIELDS,
+  ColumnMapping,
+  CanonicalKey,
+  getMappingIssues,
+} from '@/lib/naac/columnMap';
+import { validateRows, CellError } from '@/lib/naac/validateRows';
+import { DataGrid } from '@/components/naac-upload/DataGrid';
+import { ColumnMappingPanel } from '@/components/naac-upload/columnmapping';
 
-export default function Home() {
+export default function NaacUploadPage() {
+  const [rawHeaders, setRawHeaders] = useState<string[]>([]);
+  const [rawDataRows, setRawDataRows] = useState<string[][]>([]);
+  const [mapping, setMapping] = useState<ColumnMapping | null>(null);
+  const [rows, setRows] = useState<Record<CanonicalKey, string>[]>([]);
+  const [errors, setErrors] = useState<CellError[]>([]);
+  const [override, setOverride] = useState(false);
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState<string | null>(null);
+
+  async function handleFile(file: File) {
+    setUploadResult(null);
+    setFileName(file.name);
+
+    const sheet = await parseFile(file);
+    const headerIdx = detectHeaderRow(sheet);
+    const headers = sheet[headerIdx].map(String);
+    const dataRows = sheet.slice(headerIdx + 1);
+
+    const guessedMap = autoGuessMapping(headers);
+    setRawHeaders(headers);
+    setRawDataRows(dataRows);
+    setMapping(guessedMap);
+    applyMapping(guessedMap, headers, dataRows);
+  }
+
+  function applyMapping(map: ColumnMapping, headers: string[], dataRows: string[][]) {
+    const mapped = dataRows.map(r => {
+      const obj = {} as Record<CanonicalKey, string>;
+      for (const field of CANONICAL_FIELDS) {
+        const colIdx = headers.indexOf(map[field.key] ?? '');
+        obj[field.key] = colIdx >= 0 ? String(r[colIdx] ?? '') : '';
+      }
+      return obj;
+    });
+    setRows(mapped);
+    setErrors(validateRows(mapped).errors);
+  }
+
+  function handleMappingChange(m: ColumnMapping) {
+    setMapping(m);
+    applyMapping(m, rawHeaders, rawDataRows);
+  }
+
+  const onCellEdit = useCallback((r: number, field: CanonicalKey, value: string) => {
+    setRows(prev => {
+      const next = [...prev];
+      next[r] = { ...next[r], [field]: value };
+      setErrors(validateRows(next).errors);
+      return next;
+    });
+  }, []);
+
+  async function handleUpload() {
+    setUploading(true);
+    setUploadResult(null);
+    try {
+      const res = await fetch('/api/naac-upload', {
+        method: 'POST',
+        body: JSON.stringify({ rows, override }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setUploadResult(`Failed: ${data.error ?? 'unknown error'}`);
+      } else {
+        setUploadResult(`Uploaded ${data.inserted} row(s)${data.skipped ? `, skipped ${data.skipped}` : ''}.`);
+      }
+    } catch {
+      setUploadResult('Upload failed — check server logs.');
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  const mappingIssues = mapping ? getMappingIssues(mapping) : [];
+  const hasBlockingIssues = errors.length > 0 || mappingIssues.length > 0;
+  const hasData = rows.length > 0;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gray-50 pb-24">
+      <div className="max-w-5xl mx-auto px-6 py-8 space-y-8">
+
+        {/* Page header */}
+        <header>
+          <h1 className="text-xl font-semibold text-gray-900">NAAC Data Upload</h1>
+          <p className="text-sm text-gray-500 mt-1">
+            Upload a CSV or Excel file, map columns, fix any errors, then submit.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+        </header>
+
+        {/* Step 1: Upload */}
+        <section className="bg-white border border-gray-200 rounded-lg p-5 space-y-3">
+          <SectionTitle step={1} title="Upload File" />
+          <div className="flex items-center gap-4">
+            <label className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm rounded cursor-pointer hover:bg-gray-800">
+              Choose File
+              <input
+                type="file"
+                accept=".csv,.xlsx,.xls"
+                className="hidden"
+                onChange={e => e.target.files && handleFile(e.target.files[0])}
+              />
+            </label>
+            {fileName && <span className="text-sm text-gray-600">{fileName}</span>}
+          </div>
+        </section>
+
+        {/* Step 2: Column mapping */}
+        {mapping && rawHeaders.length > 0 && (
+          <section className="bg-white border border-gray-200 rounded-lg p-5 space-y-3">
+            <SectionTitle step={2} title="Map Columns" />
+            <ColumnMappingPanel
+              mapping={mapping}
+              rawHeaders={rawHeaders}
+              onChange={handleMappingChange}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            {mappingIssues.length > 0 && (
+              <div className="bg-red-50 border border-red-200 rounded p-3">
+                <ul className="text-red-700 text-sm list-disc pl-5 space-y-0.5">
+                  {mappingIssues.map((issue, i) => <li key={i}>{issue}</li>)}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Step 3: Review data */}
+        {hasData && (
+          <section className="bg-white border border-gray-200 rounded-lg p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <SectionTitle step={3} title="Review Data" />
+              <span className={`text-sm font-medium ${errors.length > 0 ? 'text-red-600' : 'text-green-600'}`}>
+                {errors.length > 0 ? `${errors.length} error(s)` : 'No errors'}
+              </span>
+            </div>
+            <div className="overflow-x-auto border border-gray-100 rounded">
+              <DataGrid rows={rows} errors={errors} onCellEdit={onCellEdit} />
+            </div>
+          </section>
+        )}
+
+        {/* Empty state before any file is uploaded */}
+        {!hasData && (
+          <div className="text-center text-sm text-gray-400 py-12 border border-dashed border-gray-200 rounded-lg">
+            No file uploaded yet.
+          </div>
+        )}
+
+      </div>
+
+      {/* Sticky footer: always visible upload action */}
+      {hasData && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-4">
+          <div className="max-w-5xl mx-auto flex items-center gap-4">
+            <button
+              disabled={(hasBlockingIssues && !override) || uploading}
+              onClick={handleUpload}
+              className="px-5 py-2 bg-gray-900 text-white text-sm rounded disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-800"
+            >
+              {uploading ? 'Uploading…' : 'Upload'}
+            </button>
+
+            {hasBlockingIssues && (
+              <label className="flex items-center gap-1.5 text-sm text-gray-600">
+                <input type="checkbox" checked={override} onChange={e => setOverride(e.target.checked)} />
+                Upload anyway
+              </label>
+            )}
+
+            {uploadResult && (
+              <span className="text-sm text-gray-600 ml-auto">{uploadResult}</span>
+            )}
+          </div>
         </div>
-      </main>
+      )}
+    </div>
+  );
+}
+
+function SectionTitle({ step, title }: { step: number; title: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gray-900 text-white text-xs font-medium">
+        {step}
+      </span>
+      <h2 className="text-sm font-semibold text-gray-900">{title}</h2>
     </div>
   );
 }

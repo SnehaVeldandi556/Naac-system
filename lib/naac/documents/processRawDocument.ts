@@ -1,11 +1,11 @@
 // lib/naac/documents/processRawDocument.ts
-import { getSupabaseServerClient } from '@/lib/supabase/server';
+import { getSupabaseAdminClient } from '@/lib/supabase/admin';
 import { extractText } from './extractText';
 
-const STORAGE_BUCKET = 'naac-project';// ← confirm this matches your actual bucket name
+const STORAGE_BUCKET = 'naac-project';
 
 export async function processRawDocument(documentId: string): Promise<void> {
-  const supabase = getSupabaseServerClient();
+  const supabase = getSupabaseAdminClient();
 
   // 1. Fetch the row
   const { data: doc, error: fetchError } = await supabase
@@ -31,7 +31,7 @@ export async function processRawDocument(documentId: string): Promise<void> {
 
   const fileBuffer = Buffer.from(await fileData.arrayBuffer());
 
-  // 3. Extract
+  // 3. Extract text from PDF or DOCX
   const result = await extractText(fileBuffer, doc.file_type as 'pdf' | 'docx');
 
   // 4. Update raw_documents with result
@@ -50,7 +50,7 @@ export async function processRawDocument(documentId: string): Promise<void> {
 }
 
 async function markFailed(documentId: string, errorMsg: string): Promise<void> {
-  const supabase = getSupabaseServerClient();
+  const supabase = getSupabaseAdminClient();
   await supabase
     .from('raw_documents')
     .update({

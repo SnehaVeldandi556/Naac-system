@@ -1,5 +1,5 @@
 // lib/naac/documents/processDocument.ts
-import { getSupabaseServerClient } from '@/lib/supabase/server';
+import { getSupabaseAdminClient } from '@/lib/supabase/admin';
 import { cleanText } from './cleanText';
 import { chunkText } from './chunkText';
 import { validateChunks } from './chunkValidator';
@@ -13,7 +13,7 @@ import { embedChunks } from './embedChunks';
  * One document = one batch job, matches your process_pending.py pattern.
  */
 export async function processDocument(documentId: string): Promise<void> {
-  const supabase = getSupabaseServerClient();
+  const supabase = getSupabaseAdminClient();
 
   // 1. Fetch raw_documents row — need raw_text + metadata to carry forward
   const { data: doc, error: fetchError } = await supabase
@@ -74,12 +74,12 @@ export async function processDocument(documentId: string): Promise<void> {
       chunk_text: chunk.chunk_text,
       chunk_index: chunk.chunk_index,
       chunk_type: chunk.chunk_type, // 'text' | 'table'
-      page_no: null, // not populated yet, per earlier decision
+      page_no: null,
       section_heading: chunk.section_heading,
-      doc_category: doc.doc_category,
-      doc_subtype: doc.doc_subtype,
-      department: doc.department,
-      academic_year: doc.academic_year,
+      doc_category: doc.doc_category || 'SSR Supporting Document',
+      doc_subtype: doc.doc_subtype || 'Activity Report',
+      department: doc.department || 'General',
+      academic_year: doc.academic_year || '2024-25',
       embedding: chunk.embedding,
       is_valid: chunk.is_valid,
       flagged_reason: chunk.flagged_reason
@@ -110,7 +110,7 @@ export async function processDocument(documentId: string): Promise<void> {
 }
 
 async function markProcessingFailed(documentId: string, reason: string): Promise<void> {
-  const supabase = getSupabaseServerClient();
+  const supabase = getSupabaseAdminClient();
   await supabase
     .from('raw_documents')
     .update({

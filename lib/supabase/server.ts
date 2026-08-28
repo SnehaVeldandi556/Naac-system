@@ -1,12 +1,31 @@
 // lib/supabase/server.ts
-import { createClient } from '@supabase/supabase-js';
+import { cookies } from "next/headers";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
-export function getSupabaseServerClient() {
-  console.log('URL present:', !!process.env.NEXT_PUBLIC_SUPABASE_URL);
-  console.log('KEY present:', !!process.env.SUPABASE_SERVICE_ROLE_KEY);
+export async function getSupabaseServerClient() {
+  const cookieStore = await cookies(); // if on Next <15, drop the `await`
 
-  return createClient(
+  return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          try {
+            cookieStore.set({ name, value, ...options });
+          } catch {
+            // called from a Server Component — middleware refreshes the session instead
+          }
+        },
+        remove(name: string, options: CookieOptions) {
+          try {
+            cookieStore.set({ name, value: "", ...options });
+          } catch {}
+        },
+      },
+    }
   );
 }

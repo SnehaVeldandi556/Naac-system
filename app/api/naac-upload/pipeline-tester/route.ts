@@ -1,25 +1,24 @@
-// app/api/naac/documents/test/route.ts
+// app/api/naac-upload/pipeline-tester/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { randomUUID } from 'crypto';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
+import { getSupabaseAdminClient } from '@/lib/supabase/admin';
 import { processRawDocument } from '@/lib/naac/documents/processRawDocument';
 import { processDocument } from '@/lib/naac/documents/processDocument';
 
-const STORAGE_BUCKET = 'naac-project'; // ← confirm this matches your actual bucket name
+const STORAGE_BUCKET = 'naac-project';
 
-/**
- * Debug/testing endpoint: runs a fresh upload through the REAL pipeline
- * (processRawDocument -> processDocument) and returns raw_text + chunks
- * so they can be inspected in the UI instead of a terminal.
- *
- * Not for production ingestion — this is testDocumentPipeline.ts, but
- * reachable from the browser. It calls the same functions your real
- * ingestion flow calls, so results here match what actually gets stored.
- */
 export async function POST(req: NextRequest) {
-  const supabase = getSupabaseServerClient();
-
   try {
+    const supabase = await getSupabaseServerClient();
+    const admin = getSupabaseAdminClient();
+
+    // Verify authentication
+    const { data: authData } = await supabase.auth.getSession();
+    if (!authData?.session) {
+      return NextResponse.json({ error: 'Unauthorized. Please log in first.' }, { status: 401 });
+    }
+
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
 
@@ -28,6 +27,16 @@ export async function POST(req: NextRequest) {
     }
 
     const fileName = file.name.toLowerCase();
+    if (fileName.endsWith('.doc') && !fileName.endsWith('.docx')) {
+      return NextResponse.json(
+        {
+          error:
+            'Older binary .doc format is not supported directly. Please open your document in Word or Google Docs and save/export as .docx or .pdf.',
+        },
+        { status: 400 }
+      );
+    }
+
     const fileType: 'pdf' | 'docx' | null = fileName.endsWith('.pdf')
       ? 'pdf'
       : fileName.endsWith('.docx')
@@ -36,39 +45,48 @@ export async function POST(req: NextRequest) {
 
     if (!fileType) {
       return NextResponse.json(
-        { error: `Unsupported file extension for "${file.name}" — only .pdf and .docx are handled` },
+        { error: `Unsupported file extension for "${file.name}" — only .pdf and .docx are supported.` },
         { status: 400 }
       );
     }
 
-    // Optional metadata fields — default to test values so this works
-    // without a full form; adjust the defaults or make them required
-    // inputs on the page if your schema enforces NOT NULL.
-    const doc_category = (formData.get('doc_category') as string) || 'test';
-    const doc_subtype = (formData.get('doc_subtype') as string) || 'test';
-    const department = (formData.get('department') as string) || 'test';
-    const academic_year = (formData.get('academic_year') as string) || 'test';
+    // Try reading user profile to get department if not specified
+    let userDept = '';
+    const { data: profile } = await admin
+      .from('profiles')
+      .select('department:departments(name)')
+      .eq('id', authData.session.user.id)
+      .maybeSingle();
+    if (profile?.department) {
+      userDept = (profile.department as { name?: string })?.name || '';
+    }
 
-    // 1. Upload the raw file to Storage
-    const storagePath = `test-uploads/${randomUUID()}-${file.name}`;
+    const doc_category = (formData.get('doc_category') as string) || 'SSR Supporting Document';
+    const doc_subtype = (formData.get('doc_subtype') as string) || 'Activity Report';
+    const department = (formData.get('department') as string) || userDept || 'General';
+    const academic_year = (formData.get('academic_year') as string) || '2024-25';
+
+    // 1. Upload the raw file to Supabase Storage ('naac-project') using admin client (bypasses storage RLS)
+    const storagePath = `documents/${randomUUID()}-${file.name}`;
     const fileBuffer = Buffer.from(await file.arrayBuffer());
 
-    const { error: uploadError } = await supabase.storage
+    const { error: uploadError } = await admin.storage
       .from(STORAGE_BUCKET)
       .upload(storagePath, fileBuffer, {
         contentType: file.type || undefined,
-        upsert: false
+        upsert: false,
       });
 
     if (uploadError) {
+      console.error('Storage upload failed:', uploadError);
       return NextResponse.json(
-        { error: `Storage upload failed: ${uploadError.message}` },
+        { error: `Storage upload failed: ${uploadError.message}. Verify bucket "${STORAGE_BUCKET}" exists.` },
         { status: 500 }
       );
     }
 
-    // 2. Insert the raw_documents row that processRawDocument expects to find
-    const { data: inserted, error: insertError } = await supabase
+    // 2. Insert the raw_documents row using admin client
+    const { data: inserted, error: insertError } = await admin
       .from('raw_documents')
       .insert({
         storage_path: storagePath,
@@ -79,26 +97,27 @@ export async function POST(req: NextRequest) {
         department,
         academic_year,
         extraction_status: 'pending',
-        processing_status: 'pending'
+        processing_status: 'pending',
       })
       .select('id')
       .single();
 
     if (insertError || !inserted) {
+      console.error('raw_documents insert failed:', insertError);
       return NextResponse.json(
-        { error: `Could not create raw_documents row: ${insertError?.message}` },
+        { error: `Could not create raw_documents entry: ${insertError?.message}` },
         { status: 500 }
       );
     }
 
     const documentId = inserted.id as string;
 
-    // 3. Run the real pipeline — same functions the CLI script calls
+    // 3. Run the extraction pipeline: processRawDocument -> processDocument
     await processRawDocument(documentId);
     await processDocument(documentId);
 
     // 4. Fetch results for display
-    const { data: docRow, error: docFetchError } = await supabase
+    const { data: docRow, error: docFetchError } = await admin
       .from('raw_documents')
       .select('id, raw_text, extraction_status, processing_status, extraction_error')
       .eq('id', documentId)
@@ -111,7 +130,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { data: chunks, error: chunksFetchError } = await supabase
+    const { data: chunks, error: chunksFetchError } = await admin
       .from('document_chunks')
       .select(
         'chunk_index, chunk_type, section_heading, chunk_text, is_valid, flagged_reason'
@@ -128,14 +147,22 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       documentId,
+      file_name: file.name,
+      file_type: fileType,
+      storage_bucket: STORAGE_BUCKET,
+      storage_path: storagePath,
+      department,
+      academic_year,
+      doc_category,
       extraction_status: docRow.extraction_status,
       processing_status: docRow.processing_status,
       extraction_error: docRow.extraction_error,
       raw_text: docRow.raw_text,
-      chunks: chunks ?? []
+      chunks: chunks ?? [],
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
+    console.error('Pipeline route exception:', err);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

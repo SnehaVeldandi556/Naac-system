@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAAC Self Study Report (SSR) - {{ institution_name }}</title>
+    <!-- Google Fonts for premium reading experience -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Variables & Design Tokens */
+        :root {
+            --primary-color: hsl(218, 54%, 20%);
+            --accent-color: hsl(15, 80%, 45%);
+            --text-dark: hsl(220, 20%, 15%);
+            --text-muted: hsl(218, 12%, 40%);
+            --bg-light: hsl(210, 20%, 98%);
+            --bg-card: hsl(0, 0%, 100%);
+            --border-color: hsl(218, 20%, 88%);
+            --alert-warning: hsl(4, 80%, 93%);
+            --alert-warning-border: hsl(4, 75%, 85%);
+            --alert-warning-text: hsl(4, 75%, 25%);
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif;
+        }
+
+        /* Reset and General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Cover Page styling */
+        .cover-page {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 80px 60px;
+            margin-bottom: 50px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .cover-page h1 {
+            font-family: var(--font-sans);
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .cover-page h2 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+        }
+        .institution-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 30px 0;
+        }
+        .metadata-section {
+            border-top: 2px solid var(--border-color);
+            padding-top: 30px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Executive Summary Section */
+        .summary-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+        .section-header {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .summary-box h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .summary-box p {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* Criteria Section */
+        .criterion-section {
+            margin-bottom: 60px;
+        }
+        .criterion-title {
+            font-family: var(--font-sans);
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            background-color: hsl(218, 54%, 95%);
+            padding: 12px 20px;
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 600;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Metric Block */
+        .metric-block {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+        }
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .metric-id-title {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .metric-id {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .metric-title-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .metric-weight {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .metric-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid hsl(218, 20%, 93%);
+        }
+
+        /* Qualitative Response Output */
+        .metric-response {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            text-align: justify;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* Key Initiatives Bullet list */
+        .initiatives-title {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .initiatives-list {
+            list-style-type: square;
+            margin-left: 20px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .initiatives-list li {
+            margin-bottom: 6px;
+        }
+
+        /* Supporting Documents Table */
+        .docs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .docs-table th, .docs-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        .docs-table th {
+            background-color: hsl(218, 20%, 96%);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .docs-table td a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .docs-table td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Alerts for missing data */
+        .alert-missing {
+            background-color: var(--alert-warning);
+            border: 1px dashed var(--alert-warning-border);
+            color: var(--alert-warning-text);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-family: var(--font-sans);
+        }
+        .alert-missing h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .alert-missing p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* Print styling rules */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 11pt;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .cover-page, .summary-box, .metric-block {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            .cover-page {
+                height: 95vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .alert-missing {
+                border: 1px solid #aaa;
+                background-color: #fafafa;
+                color: #333;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- COVER PAGE -->
+    <div class="cover-page">
+        <h1>Self Study Report</h1>
+        <h2>FOR accreditation - 1st Cycle</h2>
+        <div class="institution-title">{{ institution_name }}</div>
+        <p style="font-family: var(--font-sans); color: var(--text-muted); font-size: 1.1rem; margin-top: 50px;">
+            Submitted to
+        </p>
+        <p style="font-family: var(--font-sans); font-weight: 600; font-size: 1.2rem; color: var(--primary-color);">
+            NATIONAL ASSESSMENT AND ACCREDITATION COUNCIL
+        </p>
+        <div class="metadata-section">
+            <div>Cycle: 1st Cycle</div>
+            <div>Generated: August 2026</div>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+
+    <!-- INSTITUTION SUMMARY -->
+    <div class="summary-box">
+        <div class="section-header">1. Executive Summary</div>
+        
+        <h3>Institution Vision</h3>
+        <p>{{ vision }}</p>
+        
+        <h3>Institution Mission</h3>
+        <p>{{ mission }}</p>
+    </div>
+
+    <!-- CRITERIA MAIN LOOP -->
+    {% for criterion in criteria %}
+    <div class="criterion-section page-break">
+        <div class="criterion-title">{{ criterion.title }}</div>
+        
+        {% for metric in criterion.metrics %}
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM {{ metric.id }}</span>
+                    <span class="metric-title-text">{{ metric.title }}</span>
+                </div>
+                <span class="metric-weight">Weightage: {{ metric.weight }} Points</span>
+            </div>
+            
+            <div class="metric-description">
+                {{ metric.description }}
+            </div>
+            
+            {% if metric.data_available %}
+                <div class="metric-response">
+                    {{ metric.narrative_draft }}
+                </div>
+                
+                {% if metric.key_initiatives %}
+                <div class="initiatives-title">Key Policies & Initiatives</div>
+                <ul class="initiatives-list">
+                    {% for initiative in metric.key_initiatives %}
+                    <li>{{ initiative }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                
+                {% if metric.supporting_documents %}
+                <div class="initiatives-title">Supporting Verification Documents</div>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Document Name / Reference</th>
+                            <th>Verification Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for doc in metric.supporting_documents %}
+                        <tr>
+                            <td>{{ doc }}</td>
+                            <td><a href="#" onclick="alert('Teammate\'s document storage integration point.'); return false;">View Document Reference</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            {% else %}
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>{{ metric.id }}</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

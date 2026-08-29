@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAAC Self Study Report (SSR) - Pillai College of Engineering</title>
+    <!-- Google Fonts for premium reading experience -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Variables & Design Tokens */
+        :root {
+            --primary-color: hsl(218, 54%, 20%);
+            --accent-color: hsl(15, 80%, 45%);
+            --text-dark: hsl(220, 20%, 15%);
+            --text-muted: hsl(218, 12%, 40%);
+            --bg-light: hsl(210, 20%, 98%);
+            --bg-card: hsl(0, 0%, 100%);
+            --border-color: hsl(218, 20%, 88%);
+            --alert-warning: hsl(4, 80%, 93%);
+            --alert-warning-border: hsl(4, 75%, 85%);
+            --alert-warning-text: hsl(4, 75%, 25%);
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif;
+        }
+
+        /* Reset and General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Cover Page styling */
+        .cover-page {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 80px 60px;
+            margin-bottom: 50px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .cover-page h1 {
+            font-family: var(--font-sans);
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .cover-page h2 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+        }
+        .institution-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 30px 0;
+        }
+        .metadata-section {
+            border-top: 2px solid var(--border-color);
+            padding-top: 30px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Executive Summary Section */
+        .summary-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+        .section-header {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .summary-box h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .summary-box p {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* Criteria Section */
+        .criterion-section {
+            margin-bottom: 60px;
+        }
+        .criterion-title {
+            font-family: var(--font-sans);
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            background-color: hsl(218, 54%, 95%);
+            padding: 12px 20px;
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 600;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Metric Block */
+        .metric-block {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+        }
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .metric-id-title {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .metric-id {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .metric-title-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .metric-weight {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .metric-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid hsl(218, 20%, 93%);
+        }
+
+        /* Qualitative Response Output */
+        .metric-response {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            text-align: justify;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* Key Initiatives Bullet list */
+        .initiatives-title {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .initiatives-list {
+            list-style-type: square;
+            margin-left: 20px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .initiatives-list li {
+            margin-bottom: 6px;
+        }
+
+        /* Supporting Documents Table */
+        .docs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .docs-table th, .docs-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        .docs-table th {
+            background-color: hsl(218, 20%, 96%);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .docs-table td a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .docs-table td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Alerts for missing data */
+        .alert-missing {
+            background-color: var(--alert-warning);
+            border: 1px dashed var(--alert-warning-border);
+            color: var(--alert-warning-text);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-family: var(--font-sans);
+        }
+        .alert-missing h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .alert-missing p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* Print styling rules */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 11pt;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .cover-page, .summary-box, .metric-block {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            .cover-page {
+                height: 95vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .alert-missing {
+                border: 1px solid #aaa;
+                background-color: #fafafa;
+                color: #333;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- COVER PAGE -->
+    <div class="cover-page">
+        <h1>Self Study Report</h1>
+        <h2>FOR accreditation - 1st Cycle</h2>
+        <div class="institution-title">Pillai College of Engineering</div>
+        <p style="font-family: var(--font-sans); color: var(--text-muted); font-size: 1.1rem; margin-top: 50px;">
+            Submitted to
+        </p>
+        <p style="font-family: var(--font-sans); font-weight: 600; font-size: 1.2rem; color: var(--primary-color);">
+            NATIONAL ASSESSMENT AND ACCREDITATION COUNCIL
+        </p>
+        <div class="metadata-section">
+            <div>Cycle: 1st Cycle</div>
+            <div>Generated: August 2026</div>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+
+    <!-- INSTITUTION SUMMARY -->
+    <div class="summary-box">
+        <div class="section-header">1. Executive Summary</div>
+        
+        <h3>Institution Vision</h3>
+        <p>Pillai College of Engineering (PCE) will admit, educate and train in technology, a diverse population of students who are academically prepared to benefit from the Institute's infrastructure and faculty experience, to become responsible professionals.</p>
+        
+        <h3>Institution Mission</h3>
+        <p>To develop professional engineers with respect for the environment and make them responsible citizens, both from a local and global perspective. This objective is fulfilled through quality education, practical training, research, entrepreneurship and interaction with industries and social organisations.</p>
+    </div>
+
+    <!-- CRITERIA MAIN LOOP -->
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 1 - Curricular Aspects</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 1.1.1</span>
+                    <span class="metric-title-text">Curricular planning and implementation</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution ensures effective curriculum delivery through a well planned and documented process. Explain the academic planning, adherence to academic calendar, lesson plans, course files, and teaching methods (e.g. Project-Based Learning, e-learning platforms) used to ensure delivery.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>1.1.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 1.3.1</span>
+                    <span class="metric-title-text">Institution integrates cross-cutting issues into the curriculum</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Institution integrates cross-cutting issues relevant to Professional Ethics, Gender, Human Values, Environment and Sustainability into the Curriculum. Describe courses, workshops, active clubs (like Nature Club), and programs addressing ethics, environment, and gender equity.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>1.3.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 2 - Teaching-learning and Evaluation</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.2.1</span>
+                    <span class="metric-title-text">Student diversity (Slow vs. Advanced Learners)</span>
+                </div>
+                <span class="metric-weight">Weightage: 50 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution assesses the learning levels of the students, after admission and organises special programs for advanced learners and slow learners. Explain the identification process, mentoring schemes, remedial classes, coaching for competitive exams (GATE, GRE), and research support.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.2.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.3.1</span>
+                    <span class="metric-title-text">Student-centric methods</span>
+                </div>
+                <span class="metric-weight">Weightage: 20 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Student centric methods, such as experiential learning, participative learning and problem solving methodologies are used for enhancing learning experiences. Elaborate on project-based learning, maker spaces (Maker Studio), industrial visits, virtual labs, and student chapters.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.3.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.3.3</span>
+                    <span class="metric-title-text">Ratio of students to mentor</span>
+                </div>
+                <span class="metric-weight">Weightage: 15 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Ratio of students to mentor for academic and stress related issues. Describe the mentor-mentee mechanism, frequency of meetings, training of mentors, and student counseling systems.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.3.3</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.5.1</span>
+                    <span class="metric-title-text">Mechanism of internal assessment is transparent and robust</span>
+                </div>
+                <span class="metric-weight">Weightage: 25 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Mechanism of internal assessment is transparent and robust in terms of frequency and variety. Detail the continuous internal evaluation (CIE), term work assessments, project reviews, test schedules, and student access to evaluated papers.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.5.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.5.2</span>
+                    <span class="metric-title-text">Mechanism to deal with internal examination related grievances</span>
+                </div>
+                <span class="metric-weight">Weightage: 25 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Mechanism to deal with internal examination related grievances is transparent, time-bound and efficient. Explain how exam-related complaints (marks updating, revaluation, grade card corrections) are handled by the college exam cell.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.5.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.6.1</span>
+                    <span class="metric-title-text">Programme and course outcomes are stated and displayed</span>
+                </div>
+                <span class="metric-weight">Weightage: 15 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Programme outcomes, program specific outcomes and course outcomes for all programs offered by the Institution are stated and displayed on website and communicated to teachers and students. Describe how COs, POs, and PSOs are defined, published, and communicated.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.6.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 2.6.2</span>
+                    <span class="metric-title-text">Attainment of programme outcomes and course outcomes</span>
+                </div>
+                <span class="metric-weight">Weightage: 15 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Attainment of program outcomes, program specific outcomes and course outcomes are evaluated by the institution. Detail the direct and indirect assessment methods, Course Assessment Reports (CAR), weights, and actions taken for low attainment.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>2.6.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 3 - Research, Innovations and Extension</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 3.2.1</span>
+                    <span class="metric-title-text">Innovation ecosystem including Incubation center</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Institution has created an ecosystem for innovations including incubation centre and other initiatives for creation and transfer of knowledge. Describe centers of excellence (UXO, Drone Lab, Future Cities), start-up support, and research facilities.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>3.2.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 3.4.1</span>
+                    <span class="metric-title-text">Extension activities in neighborhood community</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Extension activities in the neighbourhood community in terms of impact and sensitising students to social issues and holistic development during the last five years. Detail community programs like Community Service Day, Uber Rang, Swachh Bharat Internships, and social awareness campaigns.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>3.4.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 4 - Infrastructure and Learning Resources</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 4.1.1</span>
+                    <span class="metric-title-text">Adequate infrastructure for teaching-learning</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution has adequate facilities for teaching- learning. viz., classrooms, laboratories, computing equipment, smart rooms, and specialized workshops.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>4.1.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 4.1.2</span>
+                    <span class="metric-title-text">Facilities for sports, games, and cultural activities</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution has adequate facilities for sports, games (indoor, outdoor), gymnasium, yoga centre etc., and cultural activities. Detail the playgrounds, sports complex, gym facilities, and cultural festivals (e.g. Alegria).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>4.1.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 4.2.1</span>
+                    <span class="metric-title-text">Library is automated using ILMS</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Library is automated using Integrated Library Management System (ILMS). Describe the library software (e.g., Koha), database access, and e-resources subscriptions (ejournals, ebooks).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>4.2.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 4.3.1</span>
+                    <span class="metric-title-text">IT infrastructure including Wi-Fi</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Institution frequently updates its IT facilities including Wi-Fi. Detail the server rooms, internet bandwidth, firewalls, routers, computer labs, and upgrades.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>4.3.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 5 - Student Support and Progression</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 5.1.3</span>
+                    <span class="metric-title-text">Capacity building and skills enhancement initiatives</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Capacity building and skills enhancement initiatives taken by the institution include soft skills, language and communication skills, life skills, and awareness of trends in technology. Detail training programs, workshops, attendance, and employability initiatives conducted.
+            </div>
+            
+            
+                <div class="metric-response">
+                    The Training and Placement Cell of ABC Institute of Technology organized a five-day Soft Skill Development Training Programme for students during the academic year 2024–2025. The programme was designed to improve students' communication, interpersonal, presentation, teamwork, and professional skills, with the aim of preparing them for internships, placements, and future professional responsibilities. The Soft Skill Development Training Programme provided students with practical opportunities to develop communication, interpersonal, and professional skills. The institution intends to continue skill-development initiatives to improve student preparedness for internships, placements, higher education, and professional careers. As part of follow-up activities, the Training and Placement Cell proposed additional sessions on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills. These initiatives reflect the institution's commitment to enhancing student employability and professional readiness through structured training and skill-development programmes.
+                </div>
+                
+                
+                <div class="initiatives-title">Key Policies & Initiatives</div>
+                <ul class="initiatives-list">
+                    
+                    <li>Five-day Soft Skill Development Training Programme organized by the Training and Placement Cell during 2024–2025</li>
+                    
+                    <li>Focus on improving communication, interpersonal, presentation, teamwork, and professional skills</li>
+                    
+                    <li>Preparation for internships, placements, and future professional responsibilities</li>
+                    
+                    <li>Proposed additional sessions on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills</li>
+                    
+                    <li>Continuation of skill-development initiatives to improve student preparedness for internships, placements, higher education, and professional careers</li>
+                    
+                </ul>
+                
+                
+                
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 5.2.1</span>
+                    <span class="metric-title-text">Placement of outgoing students and career counseling</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution facilitates student placement and career counseling. Detail placement activities, industry drives, technical interviews, and follow-up activities organized by the Training and Placement Cell.
+            </div>
+            
+            
+                <div class="metric-response">
+                    The Training and Placement Cell of ABC Institute of Technology actively facilitates student placement and career counseling through structured training programs. During the academic year 2024–2025, the Cell organized a five-day Soft Skill Development Training Programme aimed at enhancing students' communication, interpersonal, presentation, teamwork, and professional skills. This initiative was specifically designed to prepare students for internships, placements, and future professional responsibilities. A total of 268 students from multiple academic departments participated in the program, with attendance meticulously recorded by the Training and Placement Cell for each session. To further support student employability, the Cell proposed and conducted additional sessions focused on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills. These follow-up activities were integral to the broader placement strategy, ensuring that students were well-equipped to navigate industry drives and technical interviews. The comprehensive approach of the Training and Placement Cell underscores the institution's commitment to bridging the gap between academic learning and industry requirements, thereby enhancing the placement prospects of outgoing students.
+                </div>
+                
+                
+                <div class="initiatives-title">Key Policies & Initiatives</div>
+                <ul class="initiatives-list">
+                    
+                    <li>Organization of a five-day Soft Skill Development Training Programme during the academic year 2024–2025.</li>
+                    
+                    <li>Conducting sessions on aptitude preparation, advanced communication, and technical interview preparation.</li>
+                    
+                    <li>Facilitating group discussions, mock interviews, and career-specific employability skills training.</li>
+                    
+                    <li>Recording attendance for 268 participating students from multiple academic departments.</li>
+                    
+                </ul>
+                
+                
+                
+                <div class="initiatives-title">Supporting Verification Documents</div>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Document Name / Reference</th>
+                            <th>Verification Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>Training and Placement Cell Attendance Records</td>
+                            <td><a href="#" onclick="alert('Teammate\'s document storage integration point.'); return false;">View Document Reference</a></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Soft Skill Development Training Programme Documentation</td>
+                            <td><a href="#" onclick="alert('Teammate\'s document storage integration point.'); return false;">View Document Reference</a></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 5.3.2</span>
+                    <span class="metric-title-text">Presence of an active Student Council</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Presence of an active Student Council & representation of students on academic & administrative bodies/committees of the institution. Outline the constitution of the student council, their roles, committees, and organizing student-led initiatives.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>5.3.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 5.4.1</span>
+                    <span class="metric-title-text">Registered Alumni Association</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                There is a registered Alumni Association that contributes significantly to the development of the institution through financial and/or other support services. Detail alumni placement support, lectures, workshops, networking portals, and meetings.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>5.4.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 6 - Governance, Leadership and Management</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.1.1</span>
+                    <span class="metric-title-text">Governance in tune with vision and mission</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The governance of the institution is reflective of an effective leadership in tune with the vision and mission of the institution. Outline the management systems, participatory governance structures, perspective plans, and quality policies.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.1.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.1.2</span>
+                    <span class="metric-title-text">Decentralization and participative management</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution practices decentralization and participative management. Detail the college development committee, department budgets, academic committees, and administrative decentralization case studies (like lab modernization).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.1.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.2.1</span>
+                    <span class="metric-title-text">Strategic plan and deployment documents are effective</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Perspective/Strategic plan and Deployment documents are available in the institution. Describe key strategic goals deployed, such as establishing research centers, MOUs with industries, and quality accreditations.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.2.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.2.2</span>
+                    <span class="metric-title-text">Institutional bodies as per statutory requirements</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Organizational structure of the institution including governing body, administrative setup, and functions of various bodies, service rules, procedures, recruitment, and promotional policies.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.2.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.3.1</span>
+                    <span class="metric-title-text">Effective welfare measures</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution has effective welfare measures for teaching and non-teaching staff. Detail training support, sponsorships, leaves (sick, earned, casual), EPF schemes, health programs, and credit societies.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.3.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.4.1</span>
+                    <span class="metric-title-text">Institution conducts financial audits</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Institution conducts internal and external financial audits regularly. Detail internal and external audit mechanisms, auditing agencies (e.g. CA firms), and budgeting controls.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.4.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.5.1</span>
+                    <span class="metric-title-text">IQAC initiatives</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Internal Quality Assurance Cell (IQAC) has contributed significantly for institutionalizing the quality assurance strategies and processes. Describe quality initiatives like project-based learning, component library setup, and faculty training.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.5.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 6.5.2</span>
+                    <span class="metric-title-text">Institutional reviews and implementation of teaching-learning</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                The institution reviews its teaching learning process, structures & methodologies of operations and learning outcomes at periodic intervals through IQAC set up as per norms. Detail academic audits and online monitoring systems (AMS).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>6.5.2</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="criterion-section page-break">
+        <div class="criterion-title">Criterion 7 - Institutional Values and Best Practices</div>
+        
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 7.1.1</span>
+                    <span class="metric-title-text">Promotion of gender equity</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Measures initiated for the promotion of gender equity. Detail safety and security (CCTV, guards), counseling, common rooms, and gender equity promotion programs (Women Development Cell / ICC).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>7.1.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 7.1.8</span>
+                    <span class="metric-title-text">Institutional efforts in providing an inclusive environment</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Institutional efforts in providing an inclusive environment (tolerance, harmony towards cultural, regional, linguistic, communal socio-economic and other diversities). Explain cultural programs, regional festivals, and social service campaigns.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>7.1.8</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 7.1.9</span>
+                    <span class="metric-title-text">Sensitization to constitutional obligations</span>
+                </div>
+                <span class="metric-weight">Weightage: 10 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Sensitization of students to constitutional obligations: values, rights, duties and responsibilities of citizens. Describe programs celebrating Independence Day, Republic Day, Constitution Day, and related workshops.
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>7.1.9</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 7.1.11</span>
+                    <span class="metric-title-text">Institution celebrates commemorative days</span>
+                </div>
+                <span class="metric-weight">Weightage: 5 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Institution celebrates national/international commemorative days, festivals and birth/death anniversaries of great Indian personalities (like Gandhi, Shivaji, Ambedkar, Radhakrishnan).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>7.1.11</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 7.2.1</span>
+                    <span class="metric-title-text">Best practices successfully implemented</span>
+                </div>
+                <span class="metric-weight">Weightage: 30 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Describe two best practices successfully implemented by the Institution as per NAAC format. Provide titles, objectives, context, details, evidence of success, and problems encountered (e.g. Centers of Excellence, Project-Based Learning).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>7.2.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="metric-block">
+            <div class="metric-header">
+                <div class="metric-id-title">
+                    <span class="metric-id">QlM 7.3.1</span>
+                    <span class="metric-title-text">Institutional Distinctiveness</span>
+                </div>
+                <span class="metric-weight">Weightage: 20 Points</span>
+            </div>
+            
+            <div class="metric-description">
+                Performance of the Institution in one area distinctive to its thrust. Elaborate on the core distinctiveness (e.g., student-centered research, project-based learning, or incubation/entrepreneurship cell).
+            </div>
+            
+            
+                <div class="alert-missing">
+                    <h4>⚠️ Manual Review Required</h4>
+                    <p>
+                        No matching information was found in the ingested source documents for metric <strong>7.3.1</strong>. 
+                        Under the anti-hallucination safeguard, the LLM has reported "Data not available" instead of making up a response. 
+                        Please upload documents containing curriculum deliverable evidence for this metric, or write a manual narrative description to complete the report.
+                    </p>
+                </div>
+            
+        </div>
+        
+    </div>
+    
+
+</div>
+
+</body>
+</html>

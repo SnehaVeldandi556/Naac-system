@@ -1,0 +1,163 @@
+{
+  "institution_name": "Pillai College of Engineering",
+  "total_qualitative_metrics": 33,
+  "metrics_extracted": 2,
+  "metrics_missing": 31,
+  "missing_list": [
+    {
+      "id": "1.1.1",
+      "title": "Curricular planning and implementation",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "1.3.1",
+      "title": "Institution integrates cross-cutting issues into the curriculum",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.2.1",
+      "title": "Student diversity (Slow vs. Advanced Learners)",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.3.1",
+      "title": "Student-centric methods",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.3.3",
+      "title": "Ratio of students to mentor",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.5.1",
+      "title": "Mechanism of internal assessment is transparent and robust",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.5.2",
+      "title": "Mechanism to deal with internal examination related grievances",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.6.1",
+      "title": "Programme and course outcomes are stated and displayed",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.6.2",
+      "title": "Attainment of programme outcomes and course outcomes",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "3.2.1",
+      "title": "Innovation ecosystem including Incubation center",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "3.4.1",
+      "title": "Extension activities in neighborhood community",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.1.1",
+      "title": "Adequate infrastructure for teaching-learning",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.1.2",
+      "title": "Facilities for sports, games, and cultural activities",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.2.1",
+      "title": "Library is automated using ILMS",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.3.1",
+      "title": "IT infrastructure including Wi-Fi",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.3.2",
+      "title": "Presence of an active Student Council",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.4.1",
+      "title": "Registered Alumni Association",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.1.1",
+      "title": "Governance in tune with vision and mission",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.1.2",
+      "title": "Decentralization and participative management",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.2.1",
+      "title": "Strategic plan and deployment documents are effective",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.2.2",
+      "title": "Institutional bodies as per statutory requirements",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.3.1",
+      "title": "Effective welfare measures",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.4.1",
+      "title": "Institution conducts financial audits",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.5.1",
+      "title": "IQAC initiatives",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.5.2",
+      "title": "Institutional reviews and implementation of teaching-learning",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.1.1",
+      "title": "Promotion of gender equity",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.1.8",
+      "title": "Institutional efforts in providing an inclusive environment",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.1.9",
+      "title": "Sensitization to constitutional obligations",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.1.11",
+      "title": "Institution celebrates commemorative days",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.2.1",
+      "title": "Best practices successfully implemented",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.3.1",
+      "title": "Institutional Distinctiveness",
+      "reason": "Context did not cover this sub-criterion"
+    }
+  ]
+}

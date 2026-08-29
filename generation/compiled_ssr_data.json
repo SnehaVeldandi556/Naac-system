@@ -1,0 +1,400 @@
+{
+  "institution_name": "Pillai College of Engineering",
+  "vision": "Pillai College of Engineering (PCE) will admit, educate and train in technology, a diverse population of students who are academically prepared to benefit from the Institute's infrastructure and faculty experience, to become responsible professionals.",
+  "mission": "To develop professional engineers with respect for the environment and make them responsible citizens, both from a local and global perspective. This objective is fulfilled through quality education, practical training, research, entrepreneurship and interaction with industries and social organisations.",
+  "criteria": [
+    {
+      "id": "1",
+      "title": "Criterion 1 - Curricular Aspects",
+      "weight": 100,
+      "metrics": [
+        {
+          "id": "1.1.1",
+          "title": "Curricular planning and implementation",
+          "description": "The institution ensures effective curriculum delivery through a well planned and documented process. Explain the academic planning, adherence to academic calendar, lesson plans, course files, and teaching methods (e.g. Project-Based Learning, e-learning platforms) used to ensure delivery.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "1.3.1",
+          "title": "Institution integrates cross-cutting issues into the curriculum",
+          "description": "Institution integrates cross-cutting issues relevant to Professional Ethics, Gender, Human Values, Environment and Sustainability into the Curriculum. Describe courses, workshops, active clubs (like Nature Club), and programs addressing ethics, environment, and gender equity.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Criterion 2 - Teaching-learning and Evaluation",
+      "weight": 350,
+      "metrics": [
+        {
+          "id": "2.2.1",
+          "title": "Student diversity (Slow vs. Advanced Learners)",
+          "description": "The institution assesses the learning levels of the students, after admission and organises special programs for advanced learners and slow learners. Explain the identification process, mentoring schemes, remedial classes, coaching for competitive exams (GATE, GRE), and research support.",
+          "weight": 50,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.3.1",
+          "title": "Student-centric methods",
+          "description": "Student centric methods, such as experiential learning, participative learning and problem solving methodologies are used for enhancing learning experiences. Elaborate on project-based learning, maker spaces (Maker Studio), industrial visits, virtual labs, and student chapters.",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.3.3",
+          "title": "Ratio of students to mentor",
+          "description": "Ratio of students to mentor for academic and stress related issues. Describe the mentor-mentee mechanism, frequency of meetings, training of mentors, and student counseling systems.",
+          "weight": 15,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.5.1",
+          "title": "Mechanism of internal assessment is transparent and robust",
+          "description": "Mechanism of internal assessment is transparent and robust in terms of frequency and variety. Detail the continuous internal evaluation (CIE), term work assessments, project reviews, test schedules, and student access to evaluated papers.",
+          "weight": 25,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.5.2",
+          "title": "Mechanism to deal with internal examination related grievances",
+          "description": "Mechanism to deal with internal examination related grievances is transparent, time-bound and efficient. Explain how exam-related complaints (marks updating, revaluation, grade card corrections) are handled by the college exam cell.",
+          "weight": 25,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.6.1",
+          "title": "Programme and course outcomes are stated and displayed",
+          "description": "Programme outcomes, program specific outcomes and course outcomes for all programs offered by the Institution are stated and displayed on website and communicated to teachers and students. Describe how COs, POs, and PSOs are defined, published, and communicated.",
+          "weight": 15,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.6.2",
+          "title": "Attainment of programme outcomes and course outcomes",
+          "description": "Attainment of program outcomes, program specific outcomes and course outcomes are evaluated by the institution. Detail the direct and indirect assessment methods, Course Assessment Reports (CAR), weights, and actions taken for low attainment.",
+          "weight": 15,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Criterion 3 - Research, Innovations and Extension",
+      "weight": 110,
+      "metrics": [
+        {
+          "id": "3.2.1",
+          "title": "Innovation ecosystem including Incubation center",
+          "description": "Institution has created an ecosystem for innovations including incubation centre and other initiatives for creation and transfer of knowledge. Describe centers of excellence (UXO, Drone Lab, Future Cities), start-up support, and research facilities.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "3.4.1",
+          "title": "Extension activities in neighborhood community",
+          "description": "Extension activities in the neighbourhood community in terms of impact and sensitising students to social issues and holistic development during the last five years. Detail community programs like Community Service Day, Uber Rang, Swachh Bharat Internships, and social awareness campaigns.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Criterion 4 - Infrastructure and Learning Resources",
+      "weight": 100,
+      "metrics": [
+        {
+          "id": "4.1.1",
+          "title": "Adequate infrastructure for teaching-learning",
+          "description": "The institution has adequate facilities for teaching- learning. viz., classrooms, laboratories, computing equipment, smart rooms, and specialized workshops.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "4.1.2",
+          "title": "Facilities for sports, games, and cultural activities",
+          "description": "The institution has adequate facilities for sports, games (indoor, outdoor), gymnasium, yoga centre etc., and cultural activities. Detail the playgrounds, sports complex, gym facilities, and cultural festivals (e.g. Alegria).",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "4.2.1",
+          "title": "Library is automated using ILMS",
+          "description": "Library is automated using Integrated Library Management System (ILMS). Describe the library software (e.g., Koha), database access, and e-resources subscriptions (ejournals, ebooks).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "4.3.1",
+          "title": "IT infrastructure including Wi-Fi",
+          "description": "Institution frequently updates its IT facilities including Wi-Fi. Detail the server rooms, internet bandwidth, firewalls, routers, computer labs, and upgrades.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Criterion 5 - Student Support and Progression",
+      "weight": 140,
+      "metrics": [
+        {
+          "id": "5.1.3",
+          "title": "Capacity building and skills enhancement initiatives",
+          "description": "Capacity building and skills enhancement initiatives taken by the institution include soft skills, language and communication skills, life skills, and awareness of trends in technology. Detail training programs, workshops, attendance, and employability initiatives conducted.",
+          "weight": 10,
+          "narrative_draft": "The Training and Placement Cell of ABC Institute of Technology organized a five-day Soft Skill Development Training Programme for students during the academic year 2024\u20132025. The programme was designed to improve students' communication, interpersonal, presentation, teamwork, and professional skills, with the aim of preparing them for internships, placements, and future professional responsibilities. The Soft Skill Development Training Programme provided students with practical opportunities to develop communication, interpersonal, and professional skills. The institution intends to continue skill-development initiatives to improve student preparedness for internships, placements, higher education, and professional careers. As part of follow-up activities, the Training and Placement Cell proposed additional sessions on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills. These initiatives reflect the institution's commitment to enhancing student employability and professional readiness through structured training and skill-development programmes.",
+          "key_initiatives": [
+            "Five-day Soft Skill Development Training Programme organized by the Training and Placement Cell during 2024\u20132025",
+            "Focus on improving communication, interpersonal, presentation, teamwork, and professional skills",
+            "Preparation for internships, placements, and future professional responsibilities",
+            "Proposed additional sessions on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills",
+            "Continuation of skill-development initiatives to improve student preparedness for internships, placements, higher education, and professional careers"
+          ],
+          "data_available": true,
+          "supporting_documents": []
+        },
+        {
+          "id": "5.2.1",
+          "title": "Placement of outgoing students and career counseling",
+          "description": "The institution facilitates student placement and career counseling. Detail placement activities, industry drives, technical interviews, and follow-up activities organized by the Training and Placement Cell.",
+          "weight": 10,
+          "narrative_draft": "The Training and Placement Cell of ABC Institute of Technology actively facilitates student placement and career counseling through structured training programs. During the academic year 2024\u20132025, the Cell organized a five-day Soft Skill Development Training Programme aimed at enhancing students' communication, interpersonal, presentation, teamwork, and professional skills. This initiative was specifically designed to prepare students for internships, placements, and future professional responsibilities. A total of 268 students from multiple academic departments participated in the program, with attendance meticulously recorded by the Training and Placement Cell for each session. To further support student employability, the Cell proposed and conducted additional sessions focused on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills. These follow-up activities were integral to the broader placement strategy, ensuring that students were well-equipped to navigate industry drives and technical interviews. The comprehensive approach of the Training and Placement Cell underscores the institution's commitment to bridging the gap between academic learning and industry requirements, thereby enhancing the placement prospects of outgoing students.",
+          "key_initiatives": [
+            "Organization of a five-day Soft Skill Development Training Programme during the academic year 2024\u20132025.",
+            "Conducting sessions on aptitude preparation, advanced communication, and technical interview preparation.",
+            "Facilitating group discussions, mock interviews, and career-specific employability skills training.",
+            "Recording attendance for 268 participating students from multiple academic departments."
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Training and Placement Cell Attendance Records",
+            "Soft Skill Development Training Programme Documentation"
+          ]
+        },
+        {
+          "id": "5.3.2",
+          "title": "Presence of an active Student Council",
+          "description": "Presence of an active Student Council & representation of students on academic & administrative bodies/committees of the institution. Outline the constitution of the student council, their roles, committees, and organizing student-led initiatives.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "5.4.1",
+          "title": "Registered Alumni Association",
+          "description": "There is a registered Alumni Association that contributes significantly to the development of the institution through financial and/or other support services. Detail alumni placement support, lectures, workshops, networking portals, and meetings.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Criterion 6 - Governance, Leadership and Management",
+      "weight": 100,
+      "metrics": [
+        {
+          "id": "6.1.1",
+          "title": "Governance in tune with vision and mission",
+          "description": "The governance of the institution is reflective of an effective leadership in tune with the vision and mission of the institution. Outline the management systems, participatory governance structures, perspective plans, and quality policies.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.1.2",
+          "title": "Decentralization and participative management",
+          "description": "The institution practices decentralization and participative management. Detail the college development committee, department budgets, academic committees, and administrative decentralization case studies (like lab modernization).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.2.1",
+          "title": "Strategic plan and deployment documents are effective",
+          "description": "Perspective/Strategic plan and Deployment documents are available in the institution. Describe key strategic goals deployed, such as establishing research centers, MOUs with industries, and quality accreditations.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.2.2",
+          "title": "Institutional bodies as per statutory requirements",
+          "description": "Organizational structure of the institution including governing body, administrative setup, and functions of various bodies, service rules, procedures, recruitment, and promotional policies.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.3.1",
+          "title": "Effective welfare measures",
+          "description": "The institution has effective welfare measures for teaching and non-teaching staff. Detail training support, sponsorships, leaves (sick, earned, casual), EPF schemes, health programs, and credit societies.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.4.1",
+          "title": "Institution conducts financial audits",
+          "description": "Institution conducts internal and external financial audits regularly. Detail internal and external audit mechanisms, auditing agencies (e.g. CA firms), and budgeting controls.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.5.1",
+          "title": "IQAC initiatives",
+          "description": "Internal Quality Assurance Cell (IQAC) has contributed significantly for institutionalizing the quality assurance strategies and processes. Describe quality initiatives like project-based learning, component library setup, and faculty training.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.5.2",
+          "title": "Institutional reviews and implementation of teaching-learning",
+          "description": "The institution reviews its teaching learning process, structures & methodologies of operations and learning outcomes at periodic intervals through IQAC set up as per norms. Detail academic audits and online monitoring systems (AMS).",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Criterion 7 - Institutional Values and Best Practices",
+      "weight": 100,
+      "metrics": [
+        {
+          "id": "7.1.1",
+          "title": "Promotion of gender equity",
+          "description": "Measures initiated for the promotion of gender equity. Detail safety and security (CCTV, guards), counseling, common rooms, and gender equity promotion programs (Women Development Cell / ICC).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "7.1.8",
+          "title": "Institutional efforts in providing an inclusive environment",
+          "description": "Institutional efforts in providing an inclusive environment (tolerance, harmony towards cultural, regional, linguistic, communal socio-economic and other diversities). Explain cultural programs, regional festivals, and social service campaigns.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "7.1.9",
+          "title": "Sensitization to constitutional obligations",
+          "description": "Sensitization of students to constitutional obligations: values, rights, duties and responsibilities of citizens. Describe programs celebrating Independence Day, Republic Day, Constitution Day, and related workshops.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "7.1.11",
+          "title": "Institution celebrates commemorative days",
+          "description": "Institution celebrates national/international commemorative days, festivals and birth/death anniversaries of great Indian personalities (like Gandhi, Shivaji, Ambedkar, Radhakrishnan).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "7.2.1",
+          "title": "Best practices successfully implemented",
+          "description": "Describe two best practices successfully implemented by the Institution as per NAAC format. Provide titles, objectives, context, details, evidence of success, and problems encountered (e.g. Centers of Excellence, Project-Based Learning).",
+          "weight": 30,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "7.3.1",
+          "title": "Institutional Distinctiveness",
+          "description": "Performance of the Institution in one area distinctive to its thrust. Elaborate on the core distinctiveness (e.g., student-centered research, project-based learning, or incubation/entrepreneurship cell).",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        }
+      ]
+    }
+  ]
+}

@@ -4,15 +4,16 @@ import type { ValidatedChunk } from './chunkValidator';
 
 const EMBED_MODEL = 'gemini-embedding-001';
 const EMBED_DIM = 768; // matches your document_chunks.embedding column
+const MAX_BATCH_SIZE = 50; // Optimized for Gemini Free Tier rate & batch limits
 
 export type EmbeddedChunk = ValidatedChunk & {
   embedding: number[] | null;
 };
 
 /**
- * Batch-embeds all VALID chunks from one document in a single API call.
+ * Batch-embeds all VALID chunks from one document using optimized batching.
+ * Strictly complies with Gemini free tier (batches of 50, outputDimensionality: 768).
  * Invalid chunks pass through with embedding = null, untouched.
- * If GOOGLE_API_KEY is not configured, gracefully falls back to null embeddings.
  */
 export async function embedChunks(chunks: ValidatedChunk[]): Promise<EmbeddedChunk[]> {
   const validChunks = chunks.filter((c) => c.is_valid);
@@ -32,20 +33,27 @@ export async function embedChunks(chunks: ValidatedChunk[]): Promise<EmbeddedChu
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: EMBED_MODEL });
 
-    // batchEmbedContents: one API call, one vector per input text
-    const result = await model.batchEmbedContents({
-      requests: validChunks.map((chunk) => ({
-        model: 'models/gemini-embedding-001',
-        content: { role: 'user' as const, parts: [{ text: chunk.chunk_text }] },
-        taskType: TaskType.RETRIEVAL_DOCUMENT,
-        outputDimensionality: EMBED_DIM
-      }))
-    });
+    const embeddedValid: EmbeddedChunk[] = [];
 
-    const embeddedValid: EmbeddedChunk[] = validChunks.map((chunk, i) => ({
-      ...chunk,
-      embedding: result.embeddings[i]?.values ?? null
-    }));
+    // Process in sub-batches of 50 to optimize network, memory, and avoid free tier payload caps
+    for (let i = 0; i < validChunks.length; i += MAX_BATCH_SIZE) {
+      const batch = validChunks.slice(i, i + MAX_BATCH_SIZE);
+      const result = await model.batchEmbedContents({
+        requests: batch.map((chunk) => ({
+          model: 'models/gemini-embedding-001',
+          content: { role: 'user' as const, parts: [{ text: chunk.chunk_text }] },
+          taskType: TaskType.RETRIEVAL_DOCUMENT,
+          outputDimensionality: EMBED_DIM
+        }))
+      });
+
+      batch.forEach((chunk, idx) => {
+        embeddedValid.push({
+          ...chunk,
+          embedding: result.embeddings[idx]?.values ?? null
+        });
+      });
+    }
 
     const embeddedInvalid: EmbeddedChunk[] = invalidChunks.map((c) => ({
       ...c,

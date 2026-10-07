@@ -1,6 +1,4 @@
-import { CanonicalKey } from './columnMap';
-
-type CanonicalRow = Record<CanonicalKey, unknown>;
+type CanonicalRow = Record<string, unknown>;
 
 export type FilteredRow = {
   row: CanonicalRow;

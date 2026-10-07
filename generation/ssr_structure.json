@@ -1,7 +1,119 @@
 {
   "institution_name": "Pillai College of Engineering",
-  "vision": "Pillai College of Engineering (PCE) will admit, educate and train in technology, a diverse population of students who are academically prepared to benefit from the Institute's infrastructure and faculty experience, to become responsible professionals.",
+  "cycle": "1st Cycle of Accreditation",
+  "vision": "Pillai College of Engineering (PCE) will admit, educate and train in technology, a diverse population of students who are academically prepared to benefit from the Institute's infrastructure and faculty experience, to become responsible professionals. It will further attract, develop and retain dedicated, excellent teachers, scholars, scientists and professionals from diverse backgrounds whose work gives them visibility beyond the classroom.",
   "mission": "To develop professional engineers with respect for the environment and make them responsible citizens, both from a local and global perspective. This objective is fulfilled through quality education, practical training, research, entrepreneurship and interaction with industries and social organisations.",
+  
+  "extended_profile": [
+    {
+      "id": "1.1",
+      "title": "Number of courses offered by the institution across all programs during the last five years",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "unit": "count",
+        "fields": ["total_courses"]
+      },
+      "data_mapping_prompt": "Extract the total number of distinct courses offered across all UG, PG, and Doctoral programs over the last 5 academic years."
+    },
+    {
+      "id": "1.2",
+      "title": "Number of programs offered year-wise during the last five years",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "count",
+        "fields": ["year", "program_count"]
+      },
+      "data_mapping_prompt": "Extract the count of approved degree programs (UG, PG, PhD) offered by the institution for each of the last 5 academic years."
+    },
+    {
+      "id": "2.1",
+      "title": "Number of students year-wise during the last five years",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "count",
+        "fields": ["year", "student_count"]
+      },
+      "data_mapping_prompt": "Extract total enrolled student headcount across all years and departments for each of the last 5 academic years."
+    },
+    {
+      "id": "2.2",
+      "title": "Number of seats earmarked for reserved category as per GOI/State Govt rule year-wise",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "count",
+        "fields": ["year", "reserved_seats"]
+      },
+      "data_mapping_prompt": "Extract the number of sanctioned intake seats allocated for reserved categories (SC, ST, OBC, etc.) under government reservation policy year-wise."
+    },
+    {
+      "id": "2.3",
+      "title": "Number of outgoing / final year students year-wise during the last five years",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "count",
+        "fields": ["year", "outgoing_students_count"]
+      },
+      "data_mapping_prompt": "Extract the total count of final-year graduating students appearing in final degree examinations year-wise."
+    },
+    {
+      "id": "3.1",
+      "title": "Number of full time teachers year-wise during the last five years",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "count",
+        "fields": ["year", "faculty_count"]
+      },
+      "data_mapping_prompt": "Extract the number of full-time appointed faculty members on rolls year-wise."
+    },
+    {
+      "id": "3.2",
+      "title": "Number of sanctioned posts year-wise during the last five years",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "count",
+        "fields": ["year", "sanctioned_posts"]
+      },
+      "data_mapping_prompt": "Extract the sanctioned teaching faculty posts approved by AICTE/University/Governing Body year-wise."
+    },
+    {
+      "id": "4.1",
+      "title": "Total number of classrooms and seminar halls",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "unit": "count",
+        "fields": ["classrooms_count", "seminar_halls_count", "total"]
+      },
+      "data_mapping_prompt": "Extract the physical count of lecture halls, smart classrooms, and seminar halls from infrastructure documents."
+    },
+    {
+      "id": "4.2",
+      "title": "Total Expenditure excluding salary year-wise during the last five years (INR in Lakhs)",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+        "unit": "INR in Lakhs",
+        "fields": ["year", "expenditure_lakhs"]
+      },
+      "data_mapping_prompt": "Extract the operational, maintenance, and academic expenditure excluding staff salaries from audited balance sheets year-wise."
+    },
+    {
+      "id": "4.3",
+      "title": "Number of computers",
+      "metric_type": "quantitative",
+      "table_schema": {
+        "unit": "count",
+        "fields": ["computers_count"]
+      },
+      "data_mapping_prompt": "Extract the total number of working computing machines dedicated for academic student use."
+    }
+  ],
+
   "criteria": [
     {
       "id": "1",
@@ -10,97 +122,517 @@
       "metrics": [
         {
           "id": "1.1.1",
+          "metric_type": "qualitative",
           "title": "Curricular planning and implementation",
-          "description": "The institution ensures effective curriculum delivery through a well planned and documented process. Explain the academic planning, adherence to academic calendar, lesson plans, course files, and teaching methods (e.g. Project-Based Learning, e-learning platforms) used to ensure delivery.",
+          "description": "The institution ensures effective curriculum delivery through a well planned and documented process. Explain academic planning, adherence to academic calendar, lesson plans, course files, and teaching methods (e.g. Project-Based Learning, e-learning platforms) used to ensure delivery.",
           "weight": 10,
           "query_hints": "effective curriculum delivery, academic planning calendar, lesson plans course file, academic monitoring system, syllabus coverage delivery process"
         },
         {
+          "id": "1.1.2",
+          "metric_type": "quantitative",
+          "title": "Number of certificate/diploma program introduced during the last five years",
+          "description": "Number of certificate/diploma programs introduced year-wise during the last five years.",
+          "weight": 5,
+          "query_hints": "certificate programs introduced, diploma courses, value-added certification, add-on certificate programs",
+          "table_schema": {
+            "table_id": "1.1.2.1",
+            "table_title": "Number of certificate/diploma programs introduced year-wise during the last five years",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "program_count"]
+          },
+          "data_mapping_prompt": "Extract and map the count of new certificate or diploma programs introduced by all departments for each academic year."
+        },
+        {
+          "id": "1.1.3",
+          "metric_type": "quantitative",
+          "title": "Percentage of participation of full time teachers in various bodies of Universities/Autonomous Colleges",
+          "description": "Number of teachers participating in various bodies of the Institution, such as BoS and Academic Council year-wise during the last five years.",
+          "weight": 5,
+          "query_hints": "teachers participation BoS, Board of Studies members, Academic Council university bodies, curriculum syllabus design committee",
+          "table_schema": {
+            "table_id": "1.1.3.1",
+            "table_title": "Number of teachers participating in various bodies such as BoS and Academic Council",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "participating_teachers"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of full-time teachers serving on University Board of Studies (BoS), Academic Councils, or Syllabus Committees."
+        },
+        {
+          "id": "1.2.1",
+          "metric_type": "quantitative",
+          "title": "Percentage of new Courses introduced across all Programs",
+          "description": "How many new courses are introduced within the last five years across all programs.",
+          "weight": 5,
+          "query_hints": "new courses introduced, syllabus revision new subjects, elective courses newly added",
+          "table_schema": {
+            "table_id": "1.2.1.1",
+            "table_title": "Total new courses introduced during the last five years",
+            "unit": "count",
+            "fields": ["total_new_courses", "total_courses_offered", "percentage"]
+          },
+          "data_mapping_prompt": "Extract the total count of new courses introduced over the 5-year period and calculate percentage against total courses offered."
+        },
+        {
+          "id": "1.2.2",
+          "metric_type": "quantitative",
+          "title": "Percentage of programs in which Choice Based Credit System (CBCS)/Elective course system has been implemented",
+          "description": "Number of programmes in which CBCS/ Elective course system implemented.",
+          "weight": 10,
+          "query_hints": "Choice Based Credit System CBCS, elective course system implementation, department institute level electives",
+          "table_schema": {
+            "table_id": "1.2.2.1",
+            "table_title": "Programs with CBCS / Elective System",
+            "unit": "count",
+            "fields": ["programs_with_cbcs", "total_programs", "percentage"]
+          },
+          "data_mapping_prompt": "Extract the number of degree programs implementing CBCS or elective systems compared to total active programs."
+        },
+        {
+          "id": "1.2.3",
+          "metric_type": "quantitative",
+          "title": "Average percentage of students enrolled in subject related Certificate/ Diploma / Add-on programs",
+          "description": "Number of students enrolled in subject related Certificate or Diploma or Add-on programs year-wise during the last five years.",
+          "weight": 10,
+          "query_hints": "students enrolled certificate courses, add-on diploma enrollment, value-added skill courses student count",
+          "table_schema": {
+            "table_id": "1.2.3.1",
+            "table_title": "Students enrolled in Certificate / Diploma / Add-on programs",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "enrolled_students"]
+          },
+          "data_mapping_prompt": "Extract the annual number of students enrolled in value-added and add-on certificate programs year-wise."
+        },
+        {
           "id": "1.3.1",
+          "metric_type": "qualitative",
           "title": "Institution integrates cross-cutting issues into the curriculum",
           "description": "Institution integrates cross-cutting issues relevant to Professional Ethics, Gender, Human Values, Environment and Sustainability into the Curriculum. Describe courses, workshops, active clubs (like Nature Club), and programs addressing ethics, environment, and gender equity.",
           "weight": 10,
           "query_hints": "integrates cross-cutting issues, gender sensitivity equality, environmental sustainability courses, human values professional ethics, nature club activities"
+        },
+        {
+          "id": "1.3.2",
+          "metric_type": "quantitative",
+          "title": "Number of value added courses imparting transferable and life skills offered",
+          "description": "Number of value-added courses imparting transferable and life skills offered during the last five years.",
+          "weight": 10,
+          "query_hints": "value added courses transferable life skills, soft skills courses, technical workshops, professional communication",
+          "table_schema": {
+            "table_id": "1.3.2.1",
+            "table_title": "Value-added courses imparting transferable and life skills",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "courses_offered_count"]
+          },
+          "data_mapping_prompt": "Extract the year-wise count of distinct value-added courses teaching transferable and life skills."
+        },
+        {
+          "id": "1.3.3",
+          "metric_type": "quantitative",
+          "title": "Percentage of students undertaking field projects / internships",
+          "description": "Number of students undertaking field projects or internships during the academic year.",
+          "weight": 10,
+          "query_hints": "students undertaking field projects, internships industry training, summer internships live projects",
+          "table_schema": {
+            "table_id": "1.3.3.1",
+            "table_title": "Students undertaking field projects or internships",
+            "unit": "count",
+            "fields": ["internship_students_count", "total_students", "percentage"]
+          },
+          "data_mapping_prompt": "Extract the total count of students completing industrial internships, in-plant training, or field projects."
+        },
+        {
+          "id": "1.4.1",
+          "metric_type": "quantitative",
+          "title": "Structured feedback received on syllabus from stakeholders",
+          "description": "Structured feedback received from 1) Students, 2) Teachers, 3) Employers, 4) Alumni, 5) Parents for design and review of syllabus.",
+          "weight": 10,
+          "query_hints": "structured feedback syllabus review, student teacher employer alumni parent feedback, course exit survey",
+          "table_schema": {
+            "table_id": "1.4.1.1",
+            "table_title": "Stakeholder Feedback Categories",
+            "unit": "option",
+            "fields": ["options_met", "response_level"]
+          },
+          "data_mapping_prompt": "Identify which stakeholder categories (Students, Teachers, Employers, Alumni, Parents) provide structured feedback on syllabus design."
         }
       ]
     },
+
     {
       "id": "2",
       "title": "Criterion 2 - Teaching-learning and Evaluation",
       "weight": 350,
       "metrics": [
         {
+          "id": "2.1.1",
+          "metric_type": "quantitative",
+          "title": "Average percentage of students from other States and Countries",
+          "description": "Number of students from other states and countries year-wise during the last five years.",
+          "weight": 10,
+          "query_hints": "students other states countries, OMS students, outside maharashtra students, international students",
+          "table_schema": {
+            "table_id": "2.1.1.1",
+            "table_title": "Students from other states and countries",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "other_states_students"]
+          },
+          "data_mapping_prompt": "Extract the year-wise count of students admitted hailing from outside the home state and other nations."
+        },
+        {
+          "id": "2.1.2",
+          "metric_type": "quantitative",
+          "title": "Average Enrollment percentage",
+          "description": "Number of students admitted vs sanctioned seats year-wise during the last five years.",
+          "weight": 10,
+          "query_hints": "enrollment percentage, students admitted sanctioned intake, admission capacity utilization",
+          "table_schema": {
+            "table_id": "2.1.2.1",
+            "table_title": "Enrollment against Sanctioned Seats",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "students_admitted", "sanctioned_seats"]
+          },
+          "data_mapping_prompt": "Map the total students admitted and total sanctioned intake capacity for each year to compute average enrollment percentage."
+        },
+        {
+          "id": "2.1.3",
+          "metric_type": "quantitative",
+          "title": "Average percentage of seats filled against reserved categories",
+          "description": "Number of actual students admitted from reserved categories year-wise during the last five years.",
+          "weight": 10,
+          "query_hints": "reserved categories admitted, SC ST OBC seats filled, caste reservation admission count",
+          "table_schema": {
+            "table_id": "2.1.3.1",
+            "table_title": "Admissions under Reserved Categories",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "reserved_admitted"]
+          },
+          "data_mapping_prompt": "Map the count of admitted students from designated reserved categories (SC, ST, OBC, VJNT, etc.) year-wise."
+        },
+        {
           "id": "2.2.1",
+          "metric_type": "qualitative",
           "title": "Student diversity (Slow vs. Advanced Learners)",
           "description": "The institution assesses the learning levels of the students, after admission and organises special programs for advanced learners and slow learners. Explain the identification process, mentoring schemes, remedial classes, coaching for competitive exams (GATE, GRE), and research support.",
           "weight": 50,
           "query_hints": "slow learners advanced learners, learning levels assessment, mentoring counseling scheme, remedial classes extra coaching, academic performance support"
         },
         {
+          "id": "2.2.2",
+          "metric_type": "quantitative",
+          "title": "Student - Full time teacher ratio",
+          "description": "Ratio of enrolled students to appointed full-time teachers.",
+          "weight": 20,
+          "query_hints": "student faculty ratio, full time teacher student count, SFR ratio",
+          "table_schema": {
+            "table_id": "2.2.2.1",
+            "table_title": "Student - Teacher Ratio",
+            "unit": "ratio",
+            "fields": ["total_students", "total_full_time_teachers", "ratio"]
+          },
+          "data_mapping_prompt": "Extract total enrolled students and full-time faculty count to compute the student-teacher ratio."
+        },
+        {
           "id": "2.3.1",
+          "metric_type": "qualitative",
           "title": "Student-centric methods",
           "description": "Student centric methods, such as experiential learning, participative learning and problem solving methodologies are used for enhancing learning experiences. Elaborate on project-based learning, maker spaces (Maker Studio), industrial visits, virtual labs, and student chapters.",
           "weight": 20,
           "query_hints": "student centric methods, experiential learning projects, participative learning workshops, maker studio fabrication, virtual labs simulations"
         },
         {
-          "id": "2.3.3",
-          "title": "Ratio of students to mentor",
-          "description": "Ratio of students to mentor for academic and stress related issues. Describe the mentor-mentee mechanism, frequency of meetings, training of mentors, and student counseling systems.",
+          "id": "2.3.2",
+          "metric_type": "quantitative",
+          "title": "Percentage of teachers using ICT for effective teaching with LMS",
+          "description": "Number of teachers using ICT tools, e-learning resources, and Learning Management Systems.",
           "weight": 15,
-          "query_hints": "mentor mentee ratio, student counseling mechanism, academic stress support, frequency of mentor meetings, counseling cell"
+          "query_hints": "teachers using ICT LMS, google classroom moodle, smart board e-learning studio, online teaching tools",
+          "table_schema": {
+            "table_id": "2.3.2.1",
+            "table_title": "Teachers using ICT Tools & LMS",
+            "unit": "count",
+            "fields": ["teachers_using_ict", "total_teachers", "percentage"]
+          },
+          "data_mapping_prompt": "Extract the number of faculty members actively utilizing LMS (Moodle, Google Classroom) and ICT facilities for instruction."
+        },
+        {
+          "id": "2.3.3",
+          "metric_type": "quantitative",
+          "title": "Ratio of students to mentor for academic and stress related issues",
+          "description": "Number of mentors allocated and mentor-mentee ratio.",
+          "weight": 15,
+          "query_hints": "mentor mentee ratio, student counseling mechanism, number of mentors, mentor ratio",
+          "table_schema": {
+            "table_id": "2.3.3.1",
+            "table_title": "Mentor to Mentee Allocation",
+            "unit": "ratio",
+            "fields": ["number_of_mentors", "total_students", "ratio"]
+          },
+          "data_mapping_prompt": "Extract the count of designated faculty mentors and total assigned students to compute mentor-mentee ratio."
+        },
+        {
+          "id": "2.3.4",
+          "metric_type": "qualitative",
+          "title": "Innovation and creativity in teaching-learning",
+          "description": "Institution fosters innovative and creative teaching practices. Explain E-Learning Studio, light board recording, remote center of IIT Bombay, flipped classrooms, and Component Library usage.",
+          "weight": 10,
+          "query_hints": "innovation teaching learning, e-learning studio lightboard, IIT Bombay remote center, component library hardware, maker studio"
+        },
+        {
+          "id": "2.4.1",
+          "metric_type": "quantitative",
+          "title": "Average percentage of full time teachers against sanctioned posts",
+          "description": "Number of full time teachers appointed vs sanctioned posts year-wise during the last five years.",
+          "weight": 20,
+          "query_hints": "full time teachers sanctioned posts, appointed faculty vs sanctioned intake, teacher recruitment count",
+          "table_schema": {
+            "table_id": "2.4.1.1",
+            "table_title": "Full-Time Teachers against Sanctioned Posts",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "appointed_teachers", "sanctioned_posts"]
+          },
+          "data_mapping_prompt": "Map full-time appointed faculty numbers against sanctioned posts for each of the last 5 years."
+        },
+        {
+          "id": "2.4.2",
+          "metric_type": "quantitative",
+          "title": "Average percentage of full time teachers with Ph.D.",
+          "description": "Number of full time teachers with Ph.D. year-wise during the last five years.",
+          "weight": 20,
+          "query_hints": "teachers with PhD doctorate, faculty PhD qualification, doctoral degree faculty count",
+          "table_schema": {
+            "table_id": "2.4.2.1",
+            "table_title": "Faculty holding Ph.D. Degree",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "phd_faculty_count"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of full-time teaching staff possessing a doctoral degree (Ph.D.)."
+        },
+        {
+          "id": "2.4.3",
+          "metric_type": "quantitative",
+          "title": "Teaching experience per full time teacher",
+          "description": "Total teaching experience in years of full-time teachers in the institution.",
+          "weight": 10,
+          "query_hints": "teaching experience years faculty, total cumulative experience full time teachers",
+          "table_schema": {
+            "table_id": "2.4.3.1",
+            "table_title": "Faculty Experience Summary",
+            "unit": "years",
+            "fields": ["total_experience_years", "total_teachers", "average_experience"]
+          },
+          "data_mapping_prompt": "Extract cumulative teaching experience in years across all active full-time faculty."
         },
         {
           "id": "2.5.1",
-          "title": "Mechanism of internal assessment is transparent and robust",
-          "description": "Mechanism of internal assessment is transparent and robust in terms of frequency and variety. Detail the continuous internal evaluation (CIE), term work assessments, project reviews, test schedules, and student access to evaluated papers.",
-          "weight": 25,
-          "query_hints": "internal assessment mechanism, continuous internal evaluation CIE, transparency assessment grading, project evaluations tests rubrics"
+          "metric_type": "qualitative",
+          "title": "Reforms in Continuous Internal Evaluation(CIE) system",
+          "description": "Institute implements CIE as per university guidelines and adapts institutional reforms. Explain internal tests based on Bloom's Taxonomy, question bank preparation, prelim exams, and rubrics evaluation.",
+          "weight": 15,
+          "query_hints": "reforms CIE continuous internal evaluation, blooms taxonomy question paper, internal assessment rubrics, prelim exam study camps"
         },
         {
           "id": "2.5.2",
-          "title": "Mechanism to deal with internal examination related grievances",
-          "description": "Mechanism to deal with internal examination related grievances is transparent, time-bound and efficient. Explain how exam-related complaints (marks updating, revaluation, grade card corrections) are handled by the college exam cell.",
-          "weight": 25,
-          "query_hints": "examination grievances mechanism, exam cell complaints, revaluation paper verification, marks correction time bound"
+          "metric_type": "qualitative",
+          "title": "Mechanism of internal assessment is transparent and robust",
+          "description": "Internal assessment evaluation is conducted with frequency, variety, and transparency. Describe marks display, student access to evaluated scripts, and grievance redressal.",
+          "weight": 15,
+          "query_hints": "internal assessment transparency, evaluated answer scripts display, continuous lab evaluation term work, parent teacher meetings"
         },
         {
           "id": "2.6.1",
-          "title": "Programme and course outcomes are stated and displayed",
-          "description": "Programme outcomes, program specific outcomes and course outcomes for all programs offered by the Institution are stated and displayed on website and communicated to teachers and students. Describe how COs, POs, and PSOs are defined, published, and communicated.",
+          "metric_type": "qualitative",
+          "title": "Program outcomes and course outcomes are stated and displayed",
+          "description": "Program Outcomes (POs), Program Specific Outcomes (PSOs) and Course Outcomes (COs) are defined, displayed, and communicated to teachers and students.",
           "weight": 15,
-          "query_hints": "course outcomes COs program outcomes POs, define outcomes communication, notice boards website dissemination, academic outcomes syllabus"
+          "query_hints": "program outcomes POs course outcomes COs, PSOs communication website notice boards, Bloom's taxonomy outcomes definition"
         },
         {
           "id": "2.6.2",
-          "title": "Attainment of programme outcomes and course outcomes",
-          "description": "Attainment of program outcomes, program specific outcomes and course outcomes are evaluated by the institution. Detail the direct and indirect assessment methods, Course Assessment Reports (CAR), weights, and actions taken for low attainment.",
+          "metric_type": "qualitative",
+          "title": "Attainment of program outcomes and course outcomes are evaluated",
+          "description": "The institution calculates direct (internal tests, labwork, assignments) and indirect (exit surveys) attainment of COs, POs, and PSOs using Course Assessment Reports (CAR).",
           "weight": 15,
-          "query_hints": "attainment of outcomes evaluation, direct indirect assessment, course assessment reports CAR, feedback survey weightage"
+          "query_hints": "CO PO attainment calculation, direct indirect assessment weightage, Course Assessment Reports CAR, course exit survey feedback"
+        },
+        {
+          "id": "2.6.3",
+          "metric_type": "quantitative",
+          "title": "Average pass percentage of Students",
+          "description": "Total number of final year students who passed the examination vs appeared.",
+          "weight": 20,
+          "query_hints": "pass percentage final year students, university results passing rate, students appeared passed",
+          "table_schema": {
+            "table_id": "2.6.3.1",
+            "table_title": "Final Year Examination Pass Percentage",
+            "unit": "count",
+            "fields": ["students_passed", "students_appeared", "pass_percentage"]
+          },
+          "data_mapping_prompt": "Extract the count of graduating students who passed final university examinations against total students appeared."
         }
       ]
     },
+
     {
       "id": "3",
       "title": "Criterion 3 - Research, Innovations and Extension",
-      "weight": 110,
+      "weight": 150,
       "metrics": [
         {
-          "id": "3.2.1",
-          "title": "Innovation ecosystem including Incubation center",
-          "description": "Institution has created an ecosystem for innovations including incubation centre and other initiatives for creation and transfer of knowledge. Describe centers of excellence (UXO, Drone Lab, Future Cities), start-up support, and research facilities.",
+          "id": "3.1.1",
+          "metric_type": "quantitative",
+          "title": "Grants for research projects sponsored by government/non-government sources",
+          "description": "Total grants for research projects sponsored by government and non-government sources year-wise during the last five years (INR in Lakhs).",
+          "weight": 15,
+          "query_hints": "research grants funding, sponsored projects DST AICTE UGC, research funding lakhs, industry research sponsorship",
+          "table_schema": {
+            "table_id": "3.1.1.1",
+            "table_title": "Research Grants Received (INR in Lakhs)",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "INR in Lakhs",
+            "fields": ["year", "grant_amount_lakhs"]
+          },
+          "data_mapping_prompt": "Extract sponsored research funding amounts in Lakhs received from DST, AICTE, BRNS, University, or corporate sponsors year-wise."
+        },
+        {
+          "id": "3.1.2",
+          "metric_type": "quantitative",
+          "title": "Percentage of teachers recognised as research guides",
+          "description": "Number of recognized PhD research guides among full-time faculty.",
           "weight": 5,
-          "query_hints": "innovation ecosystem, incubation center startups, research centers of excellence, drone lab future cities, knowledge transfer IPR"
+          "query_hints": "recognised research guides, PhD guides supervisors, university recognised doctoral guides",
+          "table_schema": {
+            "table_id": "3.1.2.1",
+            "table_title": "Recognized Research Guides",
+            "unit": "count",
+            "fields": ["research_guides_count", "total_faculty", "percentage"]
+          },
+          "data_mapping_prompt": "Map the total count of approved PhD research guides recognized by affiliating universities."
+        },
+        {
+          "id": "3.2.1",
+          "metric_type": "qualitative",
+          "title": "Innovation ecosystem including Incubation center",
+          "description": "The institution has created an ecosystem for innovations including incubation centre (PCIE), Drone Lab, Urban Expansion Observatory (UXO), Maker Studio, and research centers of excellence.",
+          "weight": 10,
+          "query_hints": "incubation center innovation ecosystem, drone lab UXO future cities, maker studio prototyping, startup support PCIE"
+        },
+        {
+          "id": "3.2.2",
+          "metric_type": "quantitative",
+          "title": "Number of workshops/seminars conducted on IPR and Industry-Academia practices",
+          "description": "Number of workshops/seminars conducted on Intellectual Property Rights (IPR) and Industry-Academia Innovative practices year-wise.",
+          "weight": 10,
+          "query_hints": "workshops IPR industry academia, patent filing seminars, intellectual property rights events count",
+          "table_schema": {
+            "table_id": "3.2.2.1",
+            "table_title": "Workshops on IPR & Industry-Academia",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "workshops_count"]
+          },
+          "data_mapping_prompt": "Extract the year-wise count of organized seminars/workshops dedicated to IPR, Patents, and Industry-Academia collaborations."
+        },
+        {
+          "id": "3.3.4",
+          "metric_type": "quantitative",
+          "title": "Number of research papers per teacher in UGC notified Journals",
+          "description": "Number of research papers published in UGC notified, Scopus, or Web of Science journals year-wise.",
+          "weight": 20,
+          "query_hints": "research papers published UGC journals, scopus web of science publications, journal papers faculty count",
+          "table_schema": {
+            "table_id": "3.3.4.1",
+            "table_title": "Research Publications in UGC Journals",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "papers_published_count"]
+          },
+          "data_mapping_prompt": "Extract the annual number of peer-reviewed research papers published by faculty in UGC/Scopus indexed journals."
+        },
+        {
+          "id": "3.3.5",
+          "metric_type": "quantitative",
+          "title": "Number of books, chapters and conference proceedings published per teacher",
+          "description": "Number of books, book chapters, and national/international conference proceedings published year-wise.",
+          "weight": 15,
+          "query_hints": "books chapters conference proceedings, IEEE conference papers, edited volumes published faculty",
+          "table_schema": {
+            "table_id": "3.3.5.1",
+            "table_title": "Books, Chapters and Conference Papers",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "publications_count"]
+          },
+          "data_mapping_prompt": "Extract the year-wise publication count of books, chapters in edited volumes, and conference proceedings."
         },
         {
           "id": "3.4.1",
-          "title": "Extension activities in neighborhood community",
-          "description": "Extension activities in the neighbourhood community in terms of impact and sensitising students to social issues and holistic development during the last five years. Detail community programs like Community Service Day, Uber Rang, Swachh Bharat Internships, and social awareness campaigns.",
+          "metric_type": "qualitative",
+          "title": "Extension activities in neighbourhood community",
+          "description": "Extension activities in the neighbourhood community in terms of impact and sensitising students to social issues. Describe Community Service Day, Uber Rang, Swachh Bharat Internships, blood donation, and tribal village outreach.",
           "weight": 10,
-          "query_hints": "extension activities community, community service day, social issues awareness sensitisation, uber rang cultural night, swachh bharat internship"
+          "query_hints": "community service day, swachh bharat internship, social awareness campaigns, neighborhood outreach, blood donation tribal welfare"
+        },
+        {
+          "id": "3.4.3",
+          "metric_type": "quantitative",
+          "title": "Number of extension and outreach Programs conducted in collaboration with Industry/NGOs",
+          "description": "Number of extension and outreach Programs conducted through NSS/NCC/Red Cross/YRC etc. year-wise.",
+          "weight": 15,
+          "query_hints": "extension outreach programs count, NSS NCC red cross events, community outreach programs year-wise",
+          "table_schema": {
+            "table_id": "3.4.3.1",
+            "table_title": "Outreach Programs with Community / NGOs",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "programs_count"]
+          },
+          "data_mapping_prompt": "Extract the annual number of extension and community service programs conducted in partnership with NGOs/Government bodies."
+        },
+        {
+          "id": "3.5.1",
+          "metric_type": "quantitative",
+          "title": "Number of linkages for faculty exchange, student exchange, internship, field trip",
+          "description": "Number of linkages for faculty exchange, student exchange, internship, field trip, on-the-job training, research year-wise.",
+          "weight": 10,
+          "query_hints": "linkages faculty exchange student exchange, internship industrial visits, collaborative linkages count",
+          "table_schema": {
+            "table_id": "3.5.1.1",
+            "table_title": "Academic and Industry Linkages",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "linkages_count"]
+          },
+          "data_mapping_prompt": "Map the total active academic linkages for internships, student exchange, faculty visits, and on-job training year-wise."
+        },
+        {
+          "id": "3.5.2",
+          "metric_type": "quantitative",
+          "title": "Number of functional MoUs with institutions, industries, corporate houses",
+          "description": "Number of functional MoUs with institutions of national/international importance, universities, industries year-wise.",
+          "weight": 10,
+          "query_hints": "functional MoUs industries, memorandum of understanding corporate, industry agreements count",
+          "table_schema": {
+            "table_id": "3.5.2.1",
+            "table_title": "Functional MoUs with Industry & Institutions",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "mous_count"]
+          },
+          "data_mapping_prompt": "Extract the year-wise number of functional, active Memoranda of Understanding (MoUs) signed with external bodies."
         }
       ]
     },
+
     {
       "id": "4",
       "title": "Criterion 4 - Infrastructure and Learning Resources",
@@ -108,69 +640,306 @@
       "metrics": [
         {
           "id": "4.1.1",
+          "metric_type": "qualitative",
           "title": "Adequate infrastructure for teaching-learning",
-          "description": "The institution has adequate facilities for teaching- learning. viz., classrooms, laboratories, computing equipment, smart rooms, and specialized workshops.",
+          "description": "The institution has adequate facilities for teaching-learning: classrooms, laboratories, computing equipment, specialized workshops (CNC, laser cutting), smart rooms, and campus land area.",
           "weight": 10,
-          "query_hints": "facilities classrooms laboratories, computing equipment smart class, infrastructure teaching learning, laboratories tools hardware"
+          "query_hints": "classrooms laboratories computing equipment, smart rooms specialized workshops, teaching learning infrastructure, campus area acres"
         },
         {
           "id": "4.1.2",
+          "metric_type": "qualitative",
           "title": "Facilities for sports, games, and cultural activities",
-          "description": "The institution has adequate facilities for sports, games (indoor, outdoor), gymnasium, yoga centre etc., and cultural activities. Detail the playgrounds, sports complex, gym facilities, and cultural festivals (e.g. Alegria).",
+          "description": "The institution has adequate facilities for sports, games (indoor/outdoor), gymnasium, shooting range, yoga centre, auditoriums, and cultural festivals (Alegria).",
           "weight": 10,
-          "query_hints": "sports facilities grounds, gymnasium yoga center, indoor outdoor games, cultural activities festival alegria"
+          "query_hints": "sports facilities outdoor indoor games, shooting range sports ground, gymnasium yoga center, alegria cultural festival auditorium"
+        },
+        {
+          "id": "4.1.3",
+          "metric_type": "quantitative",
+          "title": "Percentage of classrooms and seminar halls with ICT - enabled facilities",
+          "description": "Number of classrooms and seminar halls equipped with ICT facilities like smart boards, LCD projectors, LMS connectivity.",
+          "weight": 10,
+          "query_hints": "classrooms seminar halls ICT enabled, smart class LMS facilities, projector smart boards count",
+          "table_schema": {
+            "table_id": "4.1.3.1",
+            "table_title": "ICT Enabled Classrooms and Halls",
+            "unit": "count",
+            "fields": ["ict_classrooms_count", "total_classrooms", "percentage"]
+          },
+          "data_mapping_prompt": "Extract the count of classrooms and seminar halls fitted with ICT projection, smart boards, or LMS recording."
+        },
+        {
+          "id": "4.1.4",
+          "metric_type": "quantitative",
+          "title": "Average percentage of budget allocation for infrastructure augmentation (excluding salary)",
+          "description": "Budget allocation for infrastructure augmentation, excluding salary year-wise during the last five years (INR in Lakhs).",
+          "weight": 10,
+          "query_hints": "budget allocation infrastructure augmentation, lab expansion budget, capital expenditure infrastructure lakhs",
+          "table_schema": {
+            "table_id": "4.1.4.1",
+            "table_title": "Infrastructure Augmentation Budget (INR in Lakhs)",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "INR in Lakhs",
+            "fields": ["year", "budget_lakhs"]
+          },
+          "data_mapping_prompt": "Extract the annual capital budget allocated for infrastructure augmentation and laboratory upgrades in Lakhs."
         },
         {
           "id": "4.2.1",
+          "metric_type": "qualitative",
           "title": "Library is automated using ILMS",
-          "description": "Library is automated using Integrated Library Management System (ILMS). Describe the library software (e.g., Koha), database access, and e-resources subscriptions (ejournals, ebooks).",
+          "description": "Library is automated using Integrated Library Management System (ILMS). Describe Koha software, OPAC terminals, digital library collection, e-resources, and web access.",
           "weight": 5,
-          "query_hints": "library automated ILMS, koha software system, e-resources journals subscription, cataloging book issue circulation"
+          "query_hints": "Integrated Library Management System ILMS, Koha library software version, OPAC cataloging circulation, digital library collection e-resources"
+        },
+        {
+          "id": "4.2.4",
+          "metric_type": "quantitative",
+          "title": "Average annual expenditure for purchase of books and journals",
+          "description": "Annual expenditure for purchase of books and journals year-wise during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "query_hints": "expenditure books journals subscription, library budget purchase lakhs, e-journals databases cost",
+          "table_schema": {
+            "table_id": "4.2.4.1",
+            "table_title": "Library Expenditure for Books & Journals (INR in Lakhs)",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "INR in Lakhs",
+            "fields": ["year", "library_expenditure_lakhs"]
+          },
+          "data_mapping_prompt": "Extract the annual expenditure on print books, e-books, print journals, and e-journal database subscriptions in Lakhs."
         },
         {
           "id": "4.3.1",
+          "metric_type": "qualitative",
           "title": "IT infrastructure including Wi-Fi",
-          "description": "Institution frequently updates its IT facilities including Wi-Fi. Detail the server rooms, internet bandwidth, firewalls, routers, computer labs, and upgrades.",
+          "description": "Institution frequently updates IT facilities including Wi-Fi. Detail server infrastructure (7 XEON servers), Cyberoam firewall, Cisco switches, internet bandwidth (100+ Mbps), and computer hardware specs.",
           "weight": 10,
-          "query_hints": "IT infrastructure updates, internet wifi bandwidth, server firewalls, computers ratio hardware specifications"
+          "query_hints": "IT infrastructure Wi-Fi server rooms, internet bandwidth Cyberoam firewall, computing machines i5 specifications, Cisco gigabit switches"
+        },
+        {
+          "id": "4.3.2",
+          "metric_type": "quantitative",
+          "title": "Student - Computer ratio",
+          "description": "Ratio of enrolled students to available computing machines for student use.",
+          "weight": 10,
+          "query_hints": "student computer ratio, computing machines total students, lab computers ratio",
+          "table_schema": {
+            "table_id": "4.3.2.1",
+            "table_title": "Student to Computer Ratio",
+            "unit": "ratio",
+            "fields": ["total_computers", "total_students", "ratio"]
+          },
+          "data_mapping_prompt": "Extract total academic computing machines available for student use and compute student-to-computer ratio."
+        },
+        {
+          "id": "4.4.1",
+          "metric_type": "quantitative",
+          "title": "Average Expenditure incurred on maintenance of physical and academic facilities",
+          "description": "Expenditure incurred on maintenance of physical facilities and academic support facilities excluding salary component year-wise (INR in Lakhs).",
+          "weight": 10,
+          "query_hints": "maintenance expenditure physical academic support, facility upkeep repairs AMC lakhs, campus maintenance budget",
+          "table_schema": {
+            "table_id": "4.4.1.1",
+            "table_title": "Maintenance Expenditure (INR in Lakhs)",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "INR in Lakhs",
+            "fields": ["year", "maintenance_lakhs"]
+          },
+          "data_mapping_prompt": "Extract annual expenditure on equipment maintenance, AMC contracts, lab servicing, and campus repairs in Lakhs."
+        },
+        {
+          "id": "4.4.2",
+          "metric_type": "qualitative",
+          "title": "Established systems and procedures for maintaining facilities",
+          "description": "There are established systems and procedures for maintaining and utilizing physical, academic and support facilities (laboratories, library, sports complex, computers, classrooms).",
+          "weight": 10,
+          "query_hints": "maintenance procedures policies, laboratory in-charge repair AMC, dead stock register calibration, housekeeping cleanliness maintenance"
         }
       ]
     },
+
     {
       "id": "5",
       "title": "Criterion 5 - Student Support and Progression",
       "weight": 140,
       "metrics": [
         {
-          "id": "5.1.3",
-          "title": "Capacity building and skills enhancement initiatives",
-          "description": "Capacity building and skills enhancement initiatives taken by the institution include soft skills, language and communication skills, life skills, and awareness of trends in technology. Detail training programs, workshops, attendance, and employability initiatives conducted.",
+          "id": "5.1.1",
+          "metric_type": "quantitative",
+          "title": "Average percentage of students benefited by scholarships provided by Government",
+          "description": "Number of students benefited by scholarships and freeships provided by the Government year-wise during the last five years.",
           "weight": 10,
-          "query_hints": "capacity building skills enhancement, soft skills training program, communication skills development, aptitude placement preparation, student participation"
+          "query_hints": "government scholarships freeships, DTE scholarship beneficiaries count, post matric scholarship students",
+          "table_schema": {
+            "table_id": "5.1.1.1",
+            "table_title": "Government Scholarship Beneficiaries",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "benefited_students_count"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of enrolled students receiving government-sanctioned scholarships or freeships."
+        },
+        {
+          "id": "5.1.2",
+          "metric_type": "quantitative",
+          "title": "Average percentage of students benefited by institutional scholarships / freeships",
+          "description": "Total number of students benefited by scholarships, freeships provided by the institution besides government schemes year-wise.",
+          "weight": 10,
+          "query_hints": "institutional scholarships freeships, management fee concessions, institute merit freeship count",
+          "table_schema": {
+            "table_id": "5.1.2.1",
+            "table_title": "Institutional Scholarships and Concessions",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "institutional_beneficiaries_count"]
+          },
+          "data_mapping_prompt": "Map the annual count of students granted tuition fee waivers, concessions, or scholarships by the college management."
+        },
+        {
+          "id": "5.1.3",
+          "metric_type": "quantitative",
+          "title": "Capacity building and skills enhancement initiatives",
+          "description": "Number of capability enhancement and development schemes: 1. Competitive exams, 2. Career counselling, 3. Soft skill development, 4. Remedial coaching, 5. Language lab, 6. Bridge courses, 7. Yoga and meditation, 8. Personal Counselling.",
+          "weight": 10,
+          "query_hints": "capacity building skills enhancement, soft skills training workshops, employability initiatives, student development schemes",
+          "table_schema": {
+            "table_id": "5.1.3.1",
+            "table_title": "Capability Enhancement Schemes",
+            "unit": "option",
+            "fields": ["schemes_implemented_count", "response_level"]
+          },
+          "data_mapping_prompt": "Extract the capability enhancement schemes organized and calculate the count of active initiatives."
+        },
+        {
+          "id": "5.1.4",
+          "metric_type": "quantitative",
+          "title": "Average percentage of students benefited by competitive exams guidance & career counselling",
+          "description": "Number of students benefited by guidance for competitive examinations and career counselling offered by the institution year-wise.",
+          "weight": 10,
+          "query_hints": "competitive exams guidance career counselling, GATE GRE guidance coaching, placement counseling students count",
+          "table_schema": {
+            "table_id": "5.1.4.1",
+            "table_title": "Career Counselling and Exam Guidance",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "students_guided_count"]
+          },
+          "data_mapping_prompt": "Map the annual headcount of students attending career guidance seminars, mock tests, or competitive exam coaching."
         },
         {
           "id": "5.2.1",
-          "title": "Placement of outgoing students and career counseling",
-          "description": "The institution facilitates student placement and career counseling. Detail placement activities, industry drives, technical interviews, and follow-up activities organized by the Training and Placement Cell.",
+          "metric_type": "quantitative",
+          "title": "Average percentage of placement of outgoing students",
+          "description": "Number of outgoing students placed year-wise during the last five years.",
+          "weight": 15,
+          "query_hints": "placement outgoing students placed, campus recruitment drives, training placement cell placed count",
+          "table_schema": {
+            "table_id": "5.2.1.1",
+            "table_title": "Placement of Outgoing Students",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "placed_students_count"]
+          },
+          "data_mapping_prompt": "Extract the year-wise count of graduating students securing employment offers via campus drives and placement cell."
+        },
+        {
+          "id": "5.2.2",
+          "metric_type": "quantitative",
+          "title": "Percentage of student progression to higher education",
+          "description": "Number of outgoing students progressing to higher education (ME/MTech, MS, MBA, PhD).",
+          "weight": 15,
+          "query_hints": "student progression higher education, graduates enrolled master degree MS MBA MTech",
+          "table_schema": {
+            "table_id": "5.2.2.1",
+            "table_title": "Graduates Progressing to Higher Studies",
+            "unit": "count",
+            "fields": ["higher_education_count", "total_graduates", "percentage"]
+          },
+          "data_mapping_prompt": "Extract the count of graduating alumni who have enrolled in post-graduate or doctoral degree programs."
+        },
+        {
+          "id": "5.2.3",
+          "metric_type": "quantitative",
+          "title": "Average percentage of students qualifying in State/National/International examinations",
+          "description": "Number of students qualifying in NET/ SLET/ GATE/ GMAT/ CAT/ GRE/ TOEFL/ Civil services/ State government examinations year-wise.",
           "weight": 10,
-          "query_hints": "placement activities conducted, training and placement cell, campus placement drives, career counseling, technical interview preparation"
+          "query_hints": "students qualifying GATE GRE CAT TOEFL, national competitive exam qualified count",
+          "table_schema": {
+            "table_id": "5.2.3.1",
+            "table_title": "Students Qualifying Competitive Exams",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "qualified_count"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of students qualifying in GATE, GRE, CAT, GMAT, TOEFL, or Civil Services."
+        },
+        {
+          "id": "5.3.1",
+          "metric_type": "quantitative",
+          "title": "Number of awards/medals for outstanding performance in sports/cultural activities",
+          "description": "Number of awards/medals for outstanding performance in sports/cultural activities at national/international level year-wise.",
+          "weight": 10,
+          "query_hints": "awards medals sports cultural national international, championship trophies sports medals count",
+          "table_schema": {
+            "table_id": "5.3.1.1",
+            "table_title": "Awards in Sports & Cultural Activities",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "awards_count"]
+          },
+          "data_mapping_prompt": "Extract the annual count of national/international awards and medals won by students in sports and cultural tournaments."
         },
         {
           "id": "5.3.2",
+          "metric_type": "qualitative",
           "title": "Presence of an active Student Council",
-          "description": "Presence of an active Student Council & representation of students on academic & administrative bodies/committees of the institution. Outline the constitution of the student council, their roles, committees, and organizing student-led initiatives.",
+          "description": "Presence of an active Student Council & representation of students on academic & administrative bodies/committees of the institution. Outline council constitution, roles, and student-led initiatives.",
           "weight": 10,
-          "query_hints": "student council representation, student committees representation, academic administrative bodies, student activities organization"
+          "query_hints": "student council constitution roles committees, student representation academic administrative bodies, student-led initiatives"
+        },
+        {
+          "id": "5.3.3",
+          "metric_type": "quantitative",
+          "title": "Average number of sports and cultural activities/competitions organised per year",
+          "description": "Number of sports and cultural activities / competitions organised at the institution level year-wise.",
+          "weight": 10,
+          "query_hints": "sports cultural competitions organized count, annual festival events, EFL cricket league Alegria competitions",
+          "table_schema": {
+            "table_id": "5.3.3.1",
+            "table_title": "Sports and Cultural Events Organised",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "events_count"]
+          },
+          "data_mapping_prompt": "Map the total count of sports tournaments, cultural contests, and college festivals organized annually."
         },
         {
           "id": "5.4.1",
+          "metric_type": "qualitative",
           "title": "Registered Alumni Association",
-          "description": "There is a registered Alumni Association that contributes significantly to the development of the institution through financial and/or other support services. Detail alumni placement support, lectures, workshops, networking portals, and meetings.",
+          "description": "There is a registered Alumni Association that contributes significantly to the development of the institution through financial and non-financial support, guest lectures, mentorship, and meetings.",
           "weight": 10,
           "query_hints": "alumni association registered, alumni contribution support, placement mentorship lectures, alumni meet portal"
+        },
+        {
+          "id": "5.4.2",
+          "metric_type": "quantitative",
+          "title": "Alumni financial contribution during the last five years",
+          "description": "Total Alumni contribution during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "query_hints": "alumni contribution funds donation lakhs, alumni association financial donation",
+          "table_schema": {
+            "table_id": "5.4.2.1",
+            "table_title": "Alumni Financial Contribution",
+            "unit": "INR in Lakhs",
+            "fields": ["total_alumni_contribution_lakhs", "bracket_category"]
+          },
+          "data_mapping_prompt": "Extract the total audited donation and financial contribution received from alumni chapters over 5 years."
         }
       ]
     },
+
     {
       "id": "6",
       "title": "Criterion 6 - Governance, Leadership and Management",
@@ -178,13 +947,15 @@
       "metrics": [
         {
           "id": "6.1.1",
+          "metric_type": "qualitative",
           "title": "Governance in tune with vision and mission",
-          "description": "The governance of the institution is reflective of an effective leadership in tune with the vision and mission of the institution. Outline the management systems, participatory governance structures, perspective plans, and quality policies.",
+          "description": "The governance of the institution is reflective of an effective leadership in tune with the vision and mission. Outline the management systems, participatory governance structures, perspective plans, and quality policies.",
           "weight": 5,
           "query_hints": "governance leadership structure, vision mission alignment, perspective plan goals, board of governors BoG"
         },
         {
           "id": "6.1.2",
+          "metric_type": "qualitative",
           "title": "Decentralization and participative management",
           "description": "The institution practices decentralization and participative management. Detail the college development committee, department budgets, academic committees, and administrative decentralization case studies (like lab modernization).",
           "weight": 5,
@@ -192,48 +963,142 @@
         },
         {
           "id": "6.2.1",
+          "metric_type": "qualitative",
           "title": "Strategic plan and deployment documents are effective",
-          "description": "Perspective/Strategic plan and Deployment documents are available in the institution. Describe key strategic goals deployed, such as establishing research centers, MOUs with industries, and quality accreditations.",
+          "description": "Perspective/Strategic plan and Deployment documents are available. Describe key strategic goals deployed, such as establishing research centers, MOUs with industries, and quality accreditations.",
           "weight": 5,
           "query_hints": "strategic plan deployment, perspective plan objectives, industry MoUs agreements, research centers establishment"
         },
         {
           "id": "6.2.2",
+          "metric_type": "qualitative",
           "title": "Institutional bodies as per statutory requirements",
-          "description": "Organizational structure of the institution including governing body, administrative setup, and functions of various bodies, service rules, procedures, recruitment, and promotional policies.",
+          "description": "Organizational structure of the institution including governing body, administrative setup, service rules, recruitment, promotional policies, and grievance redressal mechanism.",
           "weight": 5,
           "query_hints": "organizational structure setup, governing body administrative, service rules recruitment promotion, grievance redressal hierarchy"
         },
         {
+          "id": "6.2.3",
+          "metric_type": "quantitative",
+          "title": "Implementation of e-governance in areas of operation",
+          "description": "Implementation of e-governance in: 1. Planning & Development, 2. Administration, 3. Finance & Accounts, 4. Student Admission & Support, 5. Examination.",
+          "weight": 5,
+          "query_hints": "e-governance implementation ERP, academic monitoring system AMS, student portal Tally finance",
+          "table_schema": {
+            "table_id": "6.2.3.1",
+            "table_title": "E-Governance Functional Areas",
+            "unit": "option",
+            "fields": ["areas_covered_count", "response_level"]
+          },
+          "data_mapping_prompt": "Identify and verify active software ERP implementations across the 5 core operational domains."
+        },
+        {
           "id": "6.3.1",
+          "metric_type": "qualitative",
           "title": "Effective welfare measures",
           "description": "The institution has effective welfare measures for teaching and non-teaching staff. Detail training support, sponsorships, leaves (sick, earned, casual), EPF schemes, health programs, and credit societies.",
           "weight": 10,
           "query_hints": "welfare measures teaching staff, non teaching welfare, sponsorship fee reimbursement, health leaves EPF credit society"
         },
         {
-          "id": "6.4.1",
-          "title": "Institution conducts financial audits",
-          "description": "Institution conducts internal and external financial audits regularly. Detail internal and external audit mechanisms, auditing agencies (e.g. CA firms), and budgeting controls.",
+          "id": "6.3.2",
+          "metric_type": "quantitative",
+          "title": "Average percentage of teachers provided with financial support for conferences / memberships",
+          "description": "Number of teachers provided with financial support to attend conferences/workshops and towards membership fee of professional bodies year-wise.",
           "weight": 10,
-          "query_hints": "financial audits internal external, auditing process regular, accounts ledger budget control"
+          "query_hints": "teachers financial support conferences, registration fee reimbursement workshop, professional body membership grant",
+          "table_schema": {
+            "table_id": "6.3.2.1",
+            "table_title": "Faculty Financial Support for Conferences",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "supported_teachers_count"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of teachers granted travel grants, registration reimbursement, or professional membership subsidies."
+        },
+        {
+          "id": "6.3.3",
+          "metric_type": "quantitative",
+          "title": "Average number of professional development / administrative training programs organized for staff",
+          "description": "Total number of professional development / administrative training programs organized by the Institution for teaching and non teaching staff year-wise.",
+          "weight": 10,
+          "query_hints": "professional development training programs staff, STTP FDP organized, administrative training sessions count",
+          "table_schema": {
+            "table_id": "6.3.3.1",
+            "table_title": "Staff Training Programs Organised",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "programs_organized_count"]
+          },
+          "data_mapping_prompt": "Extract the annual number of FDPs, STTPs, and administrative development programs conducted internally by the college."
+        },
+        {
+          "id": "6.3.4",
+          "metric_type": "quantitative",
+          "title": "Average percentage of teachers attending professional development programs",
+          "description": "Total number of teachers attending professional development programs (Orientation, Refresher, FDP, STTP) year-wise.",
+          "weight": 10,
+          "query_hints": "teachers attending professional development FDP, faculty orientation refresher courses attended count",
+          "table_schema": {
+            "table_id": "6.3.4.1",
+            "table_title": "Faculty Attending FDPs & Refresher Courses",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "teachers_attended_count"]
+          },
+          "data_mapping_prompt": "Map the annual number of full-time teachers attending external or internal FDPs, orientation programs, and refresher courses."
+        },
+        {
+          "id": "6.4.1",
+          "metric_type": "qualitative",
+          "title": "Institution conducts financial audits",
+          "description": "The institution conducts internal and external financial audits regularly. Detail internal auditors (CA Susanna & Co.), external auditors (Mr. Y.S. Muzumdar & Co.), Tally ERP accounts, and zero audit objection record.",
+          "weight": 10,
+          "query_hints": "financial audit internal external CA firm, Shikshan Shulk Samiti DTE scrutiny, budgeting controls no audit objection"
+        },
+        {
+          "id": "6.4.2",
+          "metric_type": "quantitative",
+          "title": "Funds / Grants received from non-government bodies, individuals, Philanthropists",
+          "description": "Total Grants received from non-government bodies, individuals, philanthropists year-wise during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "query_hints": "funds grants non-government individuals, philanthropy donation lakhs, endowment corporate funding",
+          "table_schema": {
+            "table_id": "6.4.2.1",
+            "table_title": "Non-Government Funds Received (INR in Lakhs)",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "INR in Lakhs",
+            "fields": ["year", "funds_received_lakhs"]
+          },
+          "data_mapping_prompt": "Extract the year-wise revenue received from non-governmental organizations, philanthropists, and individuals in Lakhs."
         },
         {
           "id": "6.5.1",
+          "metric_type": "qualitative",
           "title": "IQAC initiatives",
-          "description": "Internal Quality Assurance Cell (IQAC) has contributed significantly for institutionalizing the quality assurance strategies and processes. Describe quality initiatives like project-based learning, component library setup, and faculty training.",
+          "description": "Internal Quality Assurance Cell (IQAC) has contributed significantly to institutionalizing quality assurance: Project-Based Learning, Component Library, AAA audits, and Faculty Appraisals.",
           "weight": 10,
-          "query_hints": "IQAC quality initiatives, internal quality assurance cell, institutionalizing best practices, component library project based learning"
+          "query_hints": "IQAC initiatives quality assurance strategies, project-based learning component library, academic administrative audit AAA"
         },
         {
-          "id": "6.5.2",
-          "title": "Institutional reviews and implementation of teaching-learning",
-          "description": "The institution reviews its teaching learning process, structures & methodologies of operations and learning outcomes at periodic intervals through IQAC set up as per norms. Detail academic audits and online monitoring systems (AMS).",
+          "id": "6.5.3",
+          "metric_type": "quantitative",
+          "title": "Average number of quality initiatives by IQAC for promoting quality culture",
+          "description": "Number of quality initiatives by IQAC for promoting quality year-wise during the last five years.",
           "weight": 10,
-          "query_hints": "teaching learning review, academic audit committee, academic monitoring system AMS, student feedback course exit survey"
+          "query_hints": "quality initiatives IQAC per year, quality audits workshops organized, IQAC initiatives count",
+          "table_schema": {
+            "table_id": "6.5.3.1",
+            "table_title": "IQAC Quality Initiatives",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "initiatives_count"]
+          },
+          "data_mapping_prompt": "Extract the annual number of quality-enhancement workshops, seminars, and reviews organized by the IQAC cell."
         }
       ]
     },
+
     {
       "id": "7",
       "title": "Criterion 7 - Institutional Values and Best Practices",
@@ -241,45 +1106,113 @@
       "metrics": [
         {
           "id": "7.1.1",
-          "title": "Promotion of gender equity",
-          "description": "Measures initiated for the promotion of gender equity. Detail safety and security (CCTV, guards), counseling, common rooms, and gender equity promotion programs (Women Development Cell / ICC).",
+          "metric_type": "quantitative",
+          "title": "Number of gender equity promotion programs organized",
+          "description": "Number of gender equity promotion programs organized by the institution year-wise during the last five years.",
           "weight": 5,
-          "query_hints": "gender equity promotion, women safety security CCTV, common room counseling cell, gender sensitivity programs"
+          "query_hints": "gender equity promotion programs count, women development cell workshops, self defense women empowerment events",
+          "table_schema": {
+            "table_id": "7.1.1.1",
+            "table_title": "Gender Equity Programs Organised",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "gender_programs_count"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of organized seminars, self-defense workshops, and campaigns promoting gender equity."
+        },
+        {
+          "id": "7.1.2",
+          "metric_type": "qualitative",
+          "title": "Institution shows gender sensitivity in providing facilities",
+          "description": "Institution shows gender sensitivity in providing facilities: 1. Safety and Security (CCTV 24x7, security checkpoints, ICC cell), 2. Counselling (full-time counselor, mentor-mentee), 3. Common Rooms (Girls and Boys common rooms, hygiene vending machines).",
+          "weight": 5,
+          "query_hints": "gender sensitivity safety security CCTV, counseling women development cell ICC, girls common room vending machines"
+        },
+        {
+          "id": "7.1.3",
+          "metric_type": "quantitative",
+          "title": "Alternate Energy initiatives",
+          "description": "Percentage of annual power requirement of the Institution met by renewable energy sources (Solar, Biogas, etc.) in KWH.",
+          "weight": 5,
+          "query_hints": "alternate renewable energy solar power KWH, annual power requirement solar percentage",
+          "table_schema": {
+            "table_id": "7.1.3.1",
+            "table_title": "Renewable Energy Power Generation",
+            "unit": "KWH",
+            "fields": ["renewable_power_kwh", "total_power_kwh", "percentage_met"]
+          },
+          "data_mapping_prompt": "Extract the annual KWH of electricity generated via rooftop solar panels or renewable sources and total power requirement."
+        },
+        {
+          "id": "7.1.4",
+          "metric_type": "quantitative",
+          "title": "Percentage of annual lighting power requirements met through LED bulbs",
+          "description": "Annual lighting power requirement met through LED bulbs (in KWH) and percentage.",
+          "weight": 5,
+          "query_hints": "lighting power requirements LED bulbs KWH, energy efficient lighting percentage",
+          "table_schema": {
+            "table_id": "7.1.4.1",
+            "table_title": "LED Lighting Power Utilization",
+            "unit": "KWH",
+            "fields": ["led_power_kwh", "total_lighting_kwh", "percentage_met"]
+          },
+          "data_mapping_prompt": "Extract the annual KWH consumption of LED fixtures versus total campus lighting requirement."
+        },
+        {
+          "id": "7.1.5",
+          "metric_type": "qualitative",
+          "title": "Waste Management steps",
+          "description": "Waste Management steps including Solid waste (composting plant, source segregation), Liquid waste (Panvel Municipal sewage treatment), and E-waste management (component library salvage, scrap clearance).",
+          "weight": 5,
+          "query_hints": "waste management solid liquid e-waste, composting plant organic manure, component library reuse e-waste"
         },
         {
           "id": "7.1.8",
-          "title": "Institutional efforts in providing an inclusive environment",
-          "description": "Institutional efforts in providing an inclusive environment (tolerance, harmony towards cultural, regional, linguistic, communal socio-economic and other diversities). Explain cultural programs, regional festivals, and social service campaigns.",
-          "weight": 10,
-          "query_hints": "inclusive environment tolerance, harmony cultural regional, linguistic communal diversity, festivals celebrations"
-        },
-        {
-          "id": "7.1.9",
-          "title": "Sensitization to constitutional obligations",
-          "description": "Sensitization of students to constitutional obligations: values, rights, duties and responsibilities of citizens. Describe programs celebrating Independence Day, Republic Day, Constitution Day, and related workshops.",
-          "weight": 10,
-          "query_hints": "constitutional obligations citizenship, independence day republic day, values rights duties, constitution day sensitization"
+          "metric_type": "quantitative",
+          "title": "Average percentage expenditure on green initiatives and waste management",
+          "description": "Total expenditure on green initiatives and waste management excluding salary component year-wise (INR in Lakhs).",
+          "weight": 5,
+          "query_hints": "green initiatives expenditure waste management lakhs, tree plantation green audit budget",
+          "table_schema": {
+            "table_id": "7.1.8.1",
+            "table_title": "Green Initiatives Expenditure (INR in Lakhs)",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "INR in Lakhs",
+            "fields": ["year", "green_expenditure_lakhs"]
+          },
+          "data_mapping_prompt": "Extract annual financial expenditure in Lakhs allocated for green auditing, campus landscaping, and waste recycling."
         },
         {
           "id": "7.1.11",
-          "title": "Institution celebrates commemorative days",
-          "description": "Institution celebrates national/international commemorative days, festivals and birth/death anniversaries of great Indian personalities (like Gandhi, Shivaji, Ambedkar, Radhakrishnan).",
+          "metric_type": "quantitative",
+          "title": "Number of initiatives taken to engage with and contribute to local community",
+          "description": "Number of initiatives taken to engage with and contribute to local community year-wise during the last five years.",
           "weight": 5,
-          "query_hints": "celebrate commemorative days, birth death anniversaries, gandhi shivaji ambedkar, national festivals teachers day"
+          "query_hints": "local community engagement initiatives count, village outreach social campaigns count",
+          "table_schema": {
+            "table_id": "7.1.11.1",
+            "table_title": "Local Community Engagement Initiatives",
+            "years": ["2018-19", "2017-18", "2016-17", "2015-16", "2014-15"],
+            "unit": "count",
+            "fields": ["year", "initiatives_count"]
+          },
+          "data_mapping_prompt": "Map the year-wise count of local village assistance, health camps, relief drives, and community welfare events."
         },
         {
           "id": "7.2.1",
-          "title": "Best practices successfully implemented",
-          "description": "Describe two best practices successfully implemented by the Institution as per NAAC format. Provide titles, objectives, context, details, evidence of success, and problems encountered (e.g. Centers of Excellence, Project-Based Learning).",
+          "metric_type": "qualitative",
+          "title": "Two institutional best practices",
+          "description": "Describe at least two institutional best practices: Practice 1: Creating Impact Through Centers of Excellence in Research, Consultancy and Entrepreneurship (UXO, Drone Lab, Maker Studio, PCIE). Practice 2: Enhanced Teaching and Learning (Open Book Prelims, Study Camps, Project-Based Learning, Component Library).",
           "weight": 30,
-          "query_hints": "best practices implemented, centers of excellence research, project based learning PBL, evidence success problems"
+          "query_hints": "best practices NAAC format, centers of excellence research UXO drone lab, enhanced teaching learning study camps open book prelims"
         },
         {
           "id": "7.3.1",
+          "metric_type": "qualitative",
           "title": "Institutional Distinctiveness",
-          "description": "Performance of the Institution in one area distinctive to its thrust. Elaborate on the core distinctiveness (e.g., student-centered research, project-based learning, or incubation/entrepreneurship cell).",
+          "description": "Describe the performance of the institution in one area distinctive to its vision, priority and thrust: 360-degree holistic development of students and faculty through student-centered innovation, research culture, Maker spaces, and socio-environmental consciousness.",
           "weight": 20,
-          "query_hints": "institutional distinctiveness thrust, student centric research projects, project-based learning incubation, core distinctiveness engineering"
+          "query_hints": "institutional distinctiveness 360 development, student centered innovation research culture, maker studio holistic engineering education"
         }
       ]
     }

@@ -3,7 +3,11 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
 const PUBLIC_PATHS = ["/login", "/accept-invite", "/request-access"];
-const PUBLIC_API_PATHS = ["/api/accept-invite"];
+const PUBLIC_API_PATHS = [
+  "/api/accept-invite",
+  "/api/reject-invite",
+  "/api/request-access",
+];
 
 export async function middleware(req: NextRequest) {
   let res = NextResponse.next({

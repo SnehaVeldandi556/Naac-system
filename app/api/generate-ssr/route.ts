@@ -45,13 +45,22 @@ export async function POST(req: NextRequest) {
     execFile(
       'python',
       [scriptPath, 'run', '--limit', '3'],
-      { cwd: process.cwd(), timeout: 180000 },
+      {
+        cwd: process.cwd(),
+        timeout: 600000,
+        env: {
+          ...process.env,
+          PYTHONIOENCODING: 'utf-8',
+          PYTHONUNBUFFERED: '1',
+        },
+      },
       async (error, stdout, stderr) => {
         if (error) {
-          console.error('Python pipeline error:', stderr || error.message);
+          const detail = stderr?.trim() || error.message;
+          console.error('Python pipeline error:', detail);
           return resolve(
             NextResponse.json(
-              { error: `Pipeline execution failed: ${stderr || error.message}` },
+              { error: `Pipeline execution failed: ${detail}` },
               { status: 500 }
             )
           );

@@ -1,52 +1,122 @@
 {
   "institution_name": "Pillai College of Engineering",
-  "total_qualitative_metrics": 33,
-  "metrics_extracted": 2,
-  "metrics_missing": 31,
+  "total_qualitative_metrics": 81,
+  "metrics_extracted": 18,
+  "metrics_missing": 63,
   "missing_list": [
     {
-      "id": "1.1.1",
-      "title": "Curricular planning and implementation",
+      "id": "1.1.2",
+      "title": "Number of certificate/diploma program introduced during the last five years",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "1.3.1",
-      "title": "Institution integrates cross-cutting issues into the curriculum",
+      "id": "1.1.3",
+      "title": "Percentage of participation of full time teachers in various bodies of Universities/Autonomous Colleges",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "2.2.1",
-      "title": "Student diversity (Slow vs. Advanced Learners)",
+      "id": "1.2.1",
+      "title": "Percentage of new Courses introduced across all Programs",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "2.3.1",
-      "title": "Student-centric methods",
+      "id": "1.2.2",
+      "title": "Percentage of programs in which Choice Based Credit System (CBCS)/Elective course system has been implemented",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "2.3.3",
-      "title": "Ratio of students to mentor",
+      "id": "1.2.3",
+      "title": "Average percentage of students enrolled in subject related Certificate/ Diploma / Add-on programs",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "1.3.3",
+      "title": "Percentage of students undertaking field projects / internships",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "1.4.1",
+      "title": "Structured feedback received on syllabus from stakeholders",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.1.1",
+      "title": "Average percentage of students from other States and Countries",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.1.2",
+      "title": "Average Enrollment percentage",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.1.3",
+      "title": "Average percentage of seats filled against reserved categories",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.2.2",
+      "title": "Student - Full time teacher ratio",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.3.2",
+      "title": "Percentage of teachers using ICT for effective teaching with LMS",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.3.4",
+      "title": "Innovation and creativity in teaching-learning",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.4.1",
+      "title": "Average percentage of full time teachers against sanctioned posts",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.4.2",
+      "title": "Average percentage of full time teachers with Ph.D.",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.4.3",
+      "title": "Teaching experience per full time teacher",
       "reason": "Context did not cover this sub-criterion"
     },
     {
       "id": "2.5.1",
-      "title": "Mechanism of internal assessment is transparent and robust",
+      "title": "Reforms in Continuous Internal Evaluation(CIE) system",
       "reason": "Context did not cover this sub-criterion"
     },
     {
       "id": "2.5.2",
-      "title": "Mechanism to deal with internal examination related grievances",
+      "title": "Mechanism of internal assessment is transparent and robust",
       "reason": "Context did not cover this sub-criterion"
     },
     {
       "id": "2.6.1",
-      "title": "Programme and course outcomes are stated and displayed",
+      "title": "Program outcomes and course outcomes are stated and displayed",
       "reason": "Context did not cover this sub-criterion"
     },
     {
       "id": "2.6.2",
-      "title": "Attainment of programme outcomes and course outcomes",
+      "title": "Attainment of program outcomes and course outcomes are evaluated",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "2.6.3",
+      "title": "Average pass percentage of Students",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "3.1.1",
+      "title": "Grants for research projects sponsored by government/non-government sources",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "3.1.2",
+      "title": "Percentage of teachers recognised as research guides",
       "reason": "Context did not cover this sub-criterion"
     },
     {
@@ -55,18 +125,43 @@
       "reason": "Context did not cover this sub-criterion"
     },
     {
+      "id": "3.2.2",
+      "title": "Number of workshops/seminars conducted on IPR and Industry-Academia practices",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "3.3.4",
+      "title": "Number of research papers per teacher in UGC notified Journals",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "3.3.5",
+      "title": "Number of books, chapters and conference proceedings published per teacher",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
       "id": "3.4.1",
-      "title": "Extension activities in neighborhood community",
+      "title": "Extension activities in neighbourhood community",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "4.1.1",
-      "title": "Adequate infrastructure for teaching-learning",
+      "id": "3.4.3",
+      "title": "Number of extension and outreach Programs conducted in collaboration with Industry/NGOs",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "4.1.2",
-      "title": "Facilities for sports, games, and cultural activities",
+      "id": "3.5.1",
+      "title": "Number of linkages for faculty exchange, student exchange, internship, field trip",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.1.3",
+      "title": "Percentage of classrooms and seminar halls with ICT - enabled facilities",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.1.4",
+      "title": "Average percentage of budget allocation for infrastructure augmentation (excluding salary)",
       "reason": "Context did not cover this sub-criterion"
     },
     {
@@ -75,8 +170,58 @@
       "reason": "Context did not cover this sub-criterion"
     },
     {
+      "id": "4.2.4",
+      "title": "Average annual expenditure for purchase of books and journals",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
       "id": "4.3.1",
       "title": "IT infrastructure including Wi-Fi",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.3.2",
+      "title": "Student - Computer ratio",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.4.1",
+      "title": "Average Expenditure incurred on maintenance of physical and academic facilities",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "4.4.2",
+      "title": "Established systems and procedures for maintaining facilities",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.1.1",
+      "title": "Average percentage of students benefited by scholarships provided by Government",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.1.2",
+      "title": "Average percentage of students benefited by institutional scholarships / freeships",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.1.4",
+      "title": "Average percentage of students benefited by competitive exams guidance & career counselling",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.2.2",
+      "title": "Percentage of student progression to higher education",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.2.3",
+      "title": "Average percentage of students qualifying in State/National/International examinations",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.3.1",
+      "title": "Number of awards/medals for outstanding performance in sports/cultural activities",
       "reason": "Context did not cover this sub-criterion"
     },
     {
@@ -85,8 +230,18 @@
       "reason": "Context did not cover this sub-criterion"
     },
     {
+      "id": "5.3.3",
+      "title": "Average number of sports and cultural activities/competitions organised per year",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
       "id": "5.4.1",
       "title": "Registered Alumni Association",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "5.4.2",
+      "title": "Alumni financial contribution during the last five years",
       "reason": "Context did not cover this sub-criterion"
     },
     {
@@ -110,8 +265,18 @@
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "6.3.1",
-      "title": "Effective welfare measures",
+      "id": "6.2.3",
+      "title": "Implementation of e-governance in areas of operation",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.3.2",
+      "title": "Average percentage of teachers provided with financial support for conferences / memberships",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "6.3.3",
+      "title": "Average number of professional development / administrative training programs organized for staff",
       "reason": "Context did not cover this sub-criterion"
     },
     {
@@ -120,43 +285,38 @@
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "6.5.1",
-      "title": "IQAC initiatives",
+      "id": "6.4.2",
+      "title": "Funds / Grants received from non-government bodies, individuals, Philanthropists",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "6.5.2",
-      "title": "Institutional reviews and implementation of teaching-learning",
+      "id": "6.5.3",
+      "title": "Average number of quality initiatives by IQAC for promoting quality culture",
       "reason": "Context did not cover this sub-criterion"
     },
     {
-      "id": "7.1.1",
-      "title": "Promotion of gender equity",
+      "id": "7.1.3",
+      "title": "Alternate Energy initiatives",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.1.4",
+      "title": "Percentage of annual lighting power requirements met through LED bulbs",
+      "reason": "Context did not cover this sub-criterion"
+    },
+    {
+      "id": "7.1.5",
+      "title": "Waste Management steps",
       "reason": "Context did not cover this sub-criterion"
     },
     {
       "id": "7.1.8",
-      "title": "Institutional efforts in providing an inclusive environment",
-      "reason": "Context did not cover this sub-criterion"
-    },
-    {
-      "id": "7.1.9",
-      "title": "Sensitization to constitutional obligations",
+      "title": "Average percentage expenditure on green initiatives and waste management",
       "reason": "Context did not cover this sub-criterion"
     },
     {
       "id": "7.1.11",
-      "title": "Institution celebrates commemorative days",
-      "reason": "Context did not cover this sub-criterion"
-    },
-    {
-      "id": "7.2.1",
-      "title": "Best practices successfully implemented",
-      "reason": "Context did not cover this sub-criterion"
-    },
-    {
-      "id": "7.3.1",
-      "title": "Institutional Distinctiveness",
+      "title": "Number of initiatives taken to engage with and contribute to local community",
       "reason": "Context did not cover this sub-criterion"
     }
   ]

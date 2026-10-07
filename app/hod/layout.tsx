@@ -7,7 +7,6 @@ const NAV = [
   { href: "/hod/requests", label: "Accept Requests" },
   { href: "/hod/report", label: "Report & Files" },
   { href: "/naac-upload", label: "Uploads" },
-  { href: "/accept-invite", label: "Accept Invite" },
 ];
 
 export default function HodLayout({ children }: { children: React.ReactNode }) {

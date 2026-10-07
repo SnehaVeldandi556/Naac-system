@@ -18,7 +18,7 @@ def render_ssr_report(data_file: str = "compiled_ssr_data.json", template_dir: s
     env = Environment(loader=FileSystemLoader(template_path))
     template = env.get_template(template_name)
     
-    with open(data_path, "r") as f:
+    with open(data_path, "r", encoding="utf-8") as f:
         data = json.load(f)
         
     # Render template

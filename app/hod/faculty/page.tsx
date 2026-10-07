@@ -2,13 +2,15 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { supabaseBrowser } from "@/lib/supabase/supabaseClient";
 import StatusBadge from "@/components/StatusBadge";
+import InviteResultBanner, { type InviteResult } from "@/components/InviteResultBanner";
 import type { Profile } from "@/lib/supabase/types";
 
 export default function HodFacultyPage() {
   const supabase = supabaseBrowser();
   const [faculty, setFaculty] = useState<Profile[]>([]);
   const [form, setForm] = useState({ email: "", full_name: "" });
-  const [msg, setMsg] = useState("");
+  const [result, setResult] = useState<InviteResult | null>(null);
+  const [loading, setLoading] = useState(false);
   const [resendingId, setResendingId] = useState<string | null>(null);
 
   async function load() {
@@ -26,6 +28,7 @@ export default function HodFacultyPage() {
       .order("created_at");
     setFaculty((data as unknown as Profile[]) || []);
   }
+
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,7 +36,9 @@ export default function HodFacultyPage() {
 
   async function handleInvite(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setMsg("Sending invite...");
+    setResult({ type: "info", message: "Generating invite & dispatching email..." });
+    setLoading(true);
+
     try {
       const res = await fetch("/api/invite", {
         method: "POST",
@@ -41,29 +46,38 @@ export default function HodFacultyPage() {
         body: JSON.stringify({ ...form, role: "faculty" }),
       });
       const text = await res.text();
-      let json: { error?: string };
+      let json: { error?: string; ok?: boolean; message?: string; inviteLink?: string; emailWarning?: string };
       try {
         json = JSON.parse(text);
       } catch {
         console.error("Non-JSON response from /api/invite:", text);
-        setMsg(`Server error (status ${res.status}). Check the server terminal/logs for details.`);
+        setResult({ type: "error", message: `Server error (status ${res.status}). Check server logs.` });
+        setLoading(false);
         return;
       }
       if (res.ok) {
-        setMsg(`Invite email sent to ${form.email}.`);
+        setResult({
+          type: json.emailWarning ? "warning" : "success",
+          message: json.message || `Invitation created for ${form.email}.`,
+          inviteLink: json.inviteLink,
+        });
         setForm({ email: "", full_name: "" });
         load();
       } else {
-        setMsg(json.error || `Request failed (status ${res.status}).`);
+        setResult({ type: "error", message: json.error || `Request failed (status ${res.status}).` });
       }
     } catch (err) {
       console.error(err);
-      setMsg(`Network error: ${(err as Error).message}`);
+      setResult({ type: "error", message: `Network error: ${(err as Error).message}` });
+    } finally {
+      setLoading(false);
     }
   }
 
   async function handleResend(profile_id: string) {
     setResendingId(profile_id);
+    setResult({ type: "info", message: "Re-issuing invitation..." });
+
     try {
       const res = await fetch("/api/resend-invite", {
         method: "POST",
@@ -71,16 +85,24 @@ export default function HodFacultyPage() {
         body: JSON.stringify({ profile_id }),
       });
       const text = await res.text();
-      let json: { error?: string } | null;
+      let json: { error?: string; message?: string; inviteLink?: string; emailWarning?: string } | null;
       try {
         json = JSON.parse(text);
       } catch {
         json = null;
       }
-      if (!res.ok) alert(json?.error || `Request failed (status ${res.status}).`);
+      if (!res.ok) {
+        setResult({ type: "error", message: json?.error || `Request failed (status ${res.status}).` });
+      } else {
+        setResult({
+          type: json?.emailWarning ? "warning" : "success",
+          message: json?.message || "Invitation re-issued successfully.",
+          inviteLink: json?.inviteLink,
+        });
+      }
       load();
     } catch (err) {
-      alert(`Network error: ${(err as Error).message}`);
+      setResult({ type: "error", message: `Network error: ${(err as Error).message}` });
     } finally {
       setResendingId(null);
     }
@@ -88,49 +110,80 @@ export default function HodFacultyPage() {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-xl border border-slate-200 bg-white p-5 sm:max-w-md">
-        <h2 className="mb-3 text-sm font-semibold text-slate-700">Invite a faculty member</h2>
+      <div className="rounded-xl border border-slate-200 bg-white p-5 sm:max-w-md shadow-sm space-y-4">
+        <h2 className="text-sm font-semibold text-slate-800">Invite a faculty member</h2>
         <form onSubmit={handleInvite} className="space-y-3">
-          <input required placeholder="Full name" value={form.full_name}
-            onChange={(e) => setForm({ ...form, full_name: e.target.value })}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
-          <input required type="email" placeholder="Email" value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
-          <button className="w-full rounded-lg bg-slate-900 py-2 text-sm font-medium text-white hover:bg-slate-800">
-            Send invitation email
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 mb-1">Full Name</label>
+            <input
+              required
+              placeholder="e.g. Prof. Jane Doe"
+              value={form.full_name}
+              onChange={(e) => setForm({ ...form, full_name: e.target.value })}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 mb-1">Email Address</label>
+            <input
+              required
+              type="email"
+              placeholder="e.g. faculty@anurag.edu.in"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-lg bg-slate-900 py-2.5 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-2xs cursor-pointer"
+          >
+            {loading ? "Sending..." : "Send Invitation"}
           </button>
-          {msg && <p className="text-xs text-slate-500">{msg}</p>}
+
+          <InviteResultBanner result={result} onDismiss={() => setResult(null)} />
         </form>
       </div>
 
       <div>
-        <h2 className="mb-3 text-sm font-semibold text-slate-700">Faculty in your department</h2>
-        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <h2 className="mb-3 text-sm font-semibold text-slate-800">Faculty in your department</h2>
+        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           <table className="w-full text-sm">
-            <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500">
-              <tr><th className="px-4 py-2">Name</th><th className="px-4 py-2">Email</th><th className="px-4 py-2">Status</th><th className="px-4 py-2"></th></tr>
+            <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500 border-b border-slate-200">
+              <tr>
+                <th className="px-4 py-3">Name</th>
+                <th className="px-4 py-3">Email</th>
+                <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3 text-right">Actions</th>
+              </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-slate-100">
               {faculty.map((f) => (
-                <tr key={f.id} className="border-t border-slate-100">
-                  <td className="px-4 py-2">{f.full_name || "—"}</td>
-                  <td className="px-4 py-2">{f.email}</td>
-                  <td className="px-4 py-2"><StatusBadge value={f.status} /></td>
-                  <td className="px-4 py-2">
+                <tr key={f.id} className="hover:bg-slate-50/70 transition-colors">
+                  <td className="px-4 py-3 font-medium text-slate-800">{f.full_name || "—"}</td>
+                  <td className="px-4 py-3 text-slate-600">{f.email}</td>
+                  <td className="px-4 py-3"><StatusBadge value={f.status} /></td>
+                  <td className="px-4 py-3 text-right">
                     {f.status === "invited" && (
                       <button
                         disabled={resendingId === f.id}
                         onClick={() => handleResend(f.id)}
-                        className="text-xs font-medium text-slate-900 underline disabled:opacity-50"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-800 underline disabled:opacity-50 cursor-pointer"
                       >
-                        {resendingId === f.id ? "Resending..." : "Resend invite"}
+                        {resendingId === f.id ? "Sending email..." : "Resend Email Invite"}
                       </button>
                     )}
                   </td>
                 </tr>
               ))}
-              {faculty.length === 0 && <tr><td className="px-4 py-3 text-slate-400" colSpan={4}>No faculty yet.</td></tr>}
+              {faculty.length === 0 && (
+                <tr>
+                  <td className="px-4 py-6 text-center text-slate-400" colSpan={4}>
+                    No faculty members added yet.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

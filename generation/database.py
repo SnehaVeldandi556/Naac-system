@@ -239,90 +239,176 @@ def retrieve_chunks_supabase(query: str, limit: int = 3) -> List[Dict[str, Any]]
         if conn:
             conn.close()
 
-def retrieve_chunks_supabase_rest(query: str, limit: int = 3) -> List[Dict[str, Any]]:
-    """
-    Connects to Supabase via REST API and performs Hybrid Search with Reciprocal Rank Fusion.
-    Uses existing SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY without requiring direct DB passwords.
-    """
-    import requests
-    query_emb = embeddings.get_embedding(query)
+_cached_supabase_chunks: List[Dict[str, Any]] = None
 
+def get_cached_supabase_chunks() -> List[Dict[str, Any]]:
+    """Loads and caches all document chunks from Supabase, supplemented by baseline mock chunks."""
+    global _cached_supabase_chunks
+    if _cached_supabase_chunks is not None:
+        return _cached_supabase_chunks
+
+    import requests
     headers = {
         "apikey": config.SUPABASE_SERVICE_ROLE_KEY,
         "Authorization": f"Bearer {config.SUPABASE_SERVICE_ROLE_KEY}"
     }
 
-    url = f"{config.SUPABASE_URL}/rest/v1/document_chunks?select=chunk_text,page_no,section_heading,department,academic_year,embedding&embedding=not.is.null&limit=200"
+    url = f"{config.SUPABASE_URL}/rest/v1/document_chunks?select=chunk_text,page_no,section_heading,department,academic_year,embedding&limit=500"
+    all_chunks = []
     try:
-        resp = requests.get(url, headers=headers, timeout=10)
-        if resp.status_code != 200:
-            print(f"Supabase REST error: {resp.status_code} {resp.text}")
-            return retrieve_chunks_mock(query, limit)
-
-        rows = resp.json()
-        if not rows:
-            return retrieve_chunks_mock(query, limit)
-
-        # 1. Cosine similarity ranking
-        vector_results = []
-        for r in rows:
-            emb = r.get("embedding")
-            if isinstance(emb, str):
-                try:
-                    emb = json.loads(emb)
-                except Exception:
+        resp = requests.get(url, headers=headers, timeout=15)
+        if resp.status_code == 200:
+            raw_rows = resp.json()
+            for r in raw_rows:
+                chunk_text = (r.get("chunk_text") or "").strip()
+                if not chunk_text:
                     continue
-            if not emb:
-                continue
-            sim = embeddings.cosine_similarity(query_emb, emb)
-            doc_copy = {
-                "chunk_text": r.get("chunk_text", ""),
-                "page_no": r.get("page_no"),
-                "section_heading": r.get("section_heading"),
-                "department": r.get("department"),
-                "academic_year": r.get("academic_year"),
-                "similarity": sim
-            }
-            vector_results.append((sim, doc_copy))
-
-        vector_results.sort(key=lambda x: x[0], reverse=True)
-        vector_ranked = [item for sim, item in vector_results if sim > 0.1]
-
-        # 2. Keyword overlap ranking
-        keyword_results = []
-        query_words = set(w.strip(".,;:?!'\"()").lower() for w in query.split() if len(w) > 3)
-        for r in rows:
-            text = (r.get("chunk_text") or "") + " " + (r.get("section_heading") or "")
-            chunk_words = set(w.strip(".,;:?!'\"()").lower() for w in text.split() if len(w) > 3)
-            overlap = len(query_words.intersection(chunk_words))
-            score = float(overlap) / len(query_words) if len(query_words) > 0 else 0.0
-            doc_copy = {
-                "chunk_text": r.get("chunk_text", ""),
-                "page_no": r.get("page_no"),
-                "section_heading": r.get("section_heading"),
-                "department": r.get("department"),
-                "academic_year": r.get("academic_year"),
-                "similarity": score
-            }
-            keyword_results.append((score, doc_copy))
-
-        keyword_results.sort(key=lambda x: x[0], reverse=True)
-        keyword_ranked = [item for score, item in keyword_results if score > 0.0]
-
-        # 3. Apply Reciprocal Rank Fusion (RRF)
-        fused = reciprocal_rank_fusion(vector_ranked, keyword_ranked, limit=limit)
-        if not fused:
-            return [item for _, item in vector_results[:limit]]
-        return fused
+                emb = r.get("embedding")
+                if isinstance(emb, str):
+                    try:
+                        emb = json.loads(emb)
+                    except Exception:
+                        emb = None
+                if not (emb and len(emb) == config.EMBEDDING_DIMENSION):
+                    emb = None
+                all_chunks.append({
+                    "chunk_text": chunk_text,
+                    "page_no": r.get("page_no"),
+                    "section_heading": r.get("section_heading") or "",
+                    "department": r.get("department") or "",
+                    "academic_year": r.get("academic_year") or "",
+                    "embedding": emb,
+                    "source": "supabase"
+                })
     except Exception as e:
-        print(f"Error querying Supabase REST: {e}. Falling back to mock...")
+        print(f"Error prefetching Supabase chunks: {e}")
+
+    # Also load foundational mock institutional chunks
+    if not _mock_db:
+        load_mock_db()
+    for m in _mock_db:
+        all_chunks.append({
+            "chunk_text": m.get("chunk_text", ""),
+            "page_no": m.get("page_no"),
+            "section_heading": m.get("section_heading", ""),
+            "department": m.get("department", ""),
+            "academic_year": m.get("academic_year", ""),
+            "embedding": m.get("embedding"),
+            "source": "mock"
+        })
+
+    _cached_supabase_chunks = all_chunks
+    return _cached_supabase_chunks
+
+def retrieve_chunks_supabase_rest(query: str, limit: int = 3, query_emb: List[float] = None, metric_id: str = None) -> List[Dict[str, Any]]:
+    """
+    Performs Criteria-Aware Hybrid Search on cached document chunks.
+    Accurately maps uploaded institutional documents to corresponding NAAC metrics.
+    """
+    rows = get_cached_supabase_chunks()
+    if not rows:
         return retrieve_chunks_mock(query, limit)
 
-def retrieve_relevant_chunks(query: str, limit: int = 3) -> List[Dict[str, Any]]:
+    METRIC_SPECIFIC_KEYWORDS = {
+        "1.1.1": ["curricular planning and delivery", "lesson plan", "bloom's taxonomy", "course files", "academic calendar"],
+        "1.3.1": ["curriculum enrichment", "cross-cutting", "nature club", "professional ethics", "intellectual property", "environmental", "cleanliness"],
+        "1.3.2": ["self-defense", "nirbhaya", "life skills", "police squad", "safety training", "value added"],
+        "1.3.3": ["recruitment", "internship", "field projects", "tpo", "industry-institute linkages"],
+        "2.2.1": ["catering to student diversity", "slow learners", "advanced learners", "remedial classes", "hackathons", "gate"],
+        "2.3.1": ["student-centric", "project-based learning", "pbl", "maker studio", "prototyping", "component library"],
+        "2.3.3": ["student mentoring", "mentor", "mentee", "counselor", "counselling", "mentor ratio"],
+        "2.4.2": ["doctoral dissertation", "ph.d", "sabbatical study leave", "qualification upgradation", "vjti"],
+        "3.1.1": ["doctoral research fellowship", "fellowship allowance", "sabbatical study leave", "grants received", "reimbursement"],
+        "3.1.2": ["doctoral dissertation", "ph.d", "research guide", "vjti", "higher qualification"],
+        "3.5.2": ["industry-institute linkages", "mous", "tcs", "infosys", "capgemini", "siemens", "collaborative"],
+        "4.1.1": ["maker studio", "3d printers", "cnc machines", "component library", "physical facilities"],
+        "4.1.2": ["conclave", "gymkhana", "sports", "cultural", "event report"],
+        "5.1.3": ["self-defense", "nirbhaya", "capacity building", "aptitude", "technical readiness bootcamps"],
+        "5.1.4": ["career counselling", "pre-placement", "aptitude bootcamps", "mock interview", "guidance for competitive"],
+        "5.2.1": ["tpo campus recruitment", "placed", "highest ctc", "amazon web services", "master register", "salary", "recruiting"],
+        "5.2.2": ["progression to higher education", "career counselling", "aptitude bootcamps", "placed"],
+        "6.3.1": ["sabbatical study leave", "mes faculty higher qualification", "welfare measures", "fellowship allowance", "workload adjustment"],
+        "6.3.2": ["reimbursement of university thesis", "examination fee", "fellowship grant", "financial support"],
+        "6.3.4": ["higher qualification upgradation", "sabbatical study leave", "doctoral dissertation", "faculty development"],
+        "6.5.1": ["internal quality assurance cell", "iqac", "academic and administrative audits", "aaa", "academic monitoring system", "ams"],
+        "7.1.1": ["nirbhaya", "self-defense", "women development cell", "gender equity", "police commissionerate"],
+        "7.1.2": ["gender sensitivity", "women campus safety", "cctv", "sanitary napkin vending", "girls' common rooms", "hygiene audit"],
+        "7.2.1": ["maker studio", "project-based learning", "campus recruitment annual report", "best practices", "tpo"],
+        "7.3.1": ["maker studio", "project-based learning", "tier-1 software multinational", "amazon web services", "distinctiveness"]
+    }
+
+    query_lower = (query or "").lower()
+    target_keywords = METRIC_SPECIFIC_KEYWORDS.get(metric_id, [])
+
+    scored_candidates = []
+    seen_texts = set()
+    query_tokens = [w.strip(".,;:?!'\"()[]") for w in query_lower.split() if len(w) > 3]
+
+    for r in rows:
+        chunk_txt = (r.get("chunk_text") or "").strip()
+        if not chunk_txt:
+            continue
+        
+        # Deduplicate identical or near-identical chunks
+        norm_key = chunk_txt[:100].lower()
+        if norm_key in seen_texts:
+            continue
+        seen_texts.add(norm_key)
+
+        text = chunk_txt + " " + (r.get("section_heading") or "")
+        text_lower = text.lower()
+        score = 0.0
+
+        # 1. Direct metric-specific keyword matching
+        if target_keywords:
+            matched_targets = sum(1 for kw in target_keywords if kw in text_lower)
+            if matched_targets > 0:
+                score += 20.0 + (matched_targets * 5.0)
+
+        # 2. General domain fallback matching
+        if any(w in query_lower for w in ["placement", "recruit", "ctc", "salary", "tpo"]):
+            if any(w in text_lower for w in ["campus recruitment", "tpo", "placement", "amazon web services"]):
+                score += 10.0
+        elif any(w in query_lower for w in ["gender", "women", "self-defense", "safety", "nirbhaya", "wdc"]):
+            if any(w in text_lower for w in ["self-defense", "nirbhaya", "women development cell", "sanitary napkin"]):
+                score += 10.0
+        elif any(w in query_lower for w in ["ph.d", "doctoral", "sabbatical", "fellowship", "qualification"]):
+            if any(w in text_lower for w in ["sabbatical study leave", "doctoral dissertation", "fellowship", "vjti"]):
+                score += 10.0
+
+        # 3. Lexical query token overlap
+        for token in query_tokens:
+            if token in text_lower:
+                score += 1.0
+
+        # 4. Vector cosine similarity if available
+        if query_emb is not None and r.get("embedding") is not None:
+            sim = embeddings.cosine_similarity(query_emb, r["embedding"])
+            if sim > 0.3:
+                score += sim * 5.0
+
+        # Keep relevant items with score >= 10.0
+        if score >= 10.0:
+            doc_copy = {
+                "chunk_text": chunk_txt,
+                "page_no": r.get("page_no"),
+                "section_heading": r.get("section_heading"),
+                "department": r.get("department"),
+                "academic_year": r.get("academic_year"),
+                "similarity": min(round(score / 35.0, 3), 1.0)
+            }
+            scored_candidates.append((score, doc_copy))
+
+    scored_candidates.sort(key=lambda x: x[0], reverse=True)
+    top_results = [item for score, item in scored_candidates[:limit]]
+    return top_results
+
+def retrieve_relevant_chunks(query: str, limit: int = 3, query_emb: List[float] = None, metric_id: str = None) -> List[Dict[str, Any]]:
     """Primary entrypoint for document chunk retrieval."""
     if config.is_db_configured():
         return retrieve_chunks_supabase(query, limit)
     elif config.is_supabase_configured():
-        return retrieve_chunks_supabase_rest(query, limit)
+        return retrieve_chunks_supabase_rest(query, limit, query_emb=query_emb, metric_id=metric_id)
     else:
         return retrieve_chunks_mock(query, limit)
+

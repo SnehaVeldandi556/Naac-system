@@ -51,9 +51,10 @@ export default function HodReportPage() {
     setUploading(false);
     if (res.ok) {
       if (fileInput.current) fileInput.current.value = "";
+      setMsg("Your file has been successfully uploaded and taken for review for the report.");
       load();
     } else {
-      setMsg(json.error);
+      setMsg(json.error || "Upload failed. Please try again.");
     }
   }
 
@@ -74,17 +75,30 @@ export default function HodReportPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <h2 className="text-sm font-semibold text-slate-700">Department report</h2>
-        {report && <StatusBadge value={report.status} />}
+      <div>
+        <div className="flex items-center gap-3">
+          <h2 className="text-sm font-semibold text-slate-700">Department report</h2>
+          {report && <StatusBadge value={report.status} />}
+        </div>
+        <p className="text-xs text-slate-500 mt-0.5">
+          Upload supporting files (.xlsx, .docx, .pdf) for your department report.
+        </p>
       </div>
 
-      <form onSubmit={handleUpload} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4">
+      <form onSubmit={handleUpload} className="flex flex-col sm:flex-row sm:items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
         <input ref={fileInput} type="file" accept=".xlsx,.xls,.pdf,.docx" className="text-sm" />
-        <button disabled={uploading} className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50">
+        <button disabled={uploading} className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50 cursor-pointer">
           {uploading ? "Uploading..." : "Upload file"}
         </button>
-        {msg && <p className="text-sm text-red-600">{msg}</p>}
+        {msg && (
+          <p className={`text-xs font-medium px-3 py-1.5 rounded-lg ${
+            msg.includes("successfully") 
+              ? "bg-emerald-50 text-emerald-800 border border-emerald-200" 
+              : "bg-red-50 text-red-700 border border-red-200"
+          }`}>
+            {msg}
+          </p>
+        )}
       </form>
 
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">

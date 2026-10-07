@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase/browserClient";
 
 export default function LoginPage() {
-  const supabase = supabaseBrowser();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,70 +15,78 @@ export default function LoginPage() {
     setError("");
     setLoading(true);
 
-    const { data, error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (signInError) {
-      setError(signInError.message);
-      setLoading(false);
-      return;
-    }
-
-    // Record this login in the audit trail.
     try {
-      await fetch("/api/login-log", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: data.user.id }),
+      const supabase = supabaseBrowser();
+      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
-    } catch {
-      // Ignore login-log errors so login still succeeds
+
+      if (signInError) {
+        setError(signInError.message);
+        setLoading(false);
+        return;
+      }
+
+      // Record this login in the audit trail.
+      try {
+        await fetch("/api/login-log", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user_id: data.user.id }),
+        });
+      } catch {
+        // Ignore login-log errors so login still succeeds
+      }
+
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", data.user.id)
+        .maybeSingle();
+
+      const roleRoutes: Record<string, string> = {
+        admin: "/admin",
+        hod: "/hod",
+        faculty: "/faculty",
+      };
+
+      const destination = roleRoutes[profile?.role ?? ""] ?? "/hod";
+      router.push(destination);
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Sign in failed");
+      setLoading(false);
     }
-
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", data.user.id)
-      .maybeSingle();
-
-    const roleRoutes: Record<string, string> = {
-      admin: "/admin",
-      hod: "/hod",
-      faculty: "/faculty",
-    };
-
-    const destination = roleRoutes[profile?.role ?? ""] ?? "/login";
-    router.push(destination);
-    router.refresh();
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
+    <div className="flex min-h-screen items-center justify-center px-4 bg-slate-50">
       <div className="w-full max-w-sm rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-        <h1 className="mb-1 text-xl font-semibold">NAAC Report Portal</h1>
+        <h1 className="mb-1 text-xl font-semibold text-slate-900">NAAC Report Portal</h1>
         <p className="mb-6 text-sm text-slate-500">Sign in to your account</p>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium">Email</label>
+            <label className="mb-1 block text-sm font-medium text-slate-700">Email</label>
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+              placeholder="e.g. admin@anurag.edu.in"
             />
           </div>
           <div>
-            <label className="mb-1 block text-sm font-medium">Password</label>
+            <label className="mb-1 block text-sm font-medium text-slate-700">Password</label>
             <input
               type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+              placeholder="••••••••"
             />
           </div>
 
@@ -88,7 +95,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-slate-900 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50"
+            className="w-full rounded-lg bg-slate-900 py-2.5 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50 transition-colors cursor-pointer"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
@@ -96,7 +103,7 @@ export default function LoginPage() {
 
         <p className="mt-4 text-center text-sm text-slate-500">
           No account yet?{" "}
-          <a href="/request-access" className="font-medium text-slate-900 underline">
+          <a href="/request-access" className="font-medium text-slate-900 underline hover:text-slate-700">
             Request access
           </a>
         </p>

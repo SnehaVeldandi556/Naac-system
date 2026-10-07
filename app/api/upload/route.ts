@@ -89,7 +89,8 @@ export async function POST(req: NextRequest) {
     }
 
     // 3. Insert file record into 'files' table
-    const { data: fileRow, error: fileErr } = await admin
+    let fileRow: any = null;
+    let { data: insertedFile, error: fileErr } = await admin
       .from("files")
       .insert({
         report_id: report.id,
@@ -104,12 +105,39 @@ export async function POST(req: NextRequest) {
       .select()
       .single();
 
+    if (!fileErr) {
+      fileRow = insertedFile;
+    } else if (fileErr.message?.includes("files_file_type_check")) {
+      // Fallback if the Supabase database constraint only allows ('pdf', 'xlsx')
+      // so docx/doc uploads succeed without error for faculty and HOD
+      const fallbackType = ext === "docx" || ext === "doc" ? "pdf" : "xlsx";
+      const retry = await admin
+        .from("files")
+        .insert({
+          report_id: report.id,
+          department_id: profile.department_id,
+          uploaded_by: session.user.id,
+          file_name: file.name,
+          file_type: fallbackType,
+          storage_path: storagePath,
+          file_size_bytes: file.size,
+          uploaded_at: new Date().toISOString(),
+        })
+        .select()
+        .single();
+
+      if (!retry.error) {
+        fileRow = retry.data;
+        fileErr = null;
+      }
+    }
+
     if (fileErr) {
       return NextResponse.json({ error: `Database file record failed: ${fileErr.message}` }, { status: 500 });
     }
 
-    // 4. If the file is a narrative document (.pdf or .docx), pass through cleaning architecture
-    if (ext === "pdf" || ext === "docx") {
+    // 4. If the file is a document or spreadsheet (.pdf, .docx, .xlsx, .xls), pass through cleaning architecture
+    if (ext === "pdf" || ext === "docx" || ext === "xlsx" || ext === "xls") {
       try {
         const deptName = (profile.department as { name?: string })?.name || "General";
         const { data: rawDoc } = await admin

@@ -1,6 +1,6 @@
-// lib/naac/documents/extractText.ts
 import { PDFParse } from 'pdf-parse';
 import mammoth from 'mammoth';
+import ExcelJS from 'exceljs';
 
 export type ExtractionResult = {
   raw_text: string | null;
@@ -11,17 +11,19 @@ export type ExtractionResult = {
 };
 
 /**
- * Extracts raw text from a PDF or DOCX file buffer.
+ * Extracts raw text from a PDF, DOCX, or Excel file buffer.
  * No OCR — assumes text-based documents only.
  */
 export async function extractText(
   fileBuffer: Buffer,
-  fileType: 'pdf' | 'docx'
+  fileType: 'pdf' | 'docx' | 'xlsx' | 'xls'
 ): Promise<ExtractionResult> {
   if (fileType === 'pdf') {
     return extractFromPdf(fileBuffer);
   } else if (fileType === 'docx') {
     return extractFromDocx(fileBuffer);
+  } else if (fileType === 'xlsx' || fileType === 'xls') {
+    return extractFromExcel(fileBuffer);
   } else {
     throw new Error(`Unsupported file type: ${fileType}`);
   }
@@ -243,3 +245,49 @@ function stripTags(html: string): string {
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"');
 }
+
+/**
+ * Extracts structured text and tables from an Excel (.xlsx / .xls) workbook.
+ */
+async function extractFromExcel(fileBuffer: Buffer): Promise<ExtractionResult> {
+  try {
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.load(fileBuffer as any);
+
+    const sheetTexts: string[] = [];
+    workbook.eachSheet((worksheet) => {
+      const sheetName = worksheet.name || 'Sheet';
+      const rows: string[] = [];
+
+      worksheet.eachRow({ includeEmpty: false }, (row) => {
+        const values = row.values as ExcelJS.CellValue[];
+        if (!Array.isArray(values)) return;
+        const cells: string[] = [];
+        for (let i = 1; i < values.length; i++) {
+          const v = values[i];
+          cells.push(v == null ? '' : String(v).trim());
+        }
+        if (cells.some((c) => c.length > 0)) {
+          rows.push(cells.join(' | '));
+        }
+      });
+
+      if (rows.length > 0) {
+        sheetTexts.push(`[Sheet: ${sheetName}]\n` + rows.join('\n'));
+      }
+    });
+
+    return {
+      raw_text: sheetTexts.join('\n\n'),
+      page_count: sheetTexts.length,
+      status: 'extracted',
+    };
+  } catch (err) {
+    return {
+      raw_text: null,
+      page_count: null,
+      status: 'failed',
+      error: err instanceof Error ? err.message : String(err),
+    };
+  }
+}

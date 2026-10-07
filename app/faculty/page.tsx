@@ -131,7 +131,7 @@ export default function FacultyPage() {
           <div>
             <h2 className="text-base font-semibold text-slate-900">Department Report & Files</h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              Upload supporting files (.xlsx, .pdf) for your department report.
+              Upload supporting files (.xlsx, .docx, .pdf) for your department report.
             </p>
           </div>
           {report && <StatusBadge value={report.status} />}

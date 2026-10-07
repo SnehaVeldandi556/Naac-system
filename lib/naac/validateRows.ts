@@ -1,13 +1,13 @@
+// lib/naac/validateRows.ts
 import { naacRowSchema, NaacRow } from './schema';
-import { CanonicalKey } from './columnMap';
 
 export type CellError = {
   row: number;
-  field: CanonicalKey;
+  field: string;
   message: string;
 };
 
-export function validateRows(rows: Record<CanonicalKey, unknown>[]) {
+export function validateRows(rows: Record<string, unknown>[]) {
   const errors: CellError[] = [];
   const validated: (NaacRow | null)[] = [];
 
@@ -22,7 +22,7 @@ export function validateRows(rows: Record<CanonicalKey, unknown>[]) {
       result.error.issues.forEach((issue) => {
         errors.push({
           row: i,
-          field: issue.path[0] as CanonicalKey,
+          field: String(issue.path[0] || 'unknown'),
           message: issue.message,
         });
       });

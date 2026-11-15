@@ -696,6 +696,68 @@
           "tables": []
         },
         {
+          "id": "2.3.3",
+          "title": "Ratio of students to mentor for academic and stress related issues",
+          "description": "Number of mentors allocated and mentor-mentee ratio.",
+          "weight": 15,
+          "narrative_draft": "The institution has instituted a structured mentor-mentee scheme that directly addresses the NAAC metric on the ratio of students to mentors for academic and stress-related issues. As documented in the Student Mentoring & Support System (Page 30), each faculty mentor is assigned a small cohort of approximately 15-20 students. This allocation ensures a manageable mentor-mentee ratio that facilitates personalized guidance and timely intervention. Mentors convene fortnightly meetings with their assigned groups, providing a regular forum to review academic progress, discuss personal grievances, and explore career aspirations. These sessions are systematically recorded in mentoring registers, which capture attendance, indicators of psychological well-being, and academic performance metrics. The systematic tracking enables mentors to identify early signs of stress or academic difficulty and to coordinate appropriate remedial actions.\n\nComplementing the mentor-led interactions, the campus hosts professional counselors who offer confidential psychological counseling. This dual-layered support structure-faculty mentors for academic and career guidance and professional counselors for mental health-creates an integrated environment that addresses both scholastic and emotional dimensions of student development. The presence of professional counselors is explicitly noted in the same section of the Student Mentoring & Support System, underscoring the institution's commitment to holistic student welfare.\n\nThe effectiveness of this framework is further reinforced by the activities of the Training & Placement Cell, as outlined in the CAREER COUNSELLING, CAPACITY BUILDING & RECRUITMENT DRIVES document (Page 1). While the primary focus of the cell is on capacity building and placement preparation, its initiatives-such as aptitude bootcamps, industry mock interview drives, and active MoUs with leading corporations-are coordinated with the mentor-mentee system to align academic guidance with employability outcomes. This synergy ensures that mentors can provide informed career advice based on the latest industry engagement activities, thereby enhancing the relevance of their mentorship.\n\nOverall, the institution's mentor-mentee ratio of roughly one faculty mentor per 15-20 students, coupled with regular fortnightly interactions, systematic monitoring, and access to professional counseling, demonstrates a robust mechanism for supporting academic achievement and mitigating stress among students. The integrated approach aligns with NAAC expectations for effective student support and showcases the institution's proactive stance in fostering a supportive learning environment.",
+          "key_initiatives": [
+            "Mentor-mentee scheme with approx. 15-20 students per faculty mentor",
+            "Professional counseling services for confidential psychological support"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Student Mentoring & Support System (Page 30)",
+            "CAREER COUNSELLING, CAPACITY BUILDING & RECRUITMENT DRIVES (Page 1)"
+          ]
+        },
+        {
+          "id": "2.3.4",
+          "title": "Innovation and creativity in teaching-learning",
+          "description": "Institution fosters innovative and creative teaching practices. Explain E-Learning Studio, light board recording, remote center of IIT Bombay, flipped classrooms, and Component Library usage.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.4.1",
+          "title": "Average percentage of full time teachers against sanctioned posts",
+          "description": "Number of full time teachers appointed vs sanctioned posts year-wise during the last five years.",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "2.4.2",
+          "title": "Average percentage of full time teachers with Ph.D.",
+          "description": "Number of full time teachers with Ph.D. year-wise during the last five years.",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [
+            "MES Faculty Higher Qualification Upgradation Policy",
+            "Sabbatical Study Leave for Doctoral Dissertation"
+          ],
+          "data_available": false,
+          "supporting_documents": [
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- DATE: 10TH AUGUST 2023",
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- FACULTY HIGHER QUALIFICATION STUDY LEAVE"
+          ]
+        },
+        {
+          "id": "2.4.3",
+          "title": "Teaching experience per full time teacher",
+          "description": "Total teaching experience in years of full-time teachers in the institution.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
           "id": "2.5.1",
           "title": "Reforms in Continuous Internal Evaluation(CIE) system",
           "description": "Institute implements CIE as per university guidelines and adapts institutional reforms. Explain internal tests based on Bloom's Taxonomy, question bank preparation, prelim exams, and rubrics evaluation.",
@@ -2008,6 +2070,32 @@
           ]
         },
         {
+          "id": "6.3.3",
+          "title": "Average number of professional development / administrative training programs organized for staff",
+          "description": "Total number of professional development / administrative training programs organized by the Institution for teaching and non teaching staff year-wise.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
+        },
+        {
+          "id": "6.3.4",
+          "title": "Average percentage of teachers attending professional development programs",
+          "description": "Total number of teachers attending professional development programs (Orientation, Refresher, FDP, STTP) year-wise.",
+          "weight": 10,
+          "narrative_draft": "The Mahatma Education Society (MES) demonstrates a sustained commitment to faculty professional development through its Faculty Higher Qualification Upgradation Policy, which facilitates participation in advanced academic programmes such as doctoral research. A concrete illustration of this policy in action is documented in the memorandum dated 10th August 2023 (Ref No: MES/HR/EDU-LEAVE/2023/452), wherein Prof. Archana Dongre, Associate Professor in the Department of Information Technology, was granted a six-month paid sabbatical study leave. The leave, spanning from 1 September 2023 to 28 February 2024, was sanctioned to enable the completion and submission of her Ph.D. dissertation titled \"Optimized Machine Learning Pipelines for Healthcare Telemetry\" at Veermata Jijabai Technological Institute (VJTI), University of Mumbai. This initiative aligns with the broader objectives of professional development programmes such as Faculty Development Programmes (FDP) and Short-Term Training Programmes (STTP), by providing faculty members with structured time and financial support to pursue higher qualifications.\n\nThe memorandum outlines comprehensive welfare measures accompanying the sabbatical: a monthly doctoral research fellowship allowance, full reimbursement of thesis submission and defence examination fees upon receipt of official documentation, and a temporary teaching workload adjustment through the deployment of guest faculty. These provisions ensure that the faculty member can focus on research without compromising the institution's academic schedule, thereby reinforcing the ecosystem of continuous learning and skill enhancement.\n\nWhile the present documentation references a single faculty member, it underscores the institutional mechanisms that facilitate professional development. The policy's explicit reference to \"higher qualification upgradation\" and the operationalization of sabbatical leave illustrate MES's strategic approach to augmenting faculty expertise, which is a critical component of the NAAC metric 6.3.4. By institutionalising financial fellowship, fee reimbursement, and workload management, MES creates an enabling environment that encourages faculty to engage in scholarly pursuits, ultimately contributing to the overall quality of teaching and research. Continued systematic recording of such engagements across all departments will enable the calculation of the average percentage of teachers participating in professional development programmes in future reporting cycles.",
+          "key_initiatives": [
+            "MES Faculty Higher Qualification Upgradation Policy",
+            "Sabbatical Study Leave Programme for Doctoral Research"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- DATE: 10TH AUGUST 2023",
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- FACULTY HIGHER QUALIFICATION STUDY LEAVE"
+          ]
+        },
+        {
           "id": "6.4.1",
           "title": "Institution conducts financial audits",
           "description": "The institution conducts internal and external financial audits regularly. Detail internal auditors (CA Susanna & Co.), external auditors (Mr. Y.S. Muzumdar & Co.), Tally ERP accounts, and zero audit objection record.",
@@ -2028,6 +2116,16 @@
           "data_available": false,
           "supporting_documents": [],
           "tables": []
+        },
+        {
+          "id": "6.4.2",
+          "title": "Funds / Grants received from non-government bodies, individuals, Philanthropists",
+          "description": "Total Grants received from non-government bodies, individuals, philanthropists year-wise during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": []
         },
         {
           "id": "6.5.1",

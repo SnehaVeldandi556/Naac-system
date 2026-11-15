@@ -1,8 +1,18 @@
 import json
 import os
+import sys
 from typing import Dict, Any, List
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 import database
 import llm
+import tables as table_utils
 from schemas import QualitativeExtractionSchema
 
 def run_generation_pipeline(structure_file: str = "ssr_structure.json", chunk_limit: int = 3) -> Dict[str, Any]:
@@ -35,14 +45,34 @@ def run_generation_pipeline(structure_file: str = "ssr_structure.json", chunk_li
     total_metrics_count = 0
     successful_extractions_count = 0
     
-    print("=" * 60)
-    print(f"Starting NAAC Qualitative Ingestion Loop for {compiled_results['institution_name']}")
-    print("=" * 60)
+    print("=" * 60, flush=True)
+    print(f"Starting NAAC Qualitative Ingestion Loop for {compiled_results['institution_name']}", flush=True)
+    print("=" * 60, flush=True)
+
+    # Pre-warm Supabase document chunks cache once
+    print("Pre-fetching document chunks from database...", flush=True)
+    database.get_cached_supabase_chunks()
+
+    # Collect all metric items and generate search queries
+    all_metric_items = []
+    all_queries = []
+    for criterion in structure.get("criteria", []):
+        for metric in criterion.get("metrics", []):
+            all_metric_items.append(metric)
+            q = llm.generate_search_query(metric["id"], metric["title"], metric.get("description", ""))
+            all_queries.append(q)
+
+    # Batch embed queries for 100x retrieval acceleration
+    print(f"Pre-embedding {len(all_queries)} queries in batch...", flush=True)
+    import embeddings
+    query_embeddings = embeddings.batch_get_embeddings(all_queries)
+    query_emb_map = {m["id"]: emb for m, emb in zip(all_metric_items, query_embeddings)}
+    query_text_map = {m["id"]: q for m, q in zip(all_metric_items, all_queries)}
     
     for criterion in structure.get("criteria", []):
         crit_id = criterion["id"]
         crit_title = criterion["title"]
-        print(f"\nProcessing {crit_title}...")
+        print(f"\nProcessing {crit_title}...", flush=True)
         
         criterion_entry = {
             "id": crit_id,
@@ -58,25 +88,51 @@ def run_generation_pipeline(structure_file: str = "ssr_structure.json", chunk_li
             metric_weight = metric.get("weight", 10)
             
             total_metrics_count += 1
-            print(f"  - Metric {metric_id}: {metric_title} (Weight: {metric_weight})")
+            print(f"  - Metric {metric_id}: {metric_title} (Weight: {metric_weight})", flush=True)
             
-            # Step 1: Generate search keywords from heading + description
-            search_query = llm.generate_search_query(metric_id, metric_title, metric_description)
-            print(f"    Search Query: \"{search_query}\"")
+            # Step 1: Lookup precomputed search keywords
+            search_query = query_text_map.get(metric_id, f"{metric_title} keywords")
+            metric_emb = query_emb_map.get(metric_id)
+            print(f"    Search Query: \"{search_query}\"", flush=True)
             
-            # Step 2: Retrieve Top-K document chunks (Supabase or local mock vector fallback)
-            # K=3 limit is maintained for cost/context optimization to prevent noise.
-            context_chunks = database.retrieve_relevant_chunks(search_query, limit=chunk_limit)
-            print(f"    Retrieved {len(context_chunks)} chunks for context.")
+            # Step 2: Retrieve Top-K document chunks using cached vectors and criteria routing
+            context_chunks = database.retrieve_relevant_chunks(search_query, limit=chunk_limit, query_emb=metric_emb, metric_id=metric_id)
+            print(f"    Retrieved {len(context_chunks)} chunks for context.", flush=True)
             
-            # Step 3 & 4: Call Qwen via Groq API and validate output using Pydantic
-            extraction: QualitativeExtractionSchema = llm.extract_qualitative_content(
-                metric_id=metric_id,
-                title=metric_title,
-                description=metric_description,
-                context_chunks=context_chunks
-            )
+            # Step 3 & 4: Call Qwen via Groq API ONLY if chunks contain real metric evidence
+            # Check for direct target keyword hits, high vector similarity, or extracted tables
+            chunk_tables = table_utils.extract_tables_from_context_chunks(context_chunks, metric_id=metric_id)
+            has_evidence = bool(chunk_tables)
+            if not has_evidence:
+                for c in context_chunks:
+                    if c.get("matched_targets", 0) > 0 or c.get("similarity", 0) >= 0.42 or c.get("score", 0) >= 15.0:
+                        has_evidence = True
+                        break
+
+            if not context_chunks or not has_evidence:
+                extraction = QualitativeExtractionSchema(
+                    metric_id=metric_id,
+                    narrative_draft="Data not available",
+                    key_initiatives=[],
+                    data_available=False,
+                    supporting_documents=[]
+                )
+            else:
+                extraction: QualitativeExtractionSchema = llm.extract_qualitative_content(
+                    metric_id=metric_id,
+                    title=metric_title,
+                    description=metric_description,
+                    context_chunks=context_chunks
+                )
             
+            # Extract and combine tables from LLM and retrieved Excel context chunks
+            metric_tables = list(getattr(extraction, "tables", []))
+            for ct in chunk_tables:
+                if not any(et.get("title") == ct.get("title") for et in metric_tables):
+                    metric_tables.append(ct)
+
+            is_available = extraction.data_available or (len(metric_tables) > 0)
+
             # Record result
             metric_result = {
                 "id": metric_id,
@@ -85,30 +141,32 @@ def run_generation_pipeline(structure_file: str = "ssr_structure.json", chunk_li
                 "weight": metric_weight,
                 "narrative_draft": extraction.narrative_draft,
                 "key_initiatives": extraction.key_initiatives,
-                "data_available": extraction.data_available,
-                "supporting_documents": extraction.supporting_documents
+                "data_available": is_available,
+                "supporting_documents": extraction.supporting_documents,
+                "tables": metric_tables
             }
             
             criterion_entry["metrics"].append(metric_result)
             
             # Track statistics & missing sections
-            if extraction.data_available:
+            if is_available:
                 successful_extractions_count += 1
-                print("    Status: Extraction Successful.")
+                table_note = f" (Includes {len(metric_tables)} Tabular/Excel dataset(s))" if metric_tables else ""
+                print(f"    Status: Extraction Successful.{table_note}", flush=True)
             else:
                 missing_metrics.append({
                     "id": metric_id,
                     "title": metric_title,
                     "reason": "Context did not cover this sub-criterion"
                 })
-                print("    Status: No Data Available (Marked for Manual Review).")
+                print("    Status: No Data Available (Marked for Manual Review).", flush=True)
                 
         compiled_results["criteria"].append(criterion_entry)
         
     # Write output compiled data in the same directory as script
     compiled_data_path = os.path.join(script_dir, "compiled_ssr_data.json")
-    with open(compiled_data_path, "w") as f:
-        json.dump(compiled_results, f, indent=2)
+    with open(compiled_data_path, "w", encoding="utf-8") as f:
+        json.dump(compiled_results, f, indent=2, ensure_ascii=False)
         
     # Write audit log of missing metrics
     audit_report = {
@@ -119,8 +177,8 @@ def run_generation_pipeline(structure_file: str = "ssr_structure.json", chunk_li
         "missing_list": missing_metrics
     }
     missing_report_path = os.path.join(script_dir, "missing_data_report.json")
-    with open(missing_report_path, "w") as f:
-        json.dump(audit_report, f, indent=2)
+    with open(missing_report_path, "w", encoding="utf-8") as f:
+        json.dump(audit_report, f, indent=2, ensure_ascii=False)
         
     print("\n" + "=" * 60)
     print("Generation Pipeline Completed!")

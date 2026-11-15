@@ -15,43 +15,26 @@ def get_groq_client() -> OpenAI:
 
 def generate_search_query(metric_id: str, title: str, description: str) -> str:
     """
-    Asks Qwen to generate an optimized vector search query.
-    If Groq is offline or not configured, falls back to joining title + description key terms.
+    Extracts high-impact domain keywords from metric heading and description.
+    Fast, deterministic, and avoids burning LLM rate-limit quota on search queries.
     """
-    if not config.is_groq_configured():
-        # Fallback keyword/phrase generation
-        words = f"{title} {description}"
-        # Keep only unique alphanumeric words of length > 3
-        unique_words = []
-        for w in words.split():
-            clean = "".join(filter(str.isalnum, w)).lower()
-            if len(clean) > 3 and clean not in unique_words:
-                unique_words.append(clean)
-        return " ".join(unique_words[:10])
-
-    try:
-        client = get_groq_client()
-        prompt = f"""You are a search query optimizer. Given a NAAC metric heading and description, output a single line containing 4 to 8 keywords or search phrases separated by spaces that are optimal for finding relevant documents using vector search. 
-DO NOT output introductory text, markdown formatting, or numbering.
-
-Metric {metric_id}: {title}
-Description: {description}
-
-Search Keywords:"""
-        
-        response = client.chat.completions.create(
-            messages=[
-                {"role": "user", "content": prompt}
-            ],
-            model=config.GROQ_MODEL,
-            max_tokens=50,
-            temperature=0.1
-        )
-        query = response.choices[0].message.content.strip().strip('"').strip("'")
-        return query
-    except Exception as e:
-        print(f"Error generating query via LLM: {e}. Using title keywords.")
-        return f"{title} keywords"
+    stop_words = {
+        'the', 'and', 'for', 'that', 'this', 'with', 'from', 'have', 'been',
+        'were', 'will', 'are', 'institution', 'institutions', 'ensures',
+        'effective', 'through', 'including', 'such', 'other', 'into',
+        'which', 'their', 'during', 'last', 'five', 'years', 'per', 'any',
+        'across', 'various', 'conduct', 'level', 'program', 'programs'
+    }
+    words = []
+    # Prioritize metric title words, then description
+    for part in [title, description]:
+        for w in part.split():
+            clean = ''.join(c for c in w.lower() if c.isalnum())
+            if len(clean) > 2 and clean not in stop_words and clean not in words:
+                words.append(clean)
+    
+    query = ' '.join(words[:12])
+    return query if query else f"{title} keywords"
 
 def simulate_llm_extraction(metric_id: str, context: List[Dict[str, Any]]) -> QualitativeExtractionSchema:
     """Generates realistic mock extraction data for testing when Groq is not configured."""
@@ -126,57 +109,10 @@ def extract_qualitative_content(metric_id: str, title: str, description: str, co
     """
     if not config.is_groq_configured():
         return simulate_llm_extraction(metric_id, context_chunks)
-        
-    context_text = "\n\n".join([
-        f"[Source Doc: Page {c.get('page_no', 'N/A')}, Section: {c.get('section_heading', 'N/A')}]\n{c.get('chunk_text', '')}"
-        for c in context_chunks
-    ])
-    
-    schema_json = json.dumps(QualitativeExtractionSchema.model_json_schema(), indent=2)
-    
-    system_prompt = f"""You are an expert NAAC accreditation reporting assistant. Your task is to extract information and write a formal qualitative response for a self-study report.
 
-You will be given context text retrieved from the college's uploaded documents. You must write a descriptive narrative response of 300 to 500 words for the metric, extract a list of key initiatives, and identify supporting documents mentioned.
-
-CRITICAL ANTI-HALLUCINATION RULES:
-1. You MUST ONLY use facts directly present in the context.
-2. DO NOT make up policies, names, dates, or numbers.
-3. If the context does not contain relevant information for this metric, you MUST output 'Data not available' for the narrative_draft and set 'data_available' to false. This is a normal, valid response.
-4. Output your response as a valid JSON object matching the JSON Schema below:
-
-{schema_json}
-"""
-
-    user_prompt = f"""NAAC Metric ID: {metric_id}
-Metric Title: {title}
-Metric Description: {description}
-
----
-CONTEXT FROM UPLOADED DOCUMENTS:
-{context_text if context_text.strip() else 'No documents or context chunks retrieved for this metric.'}
----
-
-Generate the JSON response:"""
-
-    try:
-        client = get_groq_client()
-        response = client.chat.completions.create(
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            model=config.GROQ_MODEL,
-            response_format={"type": "json_object"},
-            temperature=0.1
-        )
-        response_content = response.choices[0].message.content
-        
-        extracted_data = QualitativeExtractionSchema.model_validate_json(response_content)
-        return extracted_data
-        
-    except Exception as e:
-        print(f"Extraction or validation failed for metric {metric_id}: {e}")
-        print("Falling back to a clean 'Data not available' response for safety.")
+    # Filter chunks that actually contain meaningful text
+    valid_chunks = [c for c in context_chunks if c.get("chunk_text", "").strip()]
+    if not valid_chunks:
         return QualitativeExtractionSchema(
             metric_id=metric_id,
             narrative_draft="Data not available",
@@ -184,3 +120,180 @@ Generate the JSON response:"""
             data_available=False,
             supporting_documents=[]
         )
+
+    context_text = "\n\n".join([
+        f"[Source Doc: Page {c.get('page_no', 'N/A')}, Section: {c.get('section_heading', 'N/A')}]\n{c.get('chunk_text', '')}"
+        for c in valid_chunks
+    ])
+
+    system_prompt = """You are an expert NAAC accreditation reporting assistant. Your task is to extract information and write a formal qualitative response for a self-study report (SSR).
+
+CRITICAL ANTI-HALLUCINATION RULES:
+1. You MUST ONLY use facts directly present in the context.
+2. DO NOT make up policies, names, dates, or numbers.
+3. If the context contains ANY relevant institutional data, events, policies, statistics, or reports related to this metric, synthesize a formal, comprehensive qualitative narrative (300 to 500 words) using those facts, set data_available to true, and cite the supporting documents. Only output 'Data not available' and set data_available to false if the context has no relevant information for this metric.
+4. TABULAR & EXCEL DATA EXTRACTION: If the context contains tabular records, student registers, salary/CTC figures, recruiter lists, MoUs, or spreadsheet rows (often formatted with pipes '|' or columns), YOU MUST extract them into the "tables" array as structured objects with "title", "headers", and "rows". Do not flatten tabular figures solely into text paragraphs.
+5. Output your response as a valid JSON object matching this schema:
+{
+  "metric_id": "<metric id string>",
+  "narrative_draft": "<300 to 500 words descriptive narrative or 'Data not available'>",
+  "key_initiatives": ["<initiative 1>", "<initiative 2>"],
+  "data_available": true or false,
+  "supporting_documents": ["<doc 1>", "<doc 2>"],
+  "tables": [
+    {
+      "title": "<Table Title e.g. TPO Campus Recruitment Master Register 2023-24>",
+      "headers": ["<Column 1>", "<Column 2>", "<Column 3>"],
+      "rows": [
+        ["<Cell 1>", "<Cell 2>", "<Cell 3>"],
+        ["<Cell 1>", "<Cell 2>", "<Cell 3>"]
+      ]
+    }
+  ]
+}
+Output pure JSON object only."""
+
+    user_prompt = f"""NAAC Metric ID: {metric_id}
+Metric Title: {title}
+Metric Description: {description}
+
+---
+CONTEXT FROM UPLOADED DOCUMENTS:
+{context_text}
+---
+
+Generate the JSON response:"""
+
+    import time
+    import re
+    client = get_groq_client()
+    def clean_str(s: str) -> str:
+        if not isinstance(s, str):
+            return ""
+        replacements = {
+            '\u2011': '-', '\u2012': '-', '\u2013': '-', '\u2014': '-',
+            '\u2018': "'", '\u2019': "'", '\u201a': "'", '\u201b': "'",
+            '\u201c': '"', '\u201d': '"', '\u201e': '"', '\ufffd': ''
+        }
+        for k, v in replacements.items():
+            s = s.replace(k, v)
+        return s.strip()
+
+    call_params = {
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ],
+        "model": "qwen/qwen3.8-27b",
+        "temperature": 0.1,
+        "max_tokens": 800,
+        "timeout": 25
+    }
+
+    max_attempts = 2
+    for attempt in range(max_attempts):
+        try:
+            response = client.chat.completions.create(**call_params)
+            response_content = (response.choices[0].message.content or "").strip()
+
+            if not response_content:
+                print(f"Empty response on metric {metric_id} (attempt {attempt+1}/{max_attempts}). Retrying...", flush=True)
+                time.sleep(2.0)
+                continue
+
+            # Clean markdown code fences if present
+            clean = response_content
+            if clean.startswith("```json"):
+                clean = clean[7:]
+            if clean.startswith("```"):
+                clean = clean[3:]
+            if clean.endswith("```"):
+                clean = clean[:-3]
+            clean = clean.strip()
+
+            # Slice JSON object from first { to last }
+            s_idx = clean.find('{')
+            e_idx = clean.rfind('}')
+            if s_idx != -1 and e_idx != -1:
+                clean = clean[s_idx:e_idx+1]
+
+            try:
+                parsed = json.loads(clean)
+            except Exception:
+                # Fallback regex extraction of fields
+                parsed = {}
+                draft_match = re.search(r'"narrative_draft"\s*:\s*"([^"]+)"', response_content, re.DOTALL)
+                if draft_match:
+                    parsed["narrative_draft"] = draft_match.group(1)
+                init_match = re.search(r'"key_initiatives"\s*:\s*\[(.*?)\]', response_content, re.DOTALL)
+                if init_match:
+                    parsed["key_initiatives"] = [x.strip(' "\'\n\r') for x in init_match.group(1).split(",") if x.strip()]
+                avail_match = re.search(r'"data_available"\s*:\s*(true|false)', response_content, re.IGNORECASE)
+                if avail_match:
+                    parsed["data_available"] = (avail_match.group(1).lower() == "true")
+
+            narrative_draft = clean_str(str(parsed.get("narrative_draft", "Data not available")).strip())
+            raw_avail = parsed.get("data_available")
+            if isinstance(raw_avail, bool):
+                data_available = raw_avail
+            elif isinstance(raw_avail, (list, dict)):
+                data_available = bool(raw_avail)
+            else:
+                data_available = (narrative_draft.lower() != "data not available" and len(narrative_draft) > 50)
+
+            key_initiatives = parsed.get("key_initiatives", [])
+            if not isinstance(key_initiatives, list):
+                key_initiatives = [str(key_initiatives)] if key_initiatives else []
+            supporting_documents = parsed.get("supporting_documents", [])
+            if not isinstance(supporting_documents, list):
+                supporting_documents = [str(supporting_documents)] if supporting_documents else []
+
+            raw_tables = parsed.get("tables", [])
+            extracted_tables = []
+            if isinstance(raw_tables, list):
+                for tbl in raw_tables:
+                    if isinstance(tbl, dict) and tbl.get("headers") and tbl.get("rows"):
+                        extracted_tables.append({
+                            "title": clean_str(str(tbl.get("title", "Mapped Quantitative / Excel Data"))),
+                            "headers": [clean_str(str(h)) for h in tbl.get("headers", [])],
+                            "rows": [[clean_str(str(c)) for c in row] for row in tbl.get("rows", []) if isinstance(row, list)]
+                        })
+
+            # Gentle pacing between calls to stay well within Groq 30 RPM limit
+            time.sleep(1.5)
+            return QualitativeExtractionSchema(
+                metric_id=str(parsed.get("metric_id", metric_id)),
+                narrative_draft=narrative_draft,
+                key_initiatives=[clean_str(str(x)) for x in key_initiatives],
+                data_available=data_available,
+                supporting_documents=[clean_str(str(x)) for x in supporting_documents],
+                tables=extracted_tables
+            )
+        except Exception as e:
+            err_str = str(e)
+            err_lower = err_str.lower()
+            if "429" in err_lower or "rate" in err_lower or "limit" in err_lower:
+                wait_sec = 4.0
+                match = re.search(r"try again in ([\d\.]+)s", err_str, re.IGNORECASE)
+                if match:
+                    try:
+                        wait_sec = min(float(match.group(1)) + 0.5, 8.0)
+                    except Exception:
+                        pass
+                print(f"Rate limit for qwen/qwen3.8-27b on metric {metric_id} (attempt {attempt+1}/{max_attempts}). Backing off for {round(wait_sec, 1)}s...", flush=True)
+                time.sleep(wait_sec)
+                continue
+            else:
+                print(f"Issue on metric {metric_id}: {type(e).__name__} - {e}. Attempt {attempt+1}/{max_attempts}...", flush=True)
+                time.sleep(1.5)
+                if attempt == max_attempts - 1:
+                    break
+
+    print(f"Clean fallback for metric {metric_id} (Data not available).", flush=True)
+    return QualitativeExtractionSchema(
+        metric_id=metric_id,
+        narrative_draft="Data not available",
+        key_initiatives=[],
+        data_available=False,
+        supporting_documents=[]
+    )

@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python
+__pycache__/
+*.pyc
+
+# scratch
+scratch/
+temp_tpo.xlsx
+generation/content_out.txt

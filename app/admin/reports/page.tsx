@@ -113,12 +113,20 @@ export default function AdminReportsPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
             >
-              <span>📄</span> View Rendered Report (HTML)
+              <span>📄</span> View Report (HTML)
+            </a>
+            <a
+              href="/ssr_report.html?download=pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-xs"
+            >
+              <span>📥</span> Download SSR (PDF)
             </a>
             <button
               onClick={handleRunPipeline}
               disabled={generating}
-              className="rounded-lg bg-slate-900 px-4 py-2 text-xs font-medium text-white hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-sm"
+              className="rounded-lg bg-slate-900 px-4 py-2 text-xs font-medium text-white hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-sm cursor-pointer"
             >
               {generating ? "Running Mapping Pipeline..." : "Generate / Update SSR Report"}
             </button>

@@ -243,6 +243,97 @@
             text-decoration: underline;
         }
 
+        /* Mapped Excel & Tabular Data Styling */
+        .excel-data-section {
+            margin: 24px 0 28px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .excel-data-card {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .excel-card-header {
+            background: linear-gradient(135deg, hsl(218, 54%, 18%), hsl(218, 54%, 26%));
+            color: #ffffff;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .excel-card-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .excel-badge {
+            background-color: #10b981;
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .excel-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+        .excel-row-count {
+            background-color: rgba(255, 255, 255, 0.15);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #e2e8f0;
+            white-space: nowrap;
+        }
+        .excel-table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .excel-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+        .excel-table thead th {
+            background-color: #f1f5f9;
+            color: hsl(218, 54%, 20%);
+            font-weight: 600;
+            padding: 10px 14px;
+            border-bottom: 2px solid #cbd5e1;
+            white-space: nowrap;
+        }
+        .excel-table tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background-color 0.15s ease;
+        }
+        .excel-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .excel-table tbody tr:hover {
+            background-color: #f0fdf4;
+        }
+        .excel-table tbody td {
+            padding: 9px 14px;
+            color: #334155;
+            vertical-align: middle;
+        }
+        .excel-table tbody td:first-child {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
         /* Alerts for missing data */
         .alert-missing {
             background-color: var(--alert-warning);
@@ -266,42 +357,180 @@
             line-height: 1.4;
         }
 
+        /* Floating Action Bar */
+        .report-action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 12px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .report-action-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .report-action-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .report-badge {
+            background-color: #2563eb;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .report-title-nav {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+        .report-action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-print-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #ffffff;
+            color: #0f172a;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-print-pdf:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-1px);
+        }
+        .btn-back-dashboard {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 7px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.15s ease;
+        }
+        .btn-back-dashboard:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+        .doc-view-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            transition: all 0.15s ease;
+        }
+        .doc-view-btn:hover {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
         /* Print styling rules */
         @media print {
+            .report-action-bar {
+                display: none !important;
+            }
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
             body {
-                background-color: white;
-                color: black;
-                font-size: 11pt;
+                background-color: white !important;
+                color: black !important;
+                font-size: 10pt;
             }
             .container {
-                max-width: 100%;
-                padding: 0;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
-            .cover-page, .summary-box, .metric-block {
-                box-shadow: none;
-                border: 1px solid #ccc;
+            .cover-page, .summary-box, .metric-block, .excel-data-card {
+                box-shadow: none !important;
+                border: 1px solid #d1d5db !important;
                 page-break-inside: avoid;
+                break-inside: avoid;
             }
             .cover-page {
-                height: 95vh;
+                height: 90vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                border: none;
+                border: none !important;
             }
             .page-break {
                 page-break-before: always;
+                break-before: page;
             }
             .alert-missing {
-                border: 1px solid #aaa;
-                background-color: #fafafa;
-                color: #333;
+                border: 1px solid #aaa !important;
+                background-color: #fafafa !important;
+                color: #333 !important;
                 page-break-inside: avoid;
+            }
+            .excel-table-scroll {
+                overflow: visible !important;
+            }
+            .excel-table tr {
+                page-break-inside: avoid;
+                break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
+
+<div class="report-action-bar">
+    <div class="report-action-content">
+        <div class="report-action-brand">
+            <span class="report-badge">NAAC SSR REPORT</span>
+            <span class="report-title-nav">{{ institution_name }}</span>
+        </div>
+        <div class="report-action-buttons">
+            <button onclick="window.print()" class="btn-print-pdf">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                Download / Print as PDF
+            </button>
+            <a href="/admin/reports" class="btn-back-dashboard">
+                ← Admin Dashboard
+            </a>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     
@@ -359,6 +588,42 @@
                     {{ metric.narrative_draft }}
                 </div>
                 
+                {% if metric.tables and metric.tables|length > 0 %}
+                <div class="excel-data-section">
+                    {% for tbl in metric.tables %}
+                    <div class="excel-data-card">
+                        <div class="excel-card-header">
+                            <div class="excel-card-title-group">
+                                <span class="excel-badge">EXCEL DATA</span>
+                                <span class="excel-card-title">{{ tbl.title or 'Institutional Quantitative / Excel Records' }}</span>
+                            </div>
+                            <span class="excel-row-count">{{ tbl.rows|length }} Records Mapped</span>
+                        </div>
+                        <div class="excel-table-scroll">
+                            <table class="excel-table">
+                                <thead>
+                                    <tr>
+                                        {% for h in tbl.headers %}
+                                        <th>{{ h }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in tbl.rows %}
+                                    <tr>
+                                        {% for cell in row %}
+                                        <td>{{ cell }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
                 {% if metric.key_initiatives %}
                 <div class="initiatives-title">Key Policies & Initiatives</div>
                 <ul class="initiatives-list">
@@ -381,7 +646,7 @@
                         {% for doc in metric.supporting_documents %}
                         <tr>
                             <td>{{ doc }}</td>
-                            <td><a href="#" onclick="alert('Teammate\'s document storage integration point.'); return false;">View Document Reference</a></td>
+                            <td><a href="/api/view-document?name={{ doc | urlencode }}&metric={{ metric.id }}" target="_blank" rel="noopener noreferrer" class="doc-view-btn">📄 View Document ↗</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -403,6 +668,17 @@
     {% endfor %}
 
 </div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('download') === 'pdf' || urlParams.get('action') === 'print') {
+            setTimeout(() => {
+                window.print();
+            }, 600);
+        }
+    });
+</script>
 
 </body>
 </html>

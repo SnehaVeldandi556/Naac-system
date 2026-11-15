@@ -112,8 +112,8 @@ export async function POST(req: NextRequest) {
 
     const documentId = inserted.id as string;
 
-    // 3. Run the extraction pipeline: processRawDocument -> processDocument
-    await processRawDocument(documentId);
+    // 3. Run the extraction pipeline: processRawDocument (using in-memory fileBuffer) -> processDocument
+    await processRawDocument(documentId, fileBuffer);
     await processDocument(documentId);
 
     // 4. Fetch results for display

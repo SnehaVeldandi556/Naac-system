@@ -99,13 +99,15 @@ export async function POST(req: Request) {
       const filteredItem = filteredRows[i];
       const originalIndex = filteredItem.originalIndex;
 
+      const rowData = validatedRow as Record<string, any>;
+      const keys = Object.keys(rowData);
       dataInsert.push({
         raw_submission_id: rawIdByRow.get(originalIndex),
-        student_id: validatedRow.student_id,
-        student_name: validatedRow.student_name,
-        department: validatedRow.department,
-        academic_year: validatedRow.academic_year,
-        cgpa: validatedRow.cgpa,
+        student_id: rowData.student_id ?? rowData[keys[0]] ?? 'N/A',
+        student_name: rowData.student_name ?? rowData[keys[1]] ?? rowData[keys[0]] ?? 'N/A',
+        department: rowData.department ?? 'General',
+        academic_year: rowData.academic_year ?? '2024-25',
+        cgpa: rowData.cgpa ? (isNaN(Number(rowData.cgpa)) ? null : Number(rowData.cgpa)) : null,
         is_valid: true,
         validation_errors: null,
       });

@@ -1,12 +1,10 @@
 // lib/naac/detectHeaderRow.ts
 import { RawSheet } from './parseFile';
-import { CANONICAL_FIELDS } from './columnMap';
-
-const ALL_KNOWN_HEADERS = CANONICAL_FIELDS.flatMap(f => f.aliases);
+import { KNOWN_HEADER_KEYWORDS } from './columnMap';
 
 /**
  * Scores each of the first N rows by how many cells match a known
- * NAAC column alias (case-insensitive, trimmed). Picks the best match.
+ * column alias (case-insensitive, trimmed). Picks the best match.
  * Falls back to row 0 if nothing scores.
  */
 export function detectHeaderRow(rows: RawSheet, scanLimit = 10): number {
@@ -19,7 +17,7 @@ export function detectHeaderRow(rows: RawSheet, scanLimit = 10): number {
     if (nonEmpty < 2) continue; // title rows / blank rows
 
     const score = row.filter(cell =>
-      ALL_KNOWN_HEADERS.some(alias => alias.toLowerCase() === cell)
+      KNOWN_HEADER_KEYWORDS.some(keyword => keyword === cell || cell.includes(keyword))
     ).length;
 
     if (score > bestScore) {

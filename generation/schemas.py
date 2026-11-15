@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Dict, Any
 
 class QualitativeExtractionSchema(BaseModel):
     metric_id: str = Field(description="The NAAC Metric ID (e.g. '1.1.1', '1.3.1')")
@@ -22,4 +22,9 @@ class QualitativeExtractionSchema(BaseModel):
     supporting_documents: List[str] = Field(
         default_factory=list,
         description="A list of specific document titles or evidence files referenced in the text (e.g., 'Academic Calendar 2019-20', 'Nature Club Minutes', 'Remedial Class Attendance Register')."
+    )
+
+    tables: List[Dict[str, Any]] = Field(
+        default_factory=list,
+        description="Structured tabular/Excel data (e.g. placement registers, quantitative figures, lists of records) with keys: title, headers, rows."
     )

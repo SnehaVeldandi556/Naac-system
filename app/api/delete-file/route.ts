@@ -1,4 +1,4 @@
-// POST /api/delete-file { file_id } — HOD (own dept) or admin only.
+// POST /api/delete-file { file_id } — HOD (own dept), faculty (own uploads) or admin.
 // Soft delete: keeps the row for audit purposes, removes it from the storage
 // bucket, and stamps who removed it and when.
 import { NextResponse, type NextRequest } from "next/server";
@@ -20,18 +20,31 @@ export async function POST(req: NextRequest) {
 
   if (!profile) return NextResponse.json({ error: "Profile not found" }, { status: 404 });
 
-  if (!["hod", "admin"].includes(profile.role)) {
+  if (!["faculty", "hod", "admin"].includes(profile.role)) {
     return NextResponse.json({ error: "Not authorized" }, { status: 403 });
   }
 
   const { data: file } = await supabase.from("files").select("*").eq("id", file_id).single();
   if (!file) return NextResponse.json({ error: "File not found" }, { status: 404 });
 
-  if (profile.role === "hod" && file.department_id !== profile.department_id) {
-    return NextResponse.json({ error: "Not authorized for this department" }, { status: 403 });
+  if (profile.role === "faculty") {
+    if (file.uploaded_by !== profile.id) {
+      return NextResponse.json({ error: "Faculty can only delete files uploaded by them." }, { status: 403 });
+    }
+  } else if (profile.role === "hod") {
+    if (file.department_id !== profile.department_id) {
+      return NextResponse.json({ error: "Not authorized for this department" }, { status: 403 });
+    }
   }
 
-  await supabase.storage.from("naac-project").remove([file.storage_path]);
+  if (file.storage_path) {
+    try {
+      await supabase.storage.from("naac-project").remove([file.storage_path]);
+    } catch (e) {
+      console.warn("Storage removal warning:", e);
+    }
+  }
+
   await supabase
     .from("files")
     .update({ deleted_at: new Date().toISOString(), deleted_by: profile.id })

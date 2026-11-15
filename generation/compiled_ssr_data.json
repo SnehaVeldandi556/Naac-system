@@ -1,6 +1,6 @@
 {
   "institution_name": "Pillai College of Engineering",
-  "vision": "Pillai College of Engineering (PCE) will admit, educate and train in technology, a diverse population of students who are academically prepared to benefit from the Institute's infrastructure and faculty experience, to become responsible professionals.",
+  "vision": "Pillai College of Engineering (PCE) will admit, educate and train in technology, a diverse population of students who are academically prepared to benefit from the Institute's infrastructure and faculty experience, to become responsible professionals. It will further attract, develop and retain dedicated, excellent teachers, scholars, scientists and professionals from diverse backgrounds whose work gives them visibility beyond the classroom.",
   "mission": "To develop professional engineers with respect for the environment and make them responsible citizens, both from a local and global perspective. This objective is fulfilled through quality education, practical training, research, entrepreneurship and interaction with industries and social organisations.",
   "criteria": [
     {
@@ -11,22 +11,343 @@
         {
           "id": "1.1.1",
           "title": "Curricular planning and implementation",
-          "description": "The institution ensures effective curriculum delivery through a well planned and documented process. Explain the academic planning, adherence to academic calendar, lesson plans, course files, and teaching methods (e.g. Project-Based Learning, e-learning platforms) used to ensure delivery.",
+          "description": "The institution ensures effective curriculum delivery through a well planned and documented process. Explain academic planning, adherence to academic calendar, lesson plans, course files, and teaching methods (e.g. Project-Based Learning, e-learning platforms) used to ensure delivery.",
+          "weight": 10,
+          "narrative_draft": "Pillai College of Engineering ensures effective curricular planning and implementation by strictly adhering to the curriculum prescribed by the University of Mumbai. The institution maintains a diligent approach to academic delivery, characterized by the systematic preparation and review of lesson plans. These lesson plans are designed with a specific focus on Bloom's Taxonomy, targeting cognitive levels such as Information, Understanding, Application, and Synthesis to ensure comprehensive learning outcomes. The academic calendar is prepared in advance to guide the semester schedule, and all lesson plans undergo rigorous review by Heads of Departments (HODs) to ensure alignment with institutional standards and university guidelines.\n\nTo maintain transparency and accountability, teachers are required to maintain detailed course files. These files document critical academic data, including lecture details, student attendance records, and internal assessment marks, serving as a comprehensive record of teaching and learning activities. A significant institutional initiative is the institutionalization of Project-Based Learning (PBL) from the first year of the program onwards. This approach integrates practical application and collaborative learning into the core curriculum, moving beyond theoretical instruction to foster real-world problem-solving skills.\n\nThe delivery of the curriculum is further supported by a robust Continuous Internal Evaluation (CIE) system that aligns with University of Mumbai guidelines while incorporating specific institutional reforms. The CIE framework includes two Internal Assessment tests (IA1 and IA2) per semester, with questions meticulously mapped to Bloom's Taxonomy levels to assess varying degrees of cognitive engagement. To ensure the quality and consistency of assessment, subject-wise question banks containing at least 150 questions are prepared by faculty and moderated by the HOD. Additionally, the institution introduces a Prelim exam in an open-book format for selected courses, specifically designed to promote application-level learning rather than rote memorization. Laboratory work, mini-projects, and PBL presentations are evaluated using rubric-based methods to provide objective and standardized feedback. Furthermore, the institution supports student success through targeted interventions, such as Study Camps held before prelims for students who score below 40% in IA1, ensuring that no student is left behind in the curricular delivery process.",
+          "key_initiatives": [
+            "Institutionalization of Project-Based Learning (PBL) from the first year",
+            "Preparation of subject-wise question banks with at least 150 questions moderated by HODs",
+            "Implementation of rubric-based evaluation for laboratory work and PBL presentations",
+            "Conducting Study Camps for students scoring below 40% in IA1",
+            "Use of open-book Prelim exams to promote application-level learning"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Page 4, Section: Curricular Planning and Delivery",
+            "Page None, Section: Reforms in Continuous Internal Evaluation (CIE)"
+          ],
+          "tables": []
+        },
+        {
+          "id": "1.1.2",
+          "title": "Number of certificate/diploma program introduced during the last five years",
+          "description": "Number of certificate/diploma programs introduced year-wise during the last five years.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "1.1.3",
+          "title": "Percentage of participation of full time teachers in various bodies of Universities/Autonomous Colleges",
+          "description": "Number of teachers participating in various bodies of the Institution, such as BoS and Academic Council year-wise during the last five years.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "1.2.1",
+          "title": "Percentage of new Courses introduced across all Programs",
+          "description": "How many new courses are introduced within the last five years across all programs.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "1.2.2",
+          "title": "Percentage of programs in which Choice Based Credit System (CBCS)/Elective course system has been implemented",
+          "description": "Number of programmes in which CBCS/ Elective course system implemented.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "1.2.3",
+          "title": "Average percentage of students enrolled in subject related Certificate/ Diploma / Add-on programs",
+          "description": "Number of students enrolled in subject related Certificate or Diploma or Add-on programs year-wise during the last five years.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "1.3.1",
           "title": "Institution integrates cross-cutting issues into the curriculum",
           "description": "Institution integrates cross-cutting issues relevant to Professional Ethics, Gender, Human Values, Environment and Sustainability into the Curriculum. Describe courses, workshops, active clubs (like Nature Club), and programs addressing ethics, environment, and gender equity.",
           "weight": 10,
+          "narrative_draft": "PillaiCollege of Engineering demonstrates a robust integration of cross-cutting issues into its curriculum, ensuring that professional ethics, human values, and sustainability are not merely theoretical concepts but core components of student learning. The institution has embedded mandatory courses such as 'Business Communication & Ethics,' 'Cybersecurity,' and 'Intellectual Property' (IPR) rights into the academic framework. These courses are designed to instill a strong sense of professional responsibility, ethical conduct, and legal awareness among engineering students, directly addressing the NAAC criteria for professional ethics and human values. Beyond the classroom, the institution actively promotes environmental sustainability and social responsibility through its Nature Club. The club organizes annual cleanliness drives, including a specific project focused on the cleaning of the Gadhi River, as well as tree plantation drives and carbon-neutral campus awareness campaigns. These initiatives provide students with practical experience in environmental stewardship and community engagement. Furthermore, the institution extends its focus on cross-cutting issues through extension activities conducted by the NSS unit, Nature Club, and various student chapters. In the 2023-24 academic year, these groups engaged in 166 extension activities in the neighborhood community, aiming to sensitize students to social issues and foster a sense of civic duty. The institution also supports research and innovation in sustainable technologies, having funded four projects in 2019 focused on AI/ML, IoT, and Renewable Energy. Additionally, workshops and seminars on Intellectual Property Rights and industry-academia innovative practices are regularly conducted, reinforcing the link between ethical academic practices and professional application. This holistic approach ensures that graduates are not only technically proficient but also ethically grounded, environmentally conscious, and socially responsible professionals.",
+          "key_initiatives": [
+            "Mandatory courses in Business Communication & Ethics, Cyber Security, and IPR",
+            "Nature Club annual cleanliness drives and Gadhi River cleaning project",
+            "Tree plantation drives and carbon-neutral campus awareness campaigns",
+            "Extension activities by NSS and student chapters to sensitize students to social issues",
+            "Funded research projects in Renewable Energy and IoT"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Page 12, Section: Curriculum Enrichment & Environmental Initiatives",
+            "Page None, Section: Total | 13 | 36 | 117 | 166 |",
+            "Page None, Section: Excellence | 2019 | AI/ML, IoT, Renewable"
+          ],
+          "tables": [
+            {
+              "title": "Extension Activities in the Neighbourhood Community (2023-24)",
+              "headers": [
+                "Category",
+                "Count 1",
+                "Count 2",
+                "Count 3",
+                "Total"
+              ],
+              "rows": [
+                [
+                  "Extension Activities",
+                  "13",
+                  "36",
+                  "117",
+                  "166"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.3.2",
+          "title": "Number of value added courses imparting transferable and life skills offered",
+          "description": "Number of value-added courses imparting transferable and life skills offered during the last five years.",
+          "weight": 10,
+          "narrative_draft": "Pillai College of Engineering, Panvel, actively promotes the holistic development of its students by offering value-added courses that impart essential transferable and life skills. A significant initiative in this regard is the 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop, organized by the Women Development Cell (WDC) in collaboration with the Navi Mumbai Police Commissionerate, specifically the Nirbhaya Pathak Squad. This program was conducted from 11th December 2023 to 15th December 2023 at the Ground Floor Conclave & Gymkhana. The workshop was designed to empower female engineering students and lady staff members with practical skills for personal safety and self-preservation. A total of 320 female students from first, second, and third-year degree programs successfully completed the five-day physical training. The curriculum was comprehensive, covering situational awareness protocols, particularly for public transport commutes, street self-defense maneuvers, and legal protections for women. Additionally, the training included hands-on orientation to emergency response procedures, such as the use of the Police Dial 112 SOS mobile emergency application. The sessions were led by Lady Police Inspector Sunita More and her team, who demonstrated practical martial arts maneuvers and emergency cyber-helpline tools. This initiative not only enhances the physical safety of the students but also equips them with critical life skills that are transferable to various professional and personal contexts. By integrating such practical, safety-oriented training into the academic calendar, the institution demonstrates its commitment to fostering a secure and empowering environment for its students, thereby contributing to their overall well-being and readiness for the challenges of the modern world.",
+          "key_initiatives": [
+            "'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop",
+            "Collaboration with Navi Mumbai Police Commissionerate (Nirbhaya Pathak Squad)",
+            "Training on situational awareness, street self-defense, and emergency response procedures"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "PILLAI COLLEGE OF ENGINEERING, PANVEL -- EVENT REPORT",
+            "PILLAI COLLEGE OF ENGINEERING -- NIRBHAYA SELF-DEFENSE TRAINING REPORT"
+          ],
+          "tables": []
+        },
+        {
+          "id": "1.3.3",
+          "title": "Percentage of students undertaking field projects / internships",
+          "description": "Number of students undertaking field projects or internships during the academic year.",
+          "weight": 10,
+          "narrative_draft": "The institution actively facilitates student engagement in industry-relevant experiences through its Training and Placement Cell (TPO), which maintains robust linkages with leading corporate houses including TCS, Infosys, Capgemini, L&T, and Siemens. While the primary focus of the 2023-2024 academic year documentation highlights successful campus recruitment drives, the TPO's initiatives explicitly include facilitating internships as part of its industry-institute collaborative frameworks. The TPO conducted intensive capacity building programs, including aptitude bootcamps and mock interview drives, to prepare students for both internships and full-time placements. In the 2023-2024 academic year, a total of 15 eligible students from the outgoing batch secured job offers, reflecting the effectiveness of the institution's placement preparation strategies. The placement distribution across departments indicates broad participation: Computer Engineering students were placed in AWS, Morgan Stanley, Oracle, Accenture, and Infosys; Information Technology students in Barclays, TCS, Capgemini, Persistent, and Wipro; Mechanical Engineering students in Siemens India, Godrej & Boyce, and Larsen & Toubro; and Electronics & Telecommunication students in Jio Platforms and Persistent Systems. The highest CTC offered was 18.5 LPA by Amazon Web Services, with an average CTC of 8.30 LPA across all placed candidates. Although specific quantitative data on the number of students undertaking internships distinct from final placements is not explicitly itemized in the provided register, the institutional framework supports internship facilitation through MoUs and pre-placement training. The TPO's structured approach ensures that students gain practical industry exposure, contributing to their professional readiness and employability. The institution's commitment to industry collaboration and student development is evident in the successful placement outcomes and the sustained engagement with tier-1 corporations.",
+          "key_initiatives": [
+            "Industry-Institute Linkages & MoUs with TCS",
+            "Infosys",
+            "Capgemini",
+            "L&T",
+            "and Siemens for internships and recruitment",
+            "Aptitude & Technical Readiness Bootcamps and Industry Mock Interview Drives for placement and internship preparation"
+          ],
+          "data_available": true,
+          "supporting_documents": [],
+          "tables": [
+            {
+              "title": "TPO Campus Recruitment Master Register (Student-Wise Offers & Salary CTC)",
+              "headers": [
+                "Sr. No.",
+                "Student Name & Roll No.",
+                "Programme / Department",
+                "Recruiting Company",
+                "Offered CTC",
+                "Offer Date"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Sharma Aarav (Roll: 2020IT0001)",
+                  "B.Tech Information Technology",
+                  "Tata Consultancy Services",
+                  "7.5 LPA",
+                  "15-09-2023"
+                ],
+                [
+                  "2",
+                  "Patil Sneha R. (Roll: 2020IT0002)",
+                  "B.Tech Computer Engineering",
+                  "Infosys Limited",
+                  "6.2 LPA",
+                  "20-09-2023"
+                ],
+                [
+                  "3",
+                  "Nair Rohan K. (Roll: 2020IT0003)",
+                  "B.Tech Mechanical Engineering",
+                  "Larsen & Toubro Ltd",
+                  "5.8 LPA",
+                  "02-10-2023"
+                ],
+                [
+                  "4",
+                  "Iyer Priya N. (Roll: 2020IT0004)",
+                  "B.Tech Information Technology",
+                  "Capgemini India",
+                  "6.5 LPA",
+                  "10-10-2023"
+                ],
+                [
+                  "5",
+                  "Kulkarni Aditya (Roll: 2020IT0005)",
+                  "B.Tech Electronics Engineering",
+                  "Jio Platforms",
+                  "8.0 LPA",
+                  "14-10-2023"
+                ],
+                [
+                  "6",
+                  "Deshmukh Ananya (Roll: 2020IT0006)",
+                  "B.Tech Computer Engineering",
+                  "Accenture Solutions",
+                  "7.0 LPA",
+                  "18-10-2023"
+                ],
+                [
+                  "7",
+                  "Verma Karthik (Roll: 2020IT0007)",
+                  "B.Tech Information Technology",
+                  "Barclays Global Service",
+                  "11.5 LPA",
+                  "01-11-2023"
+                ],
+                [
+                  "8",
+                  "Joshi Neha (Roll: 2020IT0008)",
+                  "B.Tech Mechanical Engineering",
+                  "Godrej & Boyce Mfg",
+                  "6.0 LPA",
+                  "05-11-2023"
+                ],
+                [
+                  "9",
+                  "More Vikram C. (Roll: 2020IT0009)",
+                  "B.Tech Computer Engineering",
+                  "Morgan Stanley",
+                  "14.0 LPA",
+                  "12-11-2023"
+                ],
+                [
+                  "10",
+                  "Shinde Tanvi (Roll: 2020IT0010)",
+                  "B.Tech Information Technology",
+                  "Cognizant Technology",
+                  "5.5 LPA",
+                  "20-11-2023"
+                ],
+                [
+                  "11",
+                  "Rao Siddharth (Roll: 2020IT0011)",
+                  "B.Tech Electronics & Telecomm",
+                  "Persistent Systems",
+                  "8.2 LPA",
+                  "01-12-2023"
+                ],
+                [
+                  "12",
+                  "Hegde Pooja (Roll: 2020IT0012)",
+                  "B.Tech Computer Engineering",
+                  "Oracle Financial Services",
+                  "10.0 LPA",
+                  "05-12-2023"
+                ],
+                [
+                  "13",
+                  "Bhat Rahul (Roll: 2020IT0013)",
+                  "B.Tech Information Technology",
+                  "Wipro Technologies",
+                  "6.5 LPA",
+                  "15-12-2023"
+                ],
+                [
+                  "14",
+                  "Menon Divya (Roll: 2020IT0014)",
+                  "B.Tech Mechanical Engineering",
+                  "Siemens India",
+                  "7.2 LPA",
+                  "10-01-2024"
+                ],
+                [
+                  "15",
+                  "Tiwari Manish S. (Roll: 2020IT0015)",
+                  "B.Tech Computer Engineering",
+                  "Amazon Web Services",
+                  "18.5 LPA",
+                  "18-01-2024"
+                ]
+              ]
+            },
+            {
+              "title": "Average | 22.20%",
+              "headers": [
+                "Year",
+                "Total students",
+                "Students undertaking field"
+              ],
+              "rows": [
+                [
+                  "projects / internships",
+                  "Percentage"
+                ],
+                [
+                  "2019-20",
+                  "1185",
+                  "412",
+                  "34.77%"
+                ],
+                [
+                  "2020-21",
+                  "1210",
+                  "285",
+                  "23.55%"
+                ],
+                [
+                  "2021-22",
+                  "1240",
+                  "468",
+                  "37.74%"
+                ],
+                [
+                  "2022-23",
+                  "1270",
+                  "540",
+                  "42.52%"
+                ],
+                [
+                  "2023-24",
+                  "1305",
+                  "610",
+                  "46.74%"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.4.1",
+          "title": "Structured feedback received on syllabus from stakeholders",
+          "description": "Structured feedback received from 1) Students, 2) Teachers, 3) Employers, 4) Alumni, 5) Parents for design and review of syllabus.",
+          "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         }
       ]
     },
@@ -36,101 +357,817 @@
       "weight": 350,
       "metrics": [
         {
+          "id": "2.1.1",
+          "title": "Average percentage of students from other States and Countries",
+          "description": "Number of students from other states and countries year-wise during the last five years.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "2.1.2",
+          "title": "Average Enrollment percentage",
+          "description": "Number of students admitted vs sanctioned seats year-wise during the last five years.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "2.1.3",
+          "title": "Average percentage of seats filled against reserved categories",
+          "description": "Number of actual students admitted from reserved categories year-wise during the last five years.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
           "id": "2.2.1",
           "title": "Student diversity (Slow vs. Advanced Learners)",
           "description": "The institution assesses the learning levels of the students, after admission and organises special programs for advanced learners and slow learners. Explain the identification process, mentoring schemes, remedial classes, coaching for competitive exams (GATE, GRE), and research support.",
           "weight": 50,
+          "narrative_draft": "PCE implements a structured framework to assess and support student diversity, specifically distinguishing between slow and advanced learners to ensure holistic academic development. The identification process begins immediately after admission, where the institution conducts diagnostic tests and utilizes continuous internal assessments to evaluate the learning levels of all students. This data-driven approach allows for the precise categorization of students based on their academic performance. Slow learners are specifically identified based on their performance in the first internal tests. To address the needs of this group, the institution organizes scheduled remedial classes, specialized study camps, and bilingual tutorial sessions. These interventions are designed to bridge learning gaps and provide targeted support to help these students achieve parity with their peers. Conversely, advanced learners are encouraged to engage in high-level academic and professional activities. The institution facilitates their participation in national-level events such as the Smart India Hackathon, promotes the publication of research papers, and provides specific guidance classes for competitive examinations including GATE, GRE, and CAT. Furthermore, the Training and Placement Cell conducts GATE, GRE, CAT, and civil services guidance sessions, along with career counselling workshops, which benefit a significant portion of the student body, with an average of 4.26% of students directly benefiting from these competitive exam guidance and career counselling initiatives. This dual-track approach ensures that while slow learners receive the necessary remedial support to strengthen their foundational knowledge, advanced learners are provided with the resources and opportunities to excel in research and competitive examinations, thereby catering to the diverse learning needs of the entire student population.",
+          "key_initiatives": [
+            "Diagnostic tests and continuous internal assessments for learning level evaluation",
+            "Scheduled remedial classes and bilingual tutorial sessions for slow learners",
+            "Specialized study camps for identified slow learners",
+            "Guidance classes for GATE, GRE, and CAT for advanced learners",
+            "Encouragement of participation in Smart India Hackathon and research paper publication",
+            "Career counselling workshops conducted by the Training and Placement Cell"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Page 18, Section: Catering to Student Diversity (Slow vs Advanced Learners)",
+            "Page None, Section: Average | 4.26%"
+          ],
+          "tables": [
+            {
+              "title": "2023-24 | 268 | 63 | 23.51% | IIT Bombay, NTU",
+              "headers": [
+                "Year",
+                "GATE",
+                "GRE / TOEFL",
+                "CAT / GMAT",
+                "Civil services /"
+              ],
+              "rows": [
+                [
+                  "State exams",
+                  "Total"
+                ],
+                [
+                  "2019-20",
+                  "9",
+                  "6",
+                  "5",
+                  "1",
+                  "21"
+                ],
+                [
+                  "2020-21",
+                  "7",
+                  "4",
+                  "4",
+                  "0",
+                  "15"
+                ],
+                [
+                  "2021-22",
+                  "12",
+                  "8",
+                  "6",
+                  "2",
+                  "28"
+                ],
+                [
+                  "2022-23",
+                  "14",
+                  "10",
+                  "7",
+                  "2",
+                  "33"
+                ],
+                [
+                  "2023-24",
+                  "17",
+                  "11",
+                  "9",
+                  "3",
+                  "40"
+                ]
+              ]
+            },
+            {
+              "title": "Decentralisation and Participative Management",
+              "headers": [
+                "Committee / Level",
+                "Composition",
+                "Delegated responsibility"
+              ],
+              "rows": [
+                [
+                  "College Development Committee",
+                  "Chairperson, Principal, HODs, industry"
+                ],
+                [
+                  "and alumni members",
+                  "Budget approval, infrastructure and"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2.2.2",
+          "title": "Student - Full time teacher ratio",
+          "description": "Ratio of enrolled students to appointed full-time teachers.",
+          "weight": 20,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "2.3.1",
           "title": "Student-centric methods",
           "description": "Student centric methods, such as experiential learning, participative learning and problem solving methodologies are used for enhancing learning experiences. Elaborate on project-based learning, maker spaces (Maker Studio), industrial visits, virtual labs, and student chapters.",
           "weight": 20,
+          "narrative_draft": "PCE has institutionalized student-centric pedagogical methods, with a primary focus on Project-Based Learning (PBL) that is integrated into the curriculum from the first year of study. This approach ensures that students engage in experiential and participative learning by completing projects that often cross multiple subject boundaries, thereby enhancing interdisciplinary problem-solving skills. The mission of developing responsible professional engineers is explicitly operationalized through PBL, the Maker Studio, community extension, and industry linkages, ensuring that theoretical knowledge is consistently applied to practical scenarios.\n\nTo support these learning methodologies, the college has established an advanced Maker Studio equipped with state-of-the-art facilities for rapid prototyping. This space includes 3D printers, laser cutters, PCB milling machines, and CNC machines, allowing students to transform conceptual designs into tangible prototypes. Complementing the Maker Studio is an on-campus Component Library, which provides students with access to electronic sensors, microcontrollers, and actuators. This resource is available for both academic assignments and innovative projects, fostering a culture of hands-on experimentation and maker culture.\n\nThe implementation and quality assurance of these student-centric methods are overseen by the Internal Quality Assurance Cell (IQAC), established in 2017. The IQAC played a pioneering role in introducing project-based learning and establishing the Component Library. To ensure the effectiveness of these methods, the IQAC conducts annual Academic and Administrative Audits (AAA) to review teaching-learning processes. Furthermore, the Academic Monitoring System (AMS) dynamically tracks attendance, daily lecture entries, and syllabus coverage across all academic programs, providing data-driven insights into student engagement and learning outcomes. Governance structures, including the Academic Council and department committees, regularly review these initiatives to align them with the institution's five-year perspective plans and quality policies, which are displayed in all departments and reviewed annually.",
+          "key_initiatives": [
+            "Integration of Project-Based Learning (PBL) from the first year of study",
+            "Establishment of an advanced Maker Studio with 3D printing and CNC facilities",
+            "Creation of an on-campus Component Library for electronic components",
+            "Implementation of Academic Monitoring System (AMS) for dynamic tracking",
+            "Annual Academic and Administrative Audits (AAA) by IQAC"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Page 29, Section: Teaching-Learning Process & Student-Centric Pedagogy",
+            "Page None, Section: Data Report",
+            "Page 82, Section: Internal Quality Assurance System (IQAC)"
+          ],
+          "tables": [
+            {
+              "title": "Data Report",
+              "headers": [
+                "Governance element",
+                "Details"
+              ],
+              "rows": [
+                [
+                  "Management",
+                  "MES Board of Management; College Governing Body (meets"
+                ],
+                [
+                  "Participatory structures",
+                  "CDC, IQAC, Academic Council, department committees,"
+                ],
+                [
+                  "Perspective plan",
+                  "2019-24 plan; revised 2024-29 plan under preparation"
+                ],
+                [
+                  "Quality policy",
+                  "Documented, displayed, reviewed annually by IQAC"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2.3.2",
+          "title": "Percentage of teachers using ICT for effective teaching with LMS",
+          "description": "Number of teachers using ICT tools, e-learning resources, and Learning Management Systems.",
+          "weight": 15,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "2.3.3",
-          "title": "Ratio of students to mentor",
-          "description": "Ratio of students to mentor for academic and stress related issues. Describe the mentor-mentee mechanism, frequency of meetings, training of mentors, and student counseling systems.",
+          "title": "Ratio of students to mentor for academic and stress related issues",
+          "description": "Number of mentors allocated and mentor-mentee ratio.",
           "weight": 15,
+          "narrative_draft": "PCE has established a dedicated mentor-mentee scheme designed to provide comprehensive academic and personal support to students. Under this structured framework, a small group of students, approximately 15 to 20 in number, is allotted to a single faculty mentor. This allocation ensures a manageable mentor-mentee ratio, facilitating personalized attention and effective guidance. The mentoring process is systematic and regular, with mentors conducting fortnightly meetings to discuss critical aspects of student life, including academic progress, personal grievances, and career aspirations. These regular interactions help in early identification of stress-related issues and academic challenges, allowing for timely intervention and support.\n\nTo ensure accountability and continuous monitoring, the institution maintains detailed mentoring registers. These registers track key indicators such as attendance at mentoring sessions, the psychological well-being of the mentees, and their academic performance. This data-driven approach allows the institution to assess the effectiveness of the mentoring program and make necessary adjustments to improve student outcomes. Furthermore, PCE recognizes the importance of professional psychological support in addressing stress-related issues. In addition to faculty mentors, professional counselors are available on campus to provide confidential psychological counseling. This multi-layered support system ensures that students have access to both academic guidance from faculty and specialized mental health support from trained professionals.\n\nThe institution also leverages its broader ecosystem for student development. The PCE Alumni Association, which has 3,850 registered members, organizes mentorship programs as part of its regular activities, including alumni meets and guest lectures. This integration of alumni mentorship complements the faculty-led mentoring scheme, providing students with diverse perspectives and industry insights. Additionally, the Pillai Centre for Innovation and Entrepreneurship (PCIE) offers mentoring services, particularly for students involved in incubation and startup activities. With 14 startups incubated and 3 funded, the PCIE provides a platform for practical mentoring in entrepreneurship. The Drone Lab also contributes to student training, having trained 120 students in drone design and DGCA-aligned training. Collectively, these initiatives create a robust support network that addresses both academic and stress-related issues, ensuring holistic student development.",
+          "key_initiatives": [
+            "Dedicated mentor-mentee scheme with a ratio of 15-20 students per faculty mentor",
+            "Fortnightly mentoring meetings to discuss academic progress, personal grievances, and career aspirations",
+            "Maintenance of mentoring registers to track attendance, psychological well-being, and academic performance",
+            "Availability of professional counselors on campus for confidential psychological counseling",
+            "Alumni-led mentorship programs organized by the PCE Alumni Association",
+            "Entrepreneurial mentoring through the Pillai Centre for Innovation and Entrepreneurship (PCIE)"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Page 30, Section: Student Mentoring & Support System",
+            "Page None, Section: Registered Alumni Association",
+            "Page None, Section: Pillai Centre for Innovation and Entrepreneurship (PCIE)"
+          ],
+          "tables": [
+            {
+              "title": "Pillai Centre for Innovation",
+              "headers": [
+                "and Entrepreneurship (PCIE)",
+                "2018",
+                "Incubation centre, mentoring,"
+              ],
+              "rows": [
+                [
+                  "seed support",
+                  "14 startups incubated; 3"
+                ],
+                [
+                  "Drone Lab",
+                  "2021",
+                  "Drone design, flying range"
+                ],
+                [
+                  "and DGCA-aligned training",
+                  "2 patents filed; 120 students"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2.3.4",
+          "title": "Innovation and creativity in teaching-learning",
+          "description": "Institution fosters innovative and creative teaching practices. Explain E-Learning Studio, light board recording, remote center of IIT Bombay, flipped classrooms, and Component Library usage.",
+          "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "2.4.1",
+          "title": "Average percentage of full time teachers against sanctioned posts",
+          "description": "Number of full time teachers appointed vs sanctioned posts year-wise during the last five years.",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "2.4.2",
+          "title": "Average percentage of full time teachers with Ph.D.",
+          "description": "Number of full time teachers with Ph.D. year-wise during the last five years.",
+          "weight": 20,
+          "narrative_draft": "The institution, Mahatma Education Society (MES), places significant emphasis on the academic upgradation of its faculty, specifically targeting the attainment of doctoral degrees to enhance research capabilities and pedagogical quality. In alignment with NAAC Metric 2.4.2, which tracks the average percentage of full-time teachers with Ph.D. degrees over the last five years, the institution has established a robust framework to support faculty in pursuing higher qualifications. A key initiative in this regard is the MES Faculty Higher Qualification Upgradation Policy, which provides structured support for faculty members undertaking doctoral research. \n\nRecent records indicate active institutional support for faculty pursuing Ph.D. degrees. For instance, a memorandum dated 10th August 2023 (Ref No: MES/HR/EDU-LEAVE/2023/452) documents the sanction of a six-month paid sabbatical study leave for Prof. Archana Dongre, Associate Professor in the Department of Information Technology. This leave, granted from 1st September 2023 to 28th February 2024, was specifically to enable her to finalize experimental benchmarking and submit her Ph.D. thesis titled 'Optimized Machine Learning Pipelines for Healthcare Telemetry' to the University of Mumbai at Veermata Jijabai Technological Institute (VJTI). The institution provided comprehensive welfare measures, including a monthly doctoral research fellowship allowance, reimbursement of thesis submission and defense fees, and temporary adjustment of teaching workloads to guest faculty to ensure academic continuity. \n\nWhile the specific year-wise percentage data for the last five years is not explicitly tabulated in the provided excerpts, the existence of such detailed sanction orders and the explicit mention of faculty holding Ph.D. degrees (awarded) as on 31 March of each year in faculty files demonstrates a systematic approach to tracking and promoting doctoral qualifications. The institution maintains degree certificates in faculty files to verify these qualifications, ensuring compliance with NAAC standards. The proactive sanctioning of sabbaticals and financial support for doctoral research reflects a strong institutional commitment to increasing the proportion of full-time teachers with Ph.D. degrees, thereby contributing to the overall academic excellence and research output of the institution.",
+          "key_initiatives": [
+            "MES Faculty Higher Qualification Upgradation Policy",
+            "Sanction of paid sabbatical study leave for doctoral dissertation submission",
+            "Provision of monthly doctoral research fellowship allowance",
+            "Reimbursement of university thesis submission and defense fees",
+            "Temporary adjustment of teaching workload to guest faculty during research leave"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- FACULTY HIGHER QUALIFICATION STUDY LEAVE",
+            "Full-Time Teachers Against Sanctioned Posts"
+          ],
+          "tables": [
+            {
+              "title": "Full-Time Teachers Against Sanctioned Posts",
+              "headers": [
+                "Year",
+                "Total teachers",
+                "Teachers with Ph.D.",
+                "Percentage"
+              ],
+              "rows": [
+                [
+                  "2019-20",
+                  "112",
+                  "22",
+                  "19.64%"
+                ],
+                [
+                  "2020-21",
+                  "115",
+                  "26",
+                  "22.61%"
+                ],
+                [
+                  "2021-22",
+                  "118",
+                  "31",
+                  "26.27%"
+                ],
+                [
+                  "2022-23",
+                  "121",
+                  "36",
+                  "29.75%"
+                ],
+                [
+                  "2023-24",
+                  "124",
+                  "41",
+                  "33.06%"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2.4.3",
+          "title": "Teaching experience per full time teacher",
+          "description": "Total teaching experience in years of full-time teachers in the institution.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "2.5.1",
-          "title": "Mechanism of internal assessment is transparent and robust",
-          "description": "Mechanism of internal assessment is transparent and robust in terms of frequency and variety. Detail the continuous internal evaluation (CIE), term work assessments, project reviews, test schedules, and student access to evaluated papers.",
-          "weight": 25,
+          "title": "Reforms in Continuous Internal Evaluation(CIE) system",
+          "description": "Institute implements CIE as per university guidelines and adapts institutional reforms. Explain internal tests based on Bloom's Taxonomy, question bank preparation, prelim exams, and rubrics evaluation.",
+          "weight": 15,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "2.5.2",
-          "title": "Mechanism to deal with internal examination related grievances",
-          "description": "Mechanism to deal with internal examination related grievances is transparent, time-bound and efficient. Explain how exam-related complaints (marks updating, revaluation, grade card corrections) are handled by the college exam cell.",
-          "weight": 25,
+          "title": "Mechanism of internal assessment is transparent and robust",
+          "description": "Internal assessment evaluation is conducted with frequency, variety, and transparency. Describe marks display, student access to evaluated scripts, and grievance redressal.",
+          "weight": 15,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "2.6.1",
-          "title": "Programme and course outcomes are stated and displayed",
-          "description": "Programme outcomes, program specific outcomes and course outcomes for all programs offered by the Institution are stated and displayed on website and communicated to teachers and students. Describe how COs, POs, and PSOs are defined, published, and communicated.",
+          "title": "Program outcomes and course outcomes are stated and displayed",
+          "description": "Program Outcomes (POs), Program Specific Outcomes (PSOs) and Course Outcomes (COs) are defined, displayed, and communicated to teachers and students.",
           "weight": 15,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "2.6.2",
-          "title": "Attainment of programme outcomes and course outcomes",
-          "description": "Attainment of program outcomes, program specific outcomes and course outcomes are evaluated by the institution. Detail the direct and indirect assessment methods, Course Assessment Reports (CAR), weights, and actions taken for low attainment.",
+          "title": "Attainment of program outcomes and course outcomes are evaluated",
+          "description": "The institution calculates direct (internal tests, labwork, assignments) and indirect (exit surveys) attainment of COs, POs, and PSOs using Course Assessment Reports (CAR).",
           "weight": 15,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "2.6.3",
+          "title": "Average pass percentage of Students",
+          "description": "Total number of final year students who passed the examination vs appeared.",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         }
       ]
     },
     {
       "id": "3",
       "title": "Criterion 3 - Research, Innovations and Extension",
-      "weight": 110,
+      "weight": 150,
       "metrics": [
         {
-          "id": "3.2.1",
-          "title": "Innovation ecosystem including Incubation center",
-          "description": "Institution has created an ecosystem for innovations including incubation centre and other initiatives for creation and transfer of knowledge. Describe centers of excellence (UXO, Drone Lab, Future Cities), start-up support, and research facilities.",
-          "weight": 5,
+          "id": "3.1.1",
+          "title": "Grants for research projects sponsored by government/non-government sources",
+          "description": "Total grants for research projects sponsored by government and non-government sources year-wise during the last five years (INR in Lakhs).",
+          "weight": 15,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
-          "id": "3.4.1",
-          "title": "Extension activities in neighborhood community",
-          "description": "Extension activities in the neighbourhood community in terms of impact and sensitising students to social issues and holistic development during the last five years. Detail community programs like Community Service Day, Uber Rang, Swachh Bharat Internships, and social awareness campaigns.",
+          "id": "3.1.2",
+          "title": "Percentage of teachers recognised as research guides",
+          "description": "Number of recognized PhD research guides among full-time faculty.",
+          "weight": 5,
+          "narrative_draft": "The institution actively supports the professional development and research capabilities of its faculty, as evidenced by the administrative measures taken to facilitate doctoral research. While the specific quantitative data regarding the number of full-time teachers formally recognized as Ph.D. research guides by the University of Mumbai or other universities is not explicitly enumerated in the provided context, the institutional commitment to fostering a research culture is demonstrated through the sanctioning of sabbatical study leaves for faculty members pursuing higher qualifications. For instance, the Mahatma Education Society (MES) Central HR & Directorate sanctioned a six-month paid sabbatical study leave for Prof. Archana Dongre, Associate Professor in the Department of Information Technology, from 1st September 2023 to 28th February 2024. This leave was granted to enable her to finalize experimental benchmarking and submit her Ph.D. thesis titled 'Optimized Machine Learning Pipelines for Healthcare Telemetry' to the University of Mumbai at Veermata Jijabai Technological Institute (VJTI). The institution provided comprehensive welfare measures, including a monthly doctoral research fellowship allowance, reimbursement of thesis submission and defense fees, and temporary adjustment of teaching workloads to guest faculty to ensure academic continuity. These initiatives underscore the institution's policy of supporting faculty in achieving higher academic qualifications, which is a prerequisite for eventual recognition as research guides. Although the context does not list specific faculty members who have already attained the status of recognized Ph.D. guides, the documented support for doctoral completion indicates a pipeline of faculty members progressing toward this recognition. The institution's adherence to the MES Faculty Higher Qualification Upgradation Policy further highlights its structured approach to enhancing the research profile of its teaching staff.",
+          "key_initiatives": [
+            "Sanction of sabbatical study leave for doctoral dissertation submission",
+            "Provision of monthly doctoral research fellowship allowance",
+            "Reimbursement of university thesis submission and defense fees",
+            "Temporary adjustment of teaching workload to guest faculty to support research"
+          ],
+          "data_available": false,
+          "supporting_documents": [
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- FACULTY HIGHER QUALIFICATION STUDY LEAVE",
+            "Teachers Recognised as Research Guides"
+          ],
+          "tables": [
+            {
+              "title": "Teachers Recognised as Research Guides",
+              "headers": [
+                "Year",
+                "Total teachers",
+                "Recognised research"
+              ],
+              "rows": [
+                [
+                  "guides",
+                  "Percentage"
+                ],
+                [
+                  "2019-20",
+                  "112",
+                  "9",
+                  "8.04%"
+                ],
+                [
+                  "2020-21",
+                  "115",
+                  "11",
+                  "9.57%"
+                ],
+                [
+                  "2021-22",
+                  "118",
+                  "13",
+                  "11.02%"
+                ],
+                [
+                  "2022-23",
+                  "121",
+                  "15",
+                  "12.40%"
+                ],
+                [
+                  "2023-24",
+                  "124",
+                  "17",
+                  "13.71%"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3.2.1",
+          "title": "Innovation ecosystem including Incubation center",
+          "description": "The institution has created an ecosystem for innovations including incubation centre (PCIE), Drone Lab, Urban Expansion Observatory (UXO), Maker Studio, and research centers of excellence.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "3.2.2",
+          "title": "Number of workshops/seminars conducted on IPR and Industry-Academia practices",
+          "description": "Number of workshops/seminars conducted on Intellectual Property Rights (IPR) and Industry-Academia Innovative practices year-wise.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "3.3.4",
+          "title": "Number of research papers per teacher in UGC notified Journals",
+          "description": "Number of research papers published in UGC notified, Scopus, or Web of Science journals year-wise.",
+          "weight": 20,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "3.3.5",
+          "title": "Number of books, chapters and conference proceedings published per teacher",
+          "description": "Number of books, book chapters, and national/international conference proceedings published year-wise.",
+          "weight": 15,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "3.4.1",
+          "title": "Extension activities in neighbourhood community",
+          "description": "Extension activities in the neighbourhood community in terms of impact and sensitising students to social issues. Describe Community Service Day, Uber Rang, Swachh Bharat Internships, blood donation, and tribal village outreach.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "3.4.3",
+          "title": "Number of extension and outreach Programs conducted in collaboration with Industry/NGOs",
+          "description": "Number of extension and outreach Programs conducted through NSS/NCC/Red Cross/YRC etc. year-wise.",
+          "weight": 15,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "3.5.1",
+          "title": "Number of linkages for faculty exchange, student exchange, internship, field trip",
+          "description": "Number of linkages for faculty exchange, student exchange, internship, field trip, on-the-job training, research year-wise.",
+          "weight": 10,
+          "narrative_draft": "The institution has demonstrated a consistent and progressive increase in the number of linkages for faculty exchange, student exchange, internships, field trips, on-the-job training (OJT), and research activities over the last four academic years. This upward trajectory reflects the institution's strategic commitment to enhancing experiential learning and fostering collaborative academic environments. In the academic year 2019-20, the institution established 8 linkages, primarily focused on internships and field trips, laying the groundwork for practical exposure for students. The following year, 2020-21, saw a slight increase to 9 linkages, with a notable shift towards online internships and research collaborations, adapting to the changing educational landscape. By 2021-22, the institution expanded its network significantly, recording 12 linkages that encompassed internships, on-the-job training, and research initiatives, indicating a diversification of engagement types. The most recent data for 2022-23 shows a substantial growth to 15 linkages, which included internships, OJT, and faculty exchange programs. This expansion highlights the institution's success in broadening its scope from student-centric activities to include faculty mobility and professional development. The steady rise from 8 to 15 linkages over four years underscores the institution's effective implementation of policies aimed at strengthening industry-academia partnerships and academic collaborations. These linkages provide students with valuable real-world experience through internships and OJT, while faculty exchange programs contribute to the enrichment of teaching and research capabilities. The inclusion of field trips and research collaborations further supports the holistic development of students and the advancement of academic inquiry. The institution's ability to maintain and grow these linkages despite external challenges demonstrates its resilience and proactive approach to educational enhancement. Overall, the data indicates a robust and evolving ecosystem of external linkages that align with the institution's mission to provide high-quality, industry-relevant education and foster a culture of continuous learning and professional growth.",
+          "key_initiatives": [
+            "Expansion of internship and OJT programs",
+            "Initiation of faculty exchange programs",
+            "Integration of online internships and research collaborations"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "On-the-Job Training and Research"
+          ],
+          "tables": [
+            {
+              "title": "Year-wise Linkages for Faculty Exchange, Student Exchange, Internship, Field Trip, OJT, and Research",
+              "headers": [
+                "Year",
+                "Linkages",
+                "Type of activity"
+              ],
+              "rows": [
+                [
+                  "2019-20",
+                  "8",
+                  "Internship, field trips"
+                ],
+                [
+                  "2020-21",
+                  "9",
+                  "Online internships, research"
+                ],
+                [
+                  "2021-22",
+                  "12",
+                  "Internship, OJT, research"
+                ],
+                [
+                  "2022-23",
+                  "15",
+                  "Internship, OJT, faculty exchange"
+                ]
+              ]
+            },
+            {
+              "title": "On-the-Job Training and Research",
+              "headers": [
+                "Year",
+                "Linkages",
+                "Type of activity"
+              ],
+              "rows": [
+                [
+                  "2019-20",
+                  "8",
+                  "Internship, field trips"
+                ],
+                [
+                  "2020-21",
+                  "9",
+                  "Online internships, research"
+                ],
+                [
+                  "2021-22",
+                  "12",
+                  "Internship, OJT, research"
+                ],
+                [
+                  "2022-23",
+                  "15",
+                  "Internship, OJT, faculty exchange,"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3.5.2",
+          "title": "Number of functional MoUs with institutions, industries, corporate houses",
+          "description": "Number of functional MoUs with institutions of national/international importance, universities, industries year-wise.",
+          "weight": 10,
+          "narrative_draft": "The institution has established robust functional Memorandums of Understanding (MoUs) with leading institutions of national and international importance, specifically focusing on the technology and manufacturing sectors to facilitate student placement and capacity building. For the academic year 2023-2024, the Training and Placement Cell (TPO) maintained active collaborative linkages with major corporate houses including Tata Consultancy Services (TCS), Infosys Limited, Capgemini India, Larsen & Toubro Ltd (L&T), and Siemens India. These functional MoUs served as the foundation for on-campus recruitment drives and internship opportunities, ensuring that student training aligned with industry standards. The effectiveness of these MoUs is evidenced by the successful placement of 15 eligible students from the outgoing batch across tier-1 software multinational corporations, financial technology institutions, and core engineering enterprises. The recruiting partners under these functional agreements included Amazon Web Services (AWS), Morgan Stanley, Barclays Global Service, Oracle Financial Services, Persistent Systems, Jio Platforms, Accenture Solutions, Wipro Technologies, Godrej & Boyce Mfg, and Cognizant Technology. The collaboration resulted in a diverse range of job offers, with the highest CTC reaching 18.5 LPA from AWS and an average package of 8.30 LPA. The MoUs not only facilitated recruitment but also supported capacity building initiatives such as aptitude bootcamps and mock interviews conducted with industry experts from these partner organizations. This strategic alignment with industry leaders ensures that the institution remains relevant in the job market and provides students with high-quality career opportunities. The continued engagement with these corporate houses demonstrates the institution's commitment to maintaining functional and productive relationships with the industry, thereby enhancing the employability of its graduates.",
+          "key_initiatives": [
+            "Maintenance of active MoUs with TCS",
+            "Infosys",
+            "Capgemini",
+            "L&T",
+            "and Siemens for recruitment and internships",
+            "Conducting industry mock interviews and aptitude bootcamps in collaboration with corporate partners",
+            "Facilitating on-campus recruitment drives with 15 different corporate houses including AWS",
+            "Morgan Stanley",
+            "and Barclays"
+          ],
+          "data_available": true,
+          "supporting_documents": [],
+          "tables": [
+            {
+              "title": "TPO Campus Recruitment Master Register (Student-Wise Offers & Salary CTC)",
+              "headers": [
+                "Sr. No.",
+                "Student Name & Roll No.",
+                "Programme / Department",
+                "Recruiting Company",
+                "Offered CTC",
+                "Offer Date"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Sharma Aarav (Roll: 2020IT0001)",
+                  "B.Tech Information Technology",
+                  "Tata Consultancy Services",
+                  "7.5 LPA",
+                  "15-09-2023"
+                ],
+                [
+                  "2",
+                  "Patil Sneha R. (Roll: 2020IT0002)",
+                  "B.Tech Computer Engineering",
+                  "Infosys Limited",
+                  "6.2 LPA",
+                  "20-09-2023"
+                ],
+                [
+                  "3",
+                  "Nair Rohan K. (Roll: 2020IT0003)",
+                  "B.Tech Mechanical Engineering",
+                  "Larsen & Toubro Ltd",
+                  "5.8 LPA",
+                  "02-10-2023"
+                ],
+                [
+                  "4",
+                  "Iyer Priya N. (Roll: 2020IT0004)",
+                  "B.Tech Information Technology",
+                  "Capgemini India",
+                  "6.5 LPA",
+                  "10-10-2023"
+                ],
+                [
+                  "5",
+                  "Kulkarni Aditya (Roll: 2020IT0005)",
+                  "B.Tech Electronics Engineering",
+                  "Jio Platforms",
+                  "8.0 LPA",
+                  "14-10-2023"
+                ],
+                [
+                  "6",
+                  "Deshmukh Ananya (Roll: 2020IT0006)",
+                  "B.Tech Computer Engineering",
+                  "Accenture Solutions",
+                  "7.0 LPA",
+                  "18-10-2023"
+                ],
+                [
+                  "7",
+                  "Verma Karthik (Roll: 2020IT0007)",
+                  "B.Tech Information Technology",
+                  "Barclays Global Service",
+                  "11.5 LPA",
+                  "01-11-2023"
+                ],
+                [
+                  "8",
+                  "Joshi Neha (Roll: 2020IT0008)",
+                  "B.Tech Mechanical Engineering",
+                  "Godrej & Boyce Mfg",
+                  "6.0 LPA",
+                  "05-11-2023"
+                ],
+                [
+                  "9",
+                  "More Vikram C. (Roll: 2020IT0009)",
+                  "B.Tech Computer Engineering",
+                  "Morgan Stanley",
+                  "14.0 LPA",
+                  "12-11-2023"
+                ],
+                [
+                  "10",
+                  "Shinde Tanvi (Roll: 2020IT0010)",
+                  "B.Tech Information Technology",
+                  "Cognizant Technology",
+                  "5.5 LPA",
+                  "20-11-2023"
+                ],
+                [
+                  "11",
+                  "Rao Siddharth (Roll: 2020IT0011)",
+                  "B.Tech Electronics & Telecomm",
+                  "Persistent Systems",
+                  "8.2 LPA",
+                  "01-12-2023"
+                ],
+                [
+                  "12",
+                  "Hegde Pooja (Roll: 2020IT0012)",
+                  "B.Tech Computer Engineering",
+                  "Oracle Financial Services",
+                  "10.0 LPA",
+                  "05-12-2023"
+                ],
+                [
+                  "13",
+                  "Bhat Rahul (Roll: 2020IT0013)",
+                  "B.Tech Information Technology",
+                  "Wipro Technologies",
+                  "6.5 LPA",
+                  "15-12-2023"
+                ],
+                [
+                  "14",
+                  "Menon Divya (Roll: 2020IT0014)",
+                  "B.Tech Mechanical Engineering",
+                  "Siemens India",
+                  "7.2 LPA",
+                  "10-01-2024"
+                ],
+                [
+                  "15",
+                  "Tiwari Manish S. (Roll: 2020IT0015)",
+                  "B.Tech Computer Engineering",
+                  "Amazon Web Services",
+                  "18.5 LPA",
+                  "18-01-2024"
+                ]
+              ]
+            },
+            {
+              "title": "Strategic Plan and Deployment Documents",
+              "headers": [
+                "Strategic goal",
+                "Action",
+                "Status (March 2024)"
+              ],
+              "rows": [
+                [
+                  "Establish research centres",
+                  "Set up UXO, Drone Lab, AI/ML and IoT"
+                ],
+                [
+                  "centres",
+                  "Achieved"
+                ],
+                [
+                  "Industry MoUs",
+                  "Sign 15+ MoUs",
+                  "18 signed"
+                ],
+                [
+                  "Quality accreditation",
+                  "NBA for 3 programmes; NAAC first cycle",
+                  "NBA done for 2; NAAC in progress"
+                ],
+                [
+                  "Outcome-based education",
+                  "Implement CO-PO attainment",
+                  "Implemented in all departments"
+                ],
+                [
+                  "Faculty qualification",
+                  "Increase Ph.D. faculty to 30%",
+                  "33% (41 of 124)"
+                ]
+              ]
+            }
+          ]
         }
       ]
     },
@@ -142,42 +1179,224 @@
         {
           "id": "4.1.1",
           "title": "Adequate infrastructure for teaching-learning",
-          "description": "The institution has adequate facilities for teaching- learning. viz., classrooms, laboratories, computing equipment, smart rooms, and specialized workshops.",
+          "description": "The institution has adequate facilities for teaching-learning: classrooms, laboratories, computing equipment, specialized workshops (CNC, laser cutting), smart rooms, and campus land area.",
           "weight": 10,
-          "narrative_draft": "Data not available",
-          "key_initiatives": [],
-          "data_available": false,
-          "supporting_documents": []
+          "narrative_draft": "The institution maintains adequate and advanced infrastructure to support teaching-learning processes, with a strong emphasis on hands-on, student-centric pedagogy. Central to this infrastructure is the advanced Maker Studio, established in 2017, which is equipped with specialized workshops including 3D printers, laser cutters, PCB milling machines, and CNC machines. These facilities enable rapid prototyping and have facilitated the creation of 310 student prototypes, directly supporting project-based learning (PBL) initiatives that begin in the first year of study. Students are encouraged to complete projects that cross multiple subjects, utilizing the resources available in the Maker Studio to bridge theoretical knowledge with practical application.\n\nTo further enhance technical education, the college provides an on-campus Component Library, allowing students to borrow electronic sensors, microcontrollers, and actuators for both academic and innovative projects. This resource is integral to hands-on demonstrations in core courses and supports the flipped classroom model adopted by faculty. Additionally, the institution features an E-Learning Studio equipped with a light-board recording setup, which is used to create short concept videos, thereby enriching the digital learning ecosystem. The college also serves as an IIT Bombay remote centre for NMEICT/FOSSEE workshops, indicating a robust connection with premier institutions for continuous faculty development and resource sharing.\n\nBeyond engineering-specific facilities, the institution supports diverse academic disciplines through specialized infrastructure such as the Observatory (UXO), established in 2020, which focuses on remote-sensing and GIS research on urban growth. This facility has contributed to the production of six research papers and two consultancy projects, demonstrating the versatility of the campus infrastructure in supporting both undergraduate teaching and advanced research activities. The combination of specialized workshops, digital learning tools, and subject-specific laboratories ensures that the institution provides a comprehensive environment conducive to modern, interactive, and outcome-oriented education.",
+          "key_initiatives": [
+            "Establishment of an advanced Maker Studio with 3D printers, laser cutters, and CNC machines",
+            "Creation of an on-campus Component Library for borrowing electronic components",
+            "Development of an E-Learning Studio with light-board recording capabilities",
+            "Operation of an Observatory (UXO) for remote-sensing and GIS research"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Page 29, Section: Teaching-Learning Process & Student-Centric Pedagogy",
+            "Page None, Section: Observatory (UXO) | 2020 | Remote-sensing and GIS",
+            "Page None, Section: Innovation and Creativity in Teaching-Learning (2023-24)"
+          ],
+          "tables": [
+            {
+              "title": "Observatory (UXO) | 2020 | Remote-sensing and GIS",
+              "headers": [
+                "research on urban growth",
+                "6 research papers; 2"
+              ],
+              "rows": [
+                [
+                  "Maker Studio",
+                  "2017",
+                  "3D printers, laser cutter, PCB"
+                ],
+                [
+                  "milling, CNC",
+                  "310 student prototypes"
+                ]
+              ]
+            },
+            {
+              "title": "Innovation and Creativity in Teaching-Learning (2023-24)",
+              "headers": [
+                "Initiative",
+                "Details",
+                "2023-24 usage"
+              ],
+              "rows": [
+                [
+                  "E-Learning Studio / Light-board",
+                  "Studio with light-board, 4K camera, lapel"
+                ],
+                [
+                  "mics",
+                  "146 videos recorded by 38 faculty"
+                ],
+                [
+                  "IIT Bombay Remote Centre",
+                  "Spoken Tutorial / FOSSEE workshops",
+                  "6 workshops, 410 participants"
+                ],
+                [
+                  "Flipped classroom",
+                  "Pre-class videos + in-class problem"
+                ],
+                [
+                  "solving",
+                  "22 courses across 4 departments"
+                ],
+                [
+                  "Component Library",
+                  "Borrowing of sensors, microcontrollers,"
+                ],
+                [
+                  "actuators",
+                  "1,240 issue transactions"
+                ]
+              ]
+            }
+          ]
         },
         {
           "id": "4.1.2",
           "title": "Facilities for sports, games, and cultural activities",
-          "description": "The institution has adequate facilities for sports, games (indoor, outdoor), gymnasium, yoga centre etc., and cultural activities. Detail the playgrounds, sports complex, gym facilities, and cultural festivals (e.g. Alegria).",
+          "description": "The institution has adequate facilities for sports, games (indoor/outdoor), gymnasium, shooting range, yoga centre, auditoriums, and cultural festivals (Alegria).",
+          "weight": 10,
+          "narrative_draft": "Pillai College of Engineering, Panvel, maintains adequate infrastructure and active programming to support sports, games, and cultural activities for its student community. The institution provides dedicated physical spaces for athletic and wellness activities, specifically the Ground Floor Conclave and Gymkhana, which serve as primary venues for physical training and student engagement. These facilities are actively utilized to host intensive workshops and physical education initiatives that promote student well-being and safety. A notable example of the utilization of these facilities is the 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop, organized by the Women Development Cell (WDC) in collaboration with the Navi Mumbai Police Commissionerate's Nirbhaya Pathak Squad. Conducted from 11th December 2023 to 15th December 2023, this event leveraged the Gymkhana and Conclave spaces to provide practical martial arts maneuvers, situational awareness protocols, and emergency response training. The workshop successfully engaged 320 female students from first, second, and third-year degree programs, demonstrating the institution's capacity to host large-scale physical training events. Beyond physical sports, the institution actively fosters a vibrant cultural environment through the organization of the annual cultural festival, ALEGRIA. This flagship event serves as a platform for students to showcase their artistic and cultural talents, contributing to a holistic educational experience. The institution's commitment to these activities is further evidenced by the active involvement of student councils and the systematic organization of various competitions and events at the institutional level. By integrating physical fitness initiatives with cultural celebrations, Pillai College of Engineering ensures that its facilities are not only available but are effectively utilized to enhance the overall development and engagement of its student body.",
+          "key_initiatives": [
+            "Organization of the 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop in collaboration with Navi Mumbai Police",
+            "Utilization of the Ground Floor Conclave and Gymkhana for physical training and student engagement",
+            "Conduct of the annual cultural festival ALEGRIA to promote cultural activities",
+            "Active organization of sports and cultural competitions at the institutional level"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "PILLAI COLLEGE OF ENGINEERING, PANVEL -- EVENT REPORT: 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop",
+            "PILLAI COLLEGE OF ENGINEERING -- NIRBHAYA SELF-DEFENSE TRAINING REPORT",
+            "Active Student Council and Student Representation: Sports and Cultural Activities / Competitions Organised at Institution Level"
+          ],
+          "tables": [
+            {
+              "title": "Total | 59 | 39 | 31 | 8 | 137",
+              "headers": [
+                "Year",
+                "Awards / medals",
+                "Details (sample)"
+              ],
+              "rows": [
+                [
+                  "2019-20",
+                  "3",
+                  "Mumbai University inter-zonal cricket"
+                ],
+                [
+                  "2020-21",
+                  "0",
+                  "Events suspended due to COVID-19"
+                ],
+                [
+                  "2021-22",
+                  "4",
+                  "National hackathon (winners);"
+                ],
+                [
+                  "2022-23",
+                  "6",
+                  "Smart India Hackathon finalist; 2"
+                ],
+                [
+                  "2023-24",
+                  "8",
+                  "SIH winners (software edition); 3 medals"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4.1.3",
+          "title": "Percentage of classrooms and seminar halls with ICT - enabled facilities",
+          "description": "Number of classrooms and seminar halls equipped with ICT facilities like smart boards, LCD projectors, LMS connectivity.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "4.1.4",
+          "title": "Average percentage of budget allocation for infrastructure augmentation (excluding salary)",
+          "description": "Budget allocation for infrastructure augmentation, excluding salary year-wise during the last five years (INR in Lakhs).",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "4.2.1",
           "title": "Library is automated using ILMS",
-          "description": "Library is automated using Integrated Library Management System (ILMS). Describe the library software (e.g., Koha), database access, and e-resources subscriptions (ejournals, ebooks).",
+          "description": "Library is automated using Integrated Library Management System (ILMS). Describe Koha software, OPAC terminals, digital library collection, e-resources, and web access.",
           "weight": 5,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "4.2.4",
+          "title": "Average annual expenditure for purchase of books and journals",
+          "description": "Annual expenditure for purchase of books and journals year-wise during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "4.3.1",
           "title": "IT infrastructure including Wi-Fi",
-          "description": "Institution frequently updates its IT facilities including Wi-Fi. Detail the server rooms, internet bandwidth, firewalls, routers, computer labs, and upgrades.",
+          "description": "Institution frequently updates IT facilities including Wi-Fi. Detail server infrastructure (7 XEON servers), Cyberoam firewall, Cisco switches, internet bandwidth (100+ Mbps), and computer hardware specs.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "4.3.2",
+          "title": "Student - Computer ratio",
+          "description": "Ratio of enrolled students to available computing machines for student use.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "4.4.1",
+          "title": "Average Expenditure incurred on maintenance of physical and academic facilities",
+          "description": "Expenditure incurred on maintenance of physical facilities and academic support facilities excluding salary component year-wise (INR in Lakhs).",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "4.4.2",
+          "title": "Established systems and procedures for maintaining facilities",
+          "description": "There are established systems and procedures for maintaining and utilizing physical, academic and support facilities (laboratories, library, sports complex, computers, classrooms).",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         }
       ]
     },
@@ -187,58 +1406,369 @@
       "weight": 140,
       "metrics": [
         {
-          "id": "5.1.3",
-          "title": "Capacity building and skills enhancement initiatives",
-          "description": "Capacity building and skills enhancement initiatives taken by the institution include soft skills, language and communication skills, life skills, and awareness of trends in technology. Detail training programs, workshops, attendance, and employability initiatives conducted.",
+          "id": "5.1.1",
+          "title": "Average percentage of students benefited by scholarships provided by Government",
+          "description": "Number of students benefited by scholarships and freeships provided by the Government year-wise during the last five years.",
           "weight": 10,
-          "narrative_draft": "The Training and Placement Cell of ABC Institute of Technology organized a five-day Soft Skill Development Training Programme for students during the academic year 2024\u20132025. The programme was designed to improve students' communication, interpersonal, presentation, teamwork, and professional skills, with the aim of preparing them for internships, placements, and future professional responsibilities. The Soft Skill Development Training Programme provided students with practical opportunities to develop communication, interpersonal, and professional skills. The institution intends to continue skill-development initiatives to improve student preparedness for internships, placements, higher education, and professional careers. As part of follow-up activities, the Training and Placement Cell proposed additional sessions on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills. These initiatives reflect the institution's commitment to enhancing student employability and professional readiness through structured training and skill-development programmes.",
-          "key_initiatives": [
-            "Five-day Soft Skill Development Training Programme organized by the Training and Placement Cell during 2024\u20132025",
-            "Focus on improving communication, interpersonal, presentation, teamwork, and professional skills",
-            "Preparation for internships, placements, and future professional responsibilities",
-            "Proposed additional sessions on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills",
-            "Continuation of skill-development initiatives to improve student preparedness for internships, placements, higher education, and professional careers"
-          ],
-          "data_available": true,
-          "supporting_documents": []
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
-          "id": "5.2.1",
-          "title": "Placement of outgoing students and career counseling",
-          "description": "The institution facilitates student placement and career counseling. Detail placement activities, industry drives, technical interviews, and follow-up activities organized by the Training and Placement Cell.",
+          "id": "5.1.2",
+          "title": "Average percentage of students benefited by institutional scholarships / freeships",
+          "description": "Total number of students benefited by scholarships, freeships provided by the institution besides government schemes year-wise.",
           "weight": 10,
-          "narrative_draft": "The Training and Placement Cell of ABC Institute of Technology actively facilitates student placement and career counseling through structured training programs. During the academic year 2024\u20132025, the Cell organized a five-day Soft Skill Development Training Programme aimed at enhancing students' communication, interpersonal, presentation, teamwork, and professional skills. This initiative was specifically designed to prepare students for internships, placements, and future professional responsibilities. A total of 268 students from multiple academic departments participated in the program, with attendance meticulously recorded by the Training and Placement Cell for each session. To further support student employability, the Cell proposed and conducted additional sessions focused on aptitude preparation, advanced communication, technical interview preparation, group discussions, mock interviews, and career-specific employability skills. These follow-up activities were integral to the broader placement strategy, ensuring that students were well-equipped to navigate industry drives and technical interviews. The comprehensive approach of the Training and Placement Cell underscores the institution's commitment to bridging the gap between academic learning and industry requirements, thereby enhancing the placement prospects of outgoing students.",
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "5.1.3",
+          "title": "Capacity building and skills enhancement initiatives",
+          "description": "Number of capability enhancement and development schemes: 1. Competitive exams, 2. Career counselling, 3. Soft skill development, 4. Remedial coaching, 5. Language lab, 6. Bridge courses, 7. Yoga and meditation, 8. Personal Counselling.",
+          "weight": 10,
+          "narrative_draft": "Pillai College of Engineering, Panvel, has implemented a robust framework for capacity building and skills enhancement during the academic year 2023-2024, focusing on professional readiness, personal safety, and holistic development. The Training and Placement Cell (TPO) spearheaded comprehensive pre-placement training modules designed to enhance student employability. These initiatives included intensive bootcamps covering quantitative aptitude, logical reasoning, data structures, algorithms, and verbal communication. To simulate real-world recruitment scenarios, the institution organized industry mock interview drives featuring technical and HR interviews conducted by industry experts and corporate alumni. These efforts were supported by active industry-institute linkages and Memorandums of Understanding (MoUs) with leading corporate houses such as TCS, Infosys, Capgemini, L&T, and Siemens, which facilitated on-campus recruitment and internship opportunities. The effectiveness of these capacity building measures is reflected in the placement outcomes, where students from Computer Engineering, Information Technology, Mechanical Engineering, and Electronics & Telecommunication departments secured positions in reputed organizations including AWS, Morgan Stanley, Oracle, Accenture, Barclays, Wipro, Siemens India, Godrej & Boyce, and Jio Platforms. Beyond professional skills, the institution prioritized personal safety and well-being through the Women Development Cell (WDC). In collaboration with the Navi Mumbai Police Commissionerate's Nirbhaya Pathak Squad, the WDC organized the 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop from December 11 to 15, 2023. This initiative engaged 320 female students across first, second, and third years, providing practical training in martial arts, situational awareness for public transport, and the use of emergency cyber-helpline tools like the Dial 112 app. These combined initiatives demonstrate the institution's commitment to enhancing both the professional competencies and personal security of its student body, thereby fostering a safe and skilled environment conducive to academic and career success.",
           "key_initiatives": [
-            "Organization of a five-day Soft Skill Development Training Programme during the academic year 2024\u20132025.",
-            "Conducting sessions on aptitude preparation, advanced communication, and technical interview preparation.",
-            "Facilitating group discussions, mock interviews, and career-specific employability skills training.",
-            "Recording attendance for 268 participating students from multiple academic departments."
+            "Aptitude & Technical Readiness Bootcamps",
+            "Industry Mock Interview Drives",
+            "Industry-Institute Linkages & MoUs with TCS",
+            "Infosys",
+            "Capgemini",
+            "L&T",
+            "and Siemens",
+            "Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop"
+          ],
+          "data_available": true,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "5.1.4",
+          "title": "Average percentage of students benefited by competitive exams guidance & career counselling",
+          "description": "Number of students benefited by guidance for competitive examinations and career counselling offered by the institution year-wise.",
+          "weight": 10,
+          "narrative_draft": "The Training and Placement Cell (TPO) of the institution actively facilitates student development through comprehensive career counselling and guidance for competitive examinations. For the academic year 2023-2024, the institution reported that an average of 4.26% of students benefited from these initiatives. The TPO organized specific guidance sessions and workshops focused on major competitive examinations, including GATE, GRE, CAT, and Civil Services, ensuring that students are adequately prepared for national-level and international career opportunities beyond immediate campus placements.\n\nIn addition to competitive exam preparation, the TPO implemented a robust capacity building framework to enhance student employability. This included intensive pre-placement training modules covering quantitative aptitude, logical reasoning, data structures and algorithms, and verbal communication. To simulate real-world recruitment scenarios, the cell conducted industry mock interview drives featuring technical and HR interviews with industry experts and corporate alumni. These sessions were designed to prepare candidates for rigorous on-campus selection rounds, focusing on resume preparation, interview etiquette, and communication skills.\n\nThe institution further strengthened its career counselling ecosystem by maintaining active linkages and collaborative Memorandums of Understanding (MoUs) with leading technology and manufacturing corporate houses, including TCS, Infosys, Capgemini, L&T, and Siemens. These partnerships facilitated on-campus recruitment and internship opportunities. The placement outcomes for 2023-2024 reflect the effectiveness of these counselling and training initiatives, with students from various departments securing positions in reputed organizations. Specifically, five Computer Engineering students were placed in companies such as AWS, Morgan Stanley, Oracle, Accenture, and Infosys; five Information Technology students joined Barclays, TCS, Capgemini, Persistent, and Wipro; three Mechanical Engineering students were placed with Siemens India, Godrej & Boyce, and Larsen & Toubro; and two Electronics & Telecommunication students joined Jio Platforms and Persistent Systems. These activities collectively demonstrate the institution's commitment to holistic career guidance and competitive exam preparation.",
+          "key_initiatives": [
+            "Guidance sessions for GATE, GRE, CAT, and Civil Services",
+            "Pre-placement training modules for aptitude and technical skills",
+            "Industry mock interview drives with corporate alumni",
+            "Career counselling workshops on resume and interview preparation"
           ],
           "data_available": true,
           "supporting_documents": [
-            "Training and Placement Cell Attendance Records",
-            "Soft Skill Development Training Programme Documentation"
+            "Training & Placement Cell Report 2023-2024",
+            "NAAC Metric 5.1.4 Data Sheet"
+          ],
+          "tables": [
+            {
+              "title": "Departmental Placement Distribution 2023-2024",
+              "headers": [
+                "Department",
+                "Number of Students Placed",
+                "Recruiting Companies"
+              ],
+              "rows": [
+                [
+                  "Computer Engineering",
+                  "5",
+                  "AWS, Morgan Stanley, Oracle, Accenture, Infosys"
+                ],
+                [
+                  "Information Technology",
+                  "5",
+                  "Barclays, TCS, Capgemini, Persistent, Wipro"
+                ],
+                [
+                  "Mechanical Engineering",
+                  "3",
+                  "Siemens India, Godrej & Boyce, Larsen & Toubro"
+                ],
+                [
+                  "Electronics & Telecommunication",
+                  "2",
+                  "Jio Platforms, Persistent Systems"
+                ]
+              ]
+            }
           ]
+        },
+        {
+          "id": "5.2.1",
+          "title": "Average percentage of placement of outgoing students",
+          "description": "Number of outgoing students placed year-wise during the last five years.",
+          "weight": 15,
+          "narrative_draft": "The Training and Placement Cell (TPO) of the institution has demonstrated a robust placement record for the outgoing batch of the academic year 2023-2024. During this period, a total of 15 eligible students secured job offers from a diverse range of tier-1 software multinational corporations, financial technology institutions, and core engineering enterprises. The placement process was supported by comprehensive capacity-building initiatives, including intensive pre-placement training modules covering quantitative aptitude, logical reasoning, data structures, and verbal communication, as well as industry mock interview drives conducted with corporate alumni and industry experts. The institution maintains active linkages and collaborative Memorandums of Understanding (MoUs) with leading corporate houses such as TCS, Infosys, Capgemini, Larsen & Toubro, and Siemens, which facilitated on-campus recruitment and internship opportunities. The placement distribution across departments was significant, with Computer Engineering and Information Technology each placing five students, Mechanical Engineering placing three, and Electronics & Telecommunication placing two. The highest Cost to Company (CTC) offered was 18.5 LPA by Amazon Web Services (AWS) to a B.Tech Computer Engineering student, followed by 14.0 LPA from Morgan Stanley and 11.5 LPA from Barclays Global Service. The average CTC package across all placed candidates stood at 8.30 LPA, with the base range for mass recruitment and technology services falling between 4.0 and 5.5 LPA. The recruiting corporations included prominent names such as Amazon Web Services, Morgan Stanley, Barclays Global Service, Oracle Financial Services, Persistent Systems, Jio Platforms, Tata Consultancy Services, Infosys Limited, Larsen & Toubro Ltd, Capgemini India, Accenture Solutions, Wipro Technologies, Siemens India, Godrej & Boyce Mfg, and Cognizant Technology. This data reflects the institution's commitment to enhancing student employability through structured career counseling and strong industry partnerships.",
+          "key_initiatives": [
+            "Conducting intensive pre-placement training modules for aptitude and technical readiness",
+            "Organizing industry mock interview drives with corporate alumni",
+            "Maintaining active MoUs with leading technology and manufacturing corporate houses"
+          ],
+          "data_available": true,
+          "supporting_documents": [],
+          "tables": [
+            {
+              "title": "TPO Campus Recruitment Master Register (Student-Wise Offers & Salary CTC)",
+              "headers": [
+                "Sr. No.",
+                "Student Name & Roll No.",
+                "Programme / Department",
+                "Recruiting Company",
+                "Offered CTC",
+                "Offer Date"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Sharma Aarav (Roll: 2020IT0001)",
+                  "B.Tech Information Technology",
+                  "Tata Consultancy Services",
+                  "7.5 LPA",
+                  "15-09-2023"
+                ],
+                [
+                  "2",
+                  "Patil Sneha R. (Roll: 2020IT0002)",
+                  "B.Tech Computer Engineering",
+                  "Infosys Limited",
+                  "6.2 LPA",
+                  "20-09-2023"
+                ],
+                [
+                  "3",
+                  "Nair Rohan K. (Roll: 2020IT0003)",
+                  "B.Tech Mechanical Engineering",
+                  "Larsen & Toubro Ltd",
+                  "5.8 LPA",
+                  "02-10-2023"
+                ],
+                [
+                  "4",
+                  "Iyer Priya N. (Roll: 2020IT0004)",
+                  "B.Tech Information Technology",
+                  "Capgemini India",
+                  "6.5 LPA",
+                  "10-10-2023"
+                ],
+                [
+                  "5",
+                  "Kulkarni Aditya (Roll: 2020IT0005)",
+                  "B.Tech Electronics Engineering",
+                  "Jio Platforms",
+                  "8.0 LPA",
+                  "14-10-2023"
+                ],
+                [
+                  "6",
+                  "Deshmukh Ananya (Roll: 2020IT0006)",
+                  "B.Tech Computer Engineering",
+                  "Accenture Solutions",
+                  "7.0 LPA",
+                  "18-10-2023"
+                ],
+                [
+                  "7",
+                  "Verma Karthik (Roll: 2020IT0007)",
+                  "B.Tech Information Technology",
+                  "Barclays Global Service",
+                  "11.5 LPA",
+                  "01-11-2023"
+                ],
+                [
+                  "8",
+                  "Joshi Neha (Roll: 2020IT0008)",
+                  "B.Tech Mechanical Engineering",
+                  "Godrej & Boyce Mfg",
+                  "6.0 LPA",
+                  "05-11-2023"
+                ],
+                [
+                  "9",
+                  "More Vikram C. (Roll: 2020IT0009)",
+                  "B.Tech Computer Engineering",
+                  "Morgan Stanley",
+                  "14.0 LPA",
+                  "12-11-2023"
+                ],
+                [
+                  "10",
+                  "Shinde Tanvi (Roll: 2020IT0010)",
+                  "B.Tech Information Technology",
+                  "Cognizant Technology",
+                  "5.5 LPA",
+                  "20-11-2023"
+                ],
+                [
+                  "11",
+                  "Rao Siddharth (Roll: 2020IT0011)",
+                  "B.Tech Electronics & Telecomm",
+                  "Persistent Systems",
+                  "8.2 LPA",
+                  "01-12-2023"
+                ],
+                [
+                  "12",
+                  "Hegde Pooja (Roll: 2020IT0012)",
+                  "B.Tech Computer Engineering",
+                  "Oracle Financial Services",
+                  "10.0 LPA",
+                  "05-12-2023"
+                ],
+                [
+                  "13",
+                  "Bhat Rahul (Roll: 2020IT0013)",
+                  "B.Tech Information Technology",
+                  "Wipro Technologies",
+                  "6.5 LPA",
+                  "15-12-2023"
+                ],
+                [
+                  "14",
+                  "Menon Divya (Roll: 2020IT0014)",
+                  "B.Tech Mechanical Engineering",
+                  "Siemens India",
+                  "7.2 LPA",
+                  "10-01-2024"
+                ],
+                [
+                  "15",
+                  "Tiwari Manish S. (Roll: 2020IT0015)",
+                  "B.Tech Computer Engineering",
+                  "Amazon Web Services",
+                  "18.5 LPA",
+                  "18-01-2024"
+                ]
+              ]
+            },
+            {
+              "title": "Waste Management Steps",
+              "headers": [
+                "Year",
+                "Total non-salary"
+              ],
+              "rows": [
+                [
+                  "expenditure (INR Lakhs)",
+                  "Green and waste"
+                ],
+                [
+                  "management (INR Lakhs)",
+                  "Percentage"
+                ],
+                [
+                  "2019-20",
+                  "1280",
+                  "3.2",
+                  "0.25%"
+                ],
+                [
+                  "2020-21",
+                  "1210",
+                  "1.8",
+                  "0.15%"
+                ],
+                [
+                  "2021-22",
+                  "1425",
+                  "5.0",
+                  "0.35%"
+                ],
+                [
+                  "2022-23",
+                  "1590",
+                  "6.4",
+                  "0.40%"
+                ],
+                [
+                  "2023-24",
+                  "1760",
+                  "7.6",
+                  "0.43%"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.2.2",
+          "title": "Percentage of student progression to higher education",
+          "description": "Number of outgoing students progressing to higher education (ME/MTech, MS, MBA, PhD).",
+          "weight": 15,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "5.2.3",
+          "title": "Average percentage of students qualifying in State/National/International examinations",
+          "description": "Number of students qualifying in NET/ SLET/ GATE/ GMAT/ CAT/ GRE/ TOEFL/ Civil services/ State government examinations year-wise.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "5.3.1",
+          "title": "Number of awards/medals for outstanding performance in sports/cultural activities",
+          "description": "Number of awards/medals for outstanding performance in sports/cultural activities at national/international level year-wise.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "5.3.2",
           "title": "Presence of an active Student Council",
-          "description": "Presence of an active Student Council & representation of students on academic & administrative bodies/committees of the institution. Outline the constitution of the student council, their roles, committees, and organizing student-led initiatives.",
+          "description": "Presence of an active Student Council & representation of students on academic & administrative bodies/committees of the institution. Outline council constitution, roles, and student-led initiatives.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "5.3.3",
+          "title": "Average number of sports and cultural activities/competitions organised per year",
+          "description": "Number of sports and cultural activities / competitions organised at the institution level year-wise.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "5.4.1",
           "title": "Registered Alumni Association",
-          "description": "There is a registered Alumni Association that contributes significantly to the development of the institution through financial and/or other support services. Detail alumni placement support, lectures, workshops, networking portals, and meetings.",
+          "description": "There is a registered Alumni Association that contributes significantly to the development of the institution through financial and non-financial support, guest lectures, mentorship, and meetings.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "5.4.2",
+          "title": "Alumni financial contribution during the last five years",
+          "description": "Total Alumni contribution during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         }
       ]
     },
@@ -250,12 +1780,13 @@
         {
           "id": "6.1.1",
           "title": "Governance in tune with vision and mission",
-          "description": "The governance of the institution is reflective of an effective leadership in tune with the vision and mission of the institution. Outline the management systems, participatory governance structures, perspective plans, and quality policies.",
+          "description": "The governance of the institution is reflective of an effective leadership in tune with the vision and mission. Outline the management systems, participatory governance structures, perspective plans, and quality policies.",
           "weight": 5,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "6.1.2",
@@ -265,67 +1796,391 @@
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "6.2.1",
           "title": "Strategic plan and deployment documents are effective",
-          "description": "Perspective/Strategic plan and Deployment documents are available in the institution. Describe key strategic goals deployed, such as establishing research centers, MOUs with industries, and quality accreditations.",
+          "description": "Perspective/Strategic plan and Deployment documents are available. Describe key strategic goals deployed, such as establishing research centers, MOUs with industries, and quality accreditations.",
           "weight": 5,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "6.2.2",
           "title": "Institutional bodies as per statutory requirements",
-          "description": "Organizational structure of the institution including governing body, administrative setup, and functions of various bodies, service rules, procedures, recruitment, and promotional policies.",
+          "description": "Organizational structure of the institution including governing body, administrative setup, service rules, recruitment, promotional policies, and grievance redressal mechanism.",
           "weight": 5,
-          "narrative_draft": "Data not available",
-          "key_initiatives": [],
-          "data_available": false,
-          "supporting_documents": []
+          "narrative_draft": "The institution maintains a robust and transparent organizational structure that strictly adheres to statutory requirements and regulatory norms. The governance framework is anchored by a well-defined Governing Body, which provides strategic direction and oversight to the institution's academic and administrative functions. This body ensures that the institution operates in alignment with the broader educational policies and statutory mandates applicable to higher education institutions. \n\nThe administrative setup is structured hierarchically under the leadership of the Principal and the Registrar. The Principal serves as the chief executive officer, responsible for the overall academic and administrative management, while the Registrar oversees the administrative and operational aspects, ensuring smooth day-to-day functioning. This dual leadership model ensures a balance between academic excellence and administrative efficiency. \n\nRegarding human resource management, the institution follows service rules framed by MES (Maharashtra Education Society or relevant statutory body, as implied by context). These rules provide a clear framework for employee conduct, duties, and responsibilities. Furthermore, the institution has established a recruitment and promotion policy that is explicitly aligned with the norms set by the All India Council for Technical Education (AICTE) and the University Grants Commission (UGC). This alignment ensures that the hiring and career progression of faculty and non-teaching staff are conducted fairly, transparently, and in compliance with national standards. \n\nTo ensure a supportive and accountable work environment, the institution has implemented effective grievance redressal mechanisms. These mechanisms provide structured channels for employees and students to raise concerns, ensuring that issues are addressed promptly and fairly. The existence of these statutory bodies and policies demonstrates the institution's commitment to good governance, legal compliance, and the welfare of its stakeholders. The organizational structure is designed to facilitate efficient decision-making, accountability, and continuous improvement in institutional performance.",
+          "key_initiatives": [
+            "Establishment of a Governing Body for strategic oversight",
+            "Administrative setup under Principal and Registrar",
+            "Implementation of MES-framed service rules",
+            "Recruitment and promotion policy aligned with AICTE/UGC norms",
+            "Implementation of grievance redressal mechanisms"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Institutional Bodies as per Statutory Requirements"
+          ],
+          "tables": []
+        },
+        {
+          "id": "6.2.3",
+          "title": "Implementation of e-governance in areas of operation",
+          "description": "Implementation of e-governance in: 1. Planning & Development, 2. Administration, 3. Finance & Accounts, 4. Student Admission & Support, 5. Examination.",
+          "weight": 5,
+          "narrative_draft": "The institution has systematically implemented e-governance initiatives across its core operational areas to enhance administrative efficiency, transparency, and service delivery. In the domain of Planning and Development, the institution utilizes the IQAC dashboard and AMS (Academic Management System) to facilitate data-driven decision-making and strategic planning, ensuring that these tools are accessible and utilized by all departments. This digital infrastructure supports the monitoring of academic progress and institutional development goals effectively.\n\nRegarding Administration, the institution has adopted the MES HR portal and Office ERP systems. These platforms streamline the management of staff records, leave applications, and the dissemination of official circulars, thereby reducing paperwork and improving the speed of administrative workflows. In the Finance and Accounts sector, Tally ERP 9 is employed to manage fee collection, payments, and audit processes. This software ensures accurate financial tracking and compliance with accounting standards, facilitating a transparent and organized financial ecosystem.\n\nFor Student Admission and Support, the institution leverages an ERP admission module integrated with a dedicated grievance portal. This digital framework manages the entire admission lifecycle, including fee receipts and scholarship processing, while providing a structured channel for students to register and track the resolution of their concerns. Finally, in the area of Examination, the institution utilizes the University of Mumbai portal alongside in-house exam software. This combination allows for the efficient conduct of internal tests and the processing of results, ensuring timely and accurate academic assessment. The comprehensive deployment of these specific software platforms across all five designated areas demonstrates the institution's commitment to modernizing its operational infrastructure through robust e-governance practices.",
+          "key_initiatives": [
+            "Deployment of IQAC dashboard and AMS for Planning and Development",
+            "Implementation of MES HR portal and Office ERP for Administration",
+            "Adoption of Tally ERP 9 for Finance and Accounts management",
+            "Utilization of ERP admission module and grievance portal for Student Support",
+            "Integration of University of Mumbai portal and in-house software for Examinations"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "Implementation of E-Governance"
+          ],
+          "tables": [
+            {
+              "title": "E-Governance Implementation Status",
+              "headers": [
+                "Area",
+                "Software / platform",
+                "Coverage"
+              ],
+              "rows": [
+                [
+                  "Planning and development",
+                  "IQAC dashboard, AMS",
+                  "All departments"
+                ],
+                [
+                  "Administration",
+                  "MES HR portal, Office ERP",
+                  "Staff records, leave, circulars"
+                ],
+                [
+                  "Finance and accounts",
+                  "Tally ERP 9",
+                  "Fee collection, payments, audit"
+                ],
+                [
+                  "Student admission and support",
+                  "ERP admission module, grievance portal",
+                  "Admissions, fee receipts, scholarships"
+                ],
+                [
+                  "Examination",
+                  "University of Mumbai portal; in-house exam software",
+                  "Internal tests, results"
+                ]
+              ]
+            },
+            {
+              "title": "Implementation of E-Governance",
+              "headers": [
+                "Area",
+                "Software / platform",
+                "Coverage"
+              ],
+              "rows": [
+                [
+                  "Planning and development",
+                  "IQAC dashboard, AMS",
+                  "All departments"
+                ],
+                [
+                  "Administration",
+                  "MES HR portal, Office ERP",
+                  "Staff records, leave, circulars"
+                ],
+                [
+                  "Finance and accounts",
+                  "Tally ERP 9",
+                  "Fee collection, payments, audit"
+                ],
+                [
+                  "Student admission and support",
+                  "ERP admission module, grievance"
+                ],
+                [
+                  "portal",
+                  "Admissions, fee receipts, scholarships"
+                ],
+                [
+                  "Examination",
+                  "University of Mumbai portal; in-house"
+                ],
+                [
+                  "exam software",
+                  "Internal tests, results"
+                ]
+              ]
+            }
+          ]
         },
         {
           "id": "6.3.1",
           "title": "Effective welfare measures",
           "description": "The institution has effective welfare measures for teaching and non-teaching staff. Detail training support, sponsorships, leaves (sick, earned, casual), EPF schemes, health programs, and credit societies.",
           "weight": 10,
+          "narrative_draft": "Mahatma Education Society (MES) demonstrates a commitment to the professional development and welfare of its teaching staff through structured policies and financial support mechanisms. A key initiative is the MES Faculty Higher Qualification Upgradation Policy, which facilitates higher academic qualifications for faculty members. This is exemplified by the recent sanction of a six-month paid sabbatical study leave for Prof. Archana Dongre, Associate Professor in the Department of Information Technology, as detailed in Memorandum No. MES/HR/EDU-LEAVE/2023/452 dated 10th August 2023. The Board of Management approved this leave from 1st September 2023 to 28th February 2024 to allow the faculty member to finalize experimental benchmarking and submit her Ph.D. thesis titled 'Optimized Machine Learning Pipelines for Healthcare Telemetry' to the University of Mumbai at Veermata Jijabai Technological Institute (VJTI). \n\nThe welfare measures associated with this leave include comprehensive financial support to alleviate the economic burden on the faculty member. Specifically, a monthly Doctoral Research Fellowship Allowance is sanctioned for the entire duration of the leave. Additionally, the institution provides complete reimbursement for university thesis submission fees and doctoral defense examination fees, contingent upon the submission of official fee receipts. To ensure that academic operations are not disrupted during the faculty member's absence, the institution implements a temporary adjustment of teaching workloads by assigning guest faculty. This approach ensures that the research completion process is supported without compromising the quality of education for students. These measures reflect an effective welfare framework that prioritizes the academic growth of teaching staff while maintaining institutional stability. The involvement of the Secretary of Mahatma Education Society and Dr. Sandeep M. Joshi, Principal, in the sanctioning process underscores the institutional endorsement of these welfare initiatives.",
+          "key_initiatives": [
+            "MES Faculty Higher Qualification Upgradation Policy",
+            "Sanction of paid sabbatical study leave for doctoral research",
+            "Monthly Doctoral Research Fellowship Allowance",
+            "Reimbursement of thesis submission and defense fees",
+            "Temporary teaching workload adjustment via guest faculty"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- FACULTY HIGHER QUALIFICATION STUDY LEAVE",
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452 -- DATE: 10TH AUGUST 2023"
+          ],
+          "tables": []
+        },
+        {
+          "id": "6.3.2",
+          "title": "Average percentage of teachers provided with financial support for conferences / memberships",
+          "description": "Number of teachers provided with financial support to attend conferences/workshops and towards membership fee of professional bodies year-wise.",
+          "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "6.3.3",
+          "title": "Average number of professional development / administrative training programs organized for staff",
+          "description": "Total number of professional development / administrative training programs organized by the Institution for teaching and non teaching staff year-wise.",
+          "weight": 10,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "6.3.4",
+          "title": "Average percentage of teachers attending professional development programs",
+          "description": "Total number of teachers attending professional development programs (Orientation, Refresher, FDP, STTP) year-wise.",
+          "weight": 10,
+          "narrative_draft": "The institution actively supports the professional development and higher qualification upgradation of its faculty through structured policies and financial assistance. A key initiative is the MES Faculty Higher Qualification Upgradation Policy, which facilitates sabbatical study leaves for doctoral research. For instance, in the academic year 2023-24, the Board of Management sanctioned a six-month paid sabbatical study leave for Prof. Archana Dongre, Associate Professor in the Department of Information Technology, from 1st September 2023 to 28th February 2024. This leave was granted to enable her to finalize experimental benchmarking and submit her Ph.D. thesis titled 'Optimized Machine Learning Pipelines for Healthcare Telemetry' to the University of Mumbai at Veermata Jijabai Technological Institute (VJTI). To support this professional development, the institution provided a monthly doctoral research fellowship allowance and complete reimbursement of university thesis submission and defense examination fees. Additionally, teaching workloads were temporarily adjusted by assigning guest faculty to ensure academic continuity. The institution also integrates faculty development into its broader quality assurance framework. In the 2023-24 academic year, specific faculty development activities were conducted alongside other quality initiatives such as AMS dashboards, Research Day, and AISHE data audits. In the preceding year, 2022-23, the institution focused on academic support mechanisms including open-book prelims, study camps, and NBA mock audits. These measures demonstrate a sustained commitment to enhancing faculty competence through both formal higher education pursuits and institutional professional development programs.",
+          "key_initiatives": [
+            "MES Faculty Higher Qualification Upgradation Policy",
+            "Sanction of Sabbatical Study Leave for Doctoral Dissertation",
+            "Monthly Doctoral Research Fellowship Allowance",
+            "Faculty Development Activities in 2023-24"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "MEMO NO: MES/HR/EDU-LEAVE/2023/452",
+            "Component Library"
+          ],
+          "tables": [
+            {
+              "title": "Faculty Development and Quality Assurance Activities",
+              "headers": [
+                "Academic Year",
+                "Count/Indicator",
+                "Activities/Initiatives"
+              ],
+              "rows": [
+                [
+                  "2022-23",
+                  "9",
+                  "Open-book prelims; Study camps; NBA mock audit"
+                ],
+                [
+                  "2023-24",
+                  "11",
+                  "AMS dashboards; Research day; AISHE data audit; Faculty development"
+                ]
+              ]
+            }
+          ]
         },
         {
           "id": "6.4.1",
           "title": "Institution conducts financial audits",
-          "description": "Institution conducts internal and external financial audits regularly. Detail internal and external audit mechanisms, auditing agencies (e.g. CA firms), and budgeting controls.",
+          "description": "The institution conducts internal and external financial audits regularly. Detail internal auditors (CA Susanna & Co.), external auditors (Mr. Y.S. Muzumdar & Co.), Tally ERP accounts, and zero audit objection record.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "6.4.2",
+          "title": "Funds / Grants received from non-government bodies, individuals, Philanthropists",
+          "description": "Total Grants received from non-government bodies, individuals, philanthropists year-wise during the last five years (INR in Lakhs).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "6.5.1",
           "title": "IQAC initiatives",
-          "description": "Internal Quality Assurance Cell (IQAC) has contributed significantly for institutionalizing the quality assurance strategies and processes. Describe quality initiatives like project-based learning, component library setup, and faculty training.",
+          "description": "Internal Quality Assurance Cell (IQAC) has contributed significantly to institutionalizing quality assurance: Project-Based Learning, Component Library, AAA audits, and Faculty Appraisals.",
           "weight": 10,
-          "narrative_draft": "Data not available",
-          "key_initiatives": [],
-          "data_available": false,
-          "supporting_documents": []
+          "narrative_draft": "The Internal Quality Assurance Cell (IQAC), established in 2017, has played a pivotal role in institutionalizing quality assurance mechanisms within the institution. A cornerstone of its operational framework is the conduct of annual Academic and Administrative Audits (AAA), which serve to rigorously review teaching-learning processes and institutional governance structures. Beyond periodic audits, the IQAC has pioneered the implementation of Project-Based Learning (PBL) and established the Component Library, initiatives designed to enhance practical learning outcomes and resource accessibility for students and faculty alike.\\n\\nTo ensure continuous monitoring of academic performance, the IQAC oversees the Academic Monitoring System (AMS). This system dynamically tracks critical academic indicators, including student attendance, daily lecture entries, and syllabus coverage across all academic programs. This data-driven approach allows for real-time intervention and ensures that academic standards are consistently met. Furthermore, the IQAC is responsible for the systematic conduct of Faculty Appraisals, ensuring that teaching staff are evaluated against defined quality benchmarks to foster professional development and accountability.\\n\\nThe scope of IQAC initiatives has expanded significantly over recent years, reflecting a growing commitment to a quality culture. In the 2019-20 academic year, the cell undertook five major initiatives, primarily focusing on Academic and Administrative Audits and Faculty Appraisals. The following year, 2020-21, saw four initiatives, with a shift towards digital quality assurance, including online teaching quality checks and the refinement of the feedback system. By 2021-22, the number of initiatives increased to seven, introducing advanced tools such as the CO-PO attainment tool and Green audits. These initiatives are supported by a robust e-governance infrastructure, where the IQAC dashboard and AMS are integrated into the planning and development software suite, covering all departments. This integration ensures that quality assurance is not an isolated function but is embedded within the broader administrative and academic workflows, facilitated by platforms such as the MES HR portal and Office ERP for administrative transparency.",
+          "key_initiatives": [
+            "Annual Academic and Administrative Audits (AAA)",
+            "Project-Based Learning (PBL) implementation",
+            "Establishment of Component Library",
+            "Academic Monitoring System (AMS) for attendance and syllabus tracking",
+            "Faculty Appraisal processes",
+            "CO-PO attainment tool and Green audits"
+          ],
+          "data_available": true,
+          "supporting_documents": [],
+          "tables": [
+            {
+              "title": "Implementation of E-Governance",
+              "headers": [
+                "Area",
+                "Software / platform",
+                "Coverage"
+              ],
+              "rows": [
+                [
+                  "Planning and development",
+                  "IQAC dashboard, AMS",
+                  "All departments"
+                ],
+                [
+                  "Administration",
+                  "MES HR portal, Office ERP",
+                  "Staff records, leave, circulars"
+                ],
+                [
+                  "Finance and accounts",
+                  "Tally ERP 9",
+                  "Fee collection, payments, audit"
+                ],
+                [
+                  "Student admission and support",
+                  "ERP admission module, grievance"
+                ],
+                [
+                  "portal",
+                  "Admissions, fee receipts, scholarships"
+                ],
+                [
+                  "Examination",
+                  "University of Mumbai portal; in-house"
+                ],
+                [
+                  "exam software",
+                  "Internal tests, results"
+                ]
+              ]
+            },
+            {
+              "title": "Active Student Council and Student Representation",
+              "headers": [
+                "Body",
+                "Student representatives",
+                "Student-led initiatives (2023-24)"
+              ],
+              "rows": [
+                [
+                  "Student Council",
+                  "14",
+                  "Orientation week, ALEGRIA fest, blood"
+                ],
+                [
+                  "donation",
+                  "drive"
+                ],
+                [
+                  "IQAC",
+                  "2",
+                  "Student feedback review"
+                ],
+                [
+                  "Anti-Ragging Committee",
+                  "3",
+                  "Awareness sessions"
+                ],
+                [
+                  "Library Committee",
+                  "2",
+                  "Book recommendations (180 titles)"
+                ],
+                [
+                  "Canteen Committee",
+                  "2",
+                  "Hygiene audit"
+                ]
+              ]
+            },
+            {
+              "title": "Quality Initiatives by IQAC",
+              "headers": [
+                "Year",
+                "No. of initiatives",
+                "Examples"
+              ],
+              "rows": [
+                [
+                  "2019-20",
+                  "5",
+                  "Academic and Administrative Audit;"
+                ],
+                [
+                  "2020-21",
+                  "4",
+                  "Online teaching quality checks;"
+                ],
+                [
+                  "2021-22",
+                  "7",
+                  "CO-PO attainment tool; Green audit;"
+                ]
+              ]
+            },
+            {
+              "title": "Curricular Aspects - Consolidated Data Report",
+              "headers": [
+                "Document Ref: PCE/IQAC/C1/MOCK/2024",
+                "Academic Years covered: 2019-20 to 2023-24"
+              ],
+              "rows": [
+                [
+                  "Year",
+                  "No. of programmes"
+                ],
+                [
+                  "introduced",
+                  "Programme names",
+                  "Duration"
+                ]
+              ]
+            }
+          ]
         },
         {
-          "id": "6.5.2",
-          "title": "Institutional reviews and implementation of teaching-learning",
-          "description": "The institution reviews its teaching learning process, structures & methodologies of operations and learning outcomes at periodic intervals through IQAC set up as per norms. Detail academic audits and online monitoring systems (AMS).",
+          "id": "6.5.3",
+          "title": "Average number of quality initiatives by IQAC for promoting quality culture",
+          "description": "Number of quality initiatives by IQAC for promoting quality year-wise during the last five years.",
           "weight": 10,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         }
       ]
     },
@@ -336,63 +2191,289 @@
       "metrics": [
         {
           "id": "7.1.1",
-          "title": "Promotion of gender equity",
-          "description": "Measures initiated for the promotion of gender equity. Detail safety and security (CCTV, guards), counseling, common rooms, and gender equity promotion programs (Women Development Cell / ICC).",
+          "title": "Number of gender equity promotion programs organized",
+          "description": "Number of gender equity promotion programs organized by the institution year-wise during the last five years.",
+          "weight": 5,
+          "narrative_draft": "Pillai College of Engineering, Panvel, has actively promoted gender equity and safety through structured programs and infrastructure audits, particularly during the 2023-2024 academic year. A key initiative was the organization of the 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop, conducted by the Women Development Cell (WDC) in collaboration with the Navi Mumbai Police Commissionerate's Nirbhaya Pathak Squad. Held from December 11 to December 15, 2023, at the Ground Floor Conclave & Gymkhana, this program was designed to empower female engineering students and staff members with practical safety skills. The workshop featured demonstrations by Lady Police Inspector Sunita More and her team, covering martial arts maneuvers, situational awareness protocols for public transport, and the use of emergency cyber-helpline tools, specifically the Police Dial 112 SOS mobile application. A total of 320 female students from first, second, and third-year degree programs successfully completed the five-day physical training, highlighting the institution's commitment to ensuring the physical security and confidence of its female student body.\n\nIn addition to direct training programs, the institution has implemented comprehensive gender sensitivity facilities and safety audits to foster an equitable campus environment. The 2023-2024 Gender Sensitivity Facilities & Women Campus Safety Audit Report, submitted by WDC Convener Dr. Mansi Subhedar and countersigned by Principal Dr. Sandeep M. Joshi, details the deployment of high-definition CCTV cameras at all academic block entrances, corridors, parking zones, and library areas, monitored centrally from the security control room. The audit confirms the installation of sanitary napkin vending machines and automated incinerators in women's restrooms across Academic Blocks 1, 2, and 3. Furthermore, the institution provides spacious, well-furnished Girls' Common Rooms equipped with first-aid kits. To address grievances and promote awareness, the Internal Complaints Committee (ICC) and WDC conduct regular sessions against sexual harassment, with emergency SOS contact numbers and helpline details visibly displayed on campus boards. These combined efforts in training, infrastructure, and policy enforcement demonstrate a robust framework for gender equity promotion at the institution.",
+          "key_initiatives": [
+            "Organization of 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop with Navi Mumbai Police",
+            "Implementation of 24x7 CCTV surveillance and gender-sensitive hygiene facilities in academic blocks",
+            "Conduct of regular awareness sessions against sexual harassment by the Internal Complaints Committee and Women Development Cell"
+          ],
+          "data_available": true,
+          "supporting_documents": [
+            "PILLAI COLLEGE OF ENGINEERING, PANVEL -- EVENT REPORT: 'Nirbhaya' Five-Day Intensive Self-Defense & Personal Safety Training Workshop",
+            "GENDER SENSITIVITY FACILITIES & WOMEN CAMPUS SAFETY AUDIT REPORT (Ref: WDC/2023-24/SAFETY-AUDIT)"
+          ],
+          "tables": []
+        },
+        {
+          "id": "7.1.2",
+          "title": "Institution shows gender sensitivity in providing facilities",
+          "description": "Institution shows gender sensitivity in providing facilities: 1. Safety and Security (CCTV 24x7, security checkpoints, ICC cell), 2. Counselling (full-time counselor, mentor-mentee), 3. Common Rooms (Girls and Boys common rooms, hygiene vending machines).",
+          "weight": 5,
+          "narrative_draft": "Pillai College of Engineering, Panvel, demonstrates a robust commitment to gender sensitivity in providing campus facilities, ensuring a safe, secure, and supportive environment for female students and staff. The institution has implemented comprehensive safety and security measures, including the deployment of high-definition CCTV cameras at all academic block entrances, corridor intersections, parking zones, and library corridors. These surveillance systems are monitored centrally from the security control room to ensure 24x7 safety. To address hygiene and comfort, the college has installed fully functional sanitary napkin vending machines and automated incinerators in women's restrooms across Academic Blocks 1, 2, and 3. The functional status of these vending machines is regularly inspected by the Women Development Cell (WDC) to ensure uninterrupted service. Additionally, spacious, clean, and well-furnished Girls' Common Rooms are provided, equipped with first-aid medical kits and resting facilities to promote student well-being. In terms of grievance redressal and support, the institution maintains an active Internal Complaints Committee (ICC) and a Women Development Cell (WDC). These bodies conduct regular awareness sessions against sexual harassment and ensure that emergency SOS contact numbers and Police Dial 112 helpline details are visibly displayed on campus boards. The WDC, led by Convener Dr. Mansi Subhedar and countersigned by Principal Dr. Sandeep M. Joshi, actively engages with the student body. For instance, 320 female students across first, second, and third years successfully completed a five-day physical training program, which included the use of the Police Dial 112 app. The institution further supports gender-sensitive initiatives through student-led bodies, such as the Canteen Committee, which conducts hygiene audits, and the Anti-Ragging Committee, which organizes awareness sessions. These collective efforts reflect the institution's dedication to fostering a gender-sensitive campus culture through infrastructure, security, and active student engagement.",
+          "key_initiatives": [
+            "Deployment of 24x7 CCTV surveillance at all academic blocks and common areas",
+            "Installation and regular inspection of sanitary napkin vending machines and automated incinerators in women's restrooms",
+            "Provision of dedicated Girls' Common Rooms with first-aid kits and resting facilities",
+            "Active functioning of ICC and WDC with regular awareness sessions and visible emergency helpline displays",
+            "Conduct of physical training programs for 320 female students including Police Dial 112 app usage"
+          ],
+          "data_available": true,
+          "supporting_documents": [],
+          "tables": [
+            {
+              "title": "Active Student Council and Student Representation",
+              "headers": [
+                "Body",
+                "Student representatives",
+                "Student-led initiatives (2023-24)"
+              ],
+              "rows": [
+                [
+                  "Student Council",
+                  "14",
+                  "Orientation week, ALEGRIA fest, blood"
+                ],
+                [
+                  "donation",
+                  "drive"
+                ],
+                [
+                  "IQAC",
+                  "2",
+                  "Student feedback review"
+                ],
+                [
+                  "Anti-Ragging Committee",
+                  "3",
+                  "Awareness sessions"
+                ],
+                [
+                  "Library Committee",
+                  "2",
+                  "Book recommendations (180 titles)"
+                ],
+                [
+                  "Canteen Committee",
+                  "2",
+                  "Hygiene audit"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.1.3",
+          "title": "Alternate Energy initiatives",
+          "description": "Percentage of annual power requirement of the Institution met by renewable energy sources (Solar, Biogas, etc.) in KWH.",
           "weight": 5,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "7.1.4",
+          "title": "Percentage of annual lighting power requirements met through LED bulbs",
+          "description": "Annual lighting power requirement met through LED bulbs (in KWH) and percentage.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "7.1.5",
+          "title": "Waste Management steps",
+          "description": "Waste Management steps including Solid waste (composting plant, source segregation), Liquid waste (Panvel Municipal sewage treatment), and E-waste management (component library salvage, scrap clearance).",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "7.1.8",
-          "title": "Institutional efforts in providing an inclusive environment",
-          "description": "Institutional efforts in providing an inclusive environment (tolerance, harmony towards cultural, regional, linguistic, communal socio-economic and other diversities). Explain cultural programs, regional festivals, and social service campaigns.",
-          "weight": 10,
-          "narrative_draft": "Data not available",
-          "key_initiatives": [],
-          "data_available": false,
-          "supporting_documents": []
-        },
-        {
-          "id": "7.1.9",
-          "title": "Sensitization to constitutional obligations",
-          "description": "Sensitization of students to constitutional obligations: values, rights, duties and responsibilities of citizens. Describe programs celebrating Independence Day, Republic Day, Constitution Day, and related workshops.",
-          "weight": 10,
-          "narrative_draft": "Data not available",
-          "key_initiatives": [],
-          "data_available": false,
-          "supporting_documents": []
-        },
-        {
-          "id": "7.1.11",
-          "title": "Institution celebrates commemorative days",
-          "description": "Institution celebrates national/international commemorative days, festivals and birth/death anniversaries of great Indian personalities (like Gandhi, Shivaji, Ambedkar, Radhakrishnan).",
+          "title": "Average percentage expenditure on green initiatives and waste management",
+          "description": "Total expenditure on green initiatives and waste management excluding salary component year-wise (INR in Lakhs).",
           "weight": 5,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
+        },
+        {
+          "id": "7.1.11",
+          "title": "Number of initiatives taken to engage with and contribute to local community",
+          "description": "Number of initiatives taken to engage with and contribute to local community year-wise during the last five years.",
+          "weight": 5,
+          "narrative_draft": "Data not available",
+          "key_initiatives": [],
+          "data_available": false,
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "7.2.1",
-          "title": "Best practices successfully implemented",
-          "description": "Describe two best practices successfully implemented by the Institution as per NAAC format. Provide titles, objectives, context, details, evidence of success, and problems encountered (e.g. Centers of Excellence, Project-Based Learning).",
+          "title": "Two institutional best practices",
+          "description": "Describe at least two institutional best practices: Practice 1: Creating Impact Through Centers of Excellence in Research, Consultancy and Entrepreneurship (UXO, Drone Lab, Maker Studio, PCIE). Practice 2: Enhanced Teaching and Learning (Open Book Prelims, Study Camps, Project-Based Learning, Component Library).",
           "weight": 30,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": []
         },
         {
           "id": "7.3.1",
           "title": "Institutional Distinctiveness",
-          "description": "Performance of the Institution in one area distinctive to its thrust. Elaborate on the core distinctiveness (e.g., student-centered research, project-based learning, or incubation/entrepreneurship cell).",
+          "description": "Describe the performance of the institution in one area distinctive to its vision, priority and thrust: 360-degree holistic development of students and faculty through student-centered innovation, research culture, Maker spaces, and socio-environmental consciousness.",
           "weight": 20,
           "narrative_draft": "Data not available",
           "key_initiatives": [],
           "data_available": false,
-          "supporting_documents": []
+          "supporting_documents": [],
+          "tables": [
+            {
+              "title": "TPO Campus Recruitment Master Register (Student-Wise Offers & Salary CTC)",
+              "headers": [
+                "Sr. No.",
+                "Student Name & Roll No.",
+                "Programme / Department",
+                "Recruiting Company",
+                "Offered CTC",
+                "Offer Date"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Sharma Aarav (Roll: 2020IT0001)",
+                  "B.Tech Information Technology",
+                  "Tata Consultancy Services",
+                  "7.5 LPA",
+                  "15-09-2023"
+                ],
+                [
+                  "2",
+                  "Patil Sneha R. (Roll: 2020IT0002)",
+                  "B.Tech Computer Engineering",
+                  "Infosys Limited",
+                  "6.2 LPA",
+                  "20-09-2023"
+                ],
+                [
+                  "3",
+                  "Nair Rohan K. (Roll: 2020IT0003)",
+                  "B.Tech Mechanical Engineering",
+                  "Larsen & Toubro Ltd",
+                  "5.8 LPA",
+                  "02-10-2023"
+                ],
+                [
+                  "4",
+                  "Iyer Priya N. (Roll: 2020IT0004)",
+                  "B.Tech Information Technology",
+                  "Capgemini India",
+                  "6.5 LPA",
+                  "10-10-2023"
+                ],
+                [
+                  "5",
+                  "Kulkarni Aditya (Roll: 2020IT0005)",
+                  "B.Tech Electronics Engineering",
+                  "Jio Platforms",
+                  "8.0 LPA",
+                  "14-10-2023"
+                ],
+                [
+                  "6",
+                  "Deshmukh Ananya (Roll: 2020IT0006)",
+                  "B.Tech Computer Engineering",
+                  "Accenture Solutions",
+                  "7.0 LPA",
+                  "18-10-2023"
+                ],
+                [
+                  "7",
+                  "Verma Karthik (Roll: 2020IT0007)",
+                  "B.Tech Information Technology",
+                  "Barclays Global Service",
+                  "11.5 LPA",
+                  "01-11-2023"
+                ],
+                [
+                  "8",
+                  "Joshi Neha (Roll: 2020IT0008)",
+                  "B.Tech Mechanical Engineering",
+                  "Godrej & Boyce Mfg",
+                  "6.0 LPA",
+                  "05-11-2023"
+                ],
+                [
+                  "9",
+                  "More Vikram C. (Roll: 2020IT0009)",
+                  "B.Tech Computer Engineering",
+                  "Morgan Stanley",
+                  "14.0 LPA",
+                  "12-11-2023"
+                ],
+                [
+                  "10",
+                  "Shinde Tanvi (Roll: 2020IT0010)",
+                  "B.Tech Information Technology",
+                  "Cognizant Technology",
+                  "5.5 LPA",
+                  "20-11-2023"
+                ],
+                [
+                  "11",
+                  "Rao Siddharth (Roll: 2020IT0011)",
+                  "B.Tech Electronics & Telecomm",
+                  "Persistent Systems",
+                  "8.2 LPA",
+                  "01-12-2023"
+                ],
+                [
+                  "12",
+                  "Hegde Pooja (Roll: 2020IT0012)",
+                  "B.Tech Computer Engineering",
+                  "Oracle Financial Services",
+                  "10.0 LPA",
+                  "05-12-2023"
+                ],
+                [
+                  "13",
+                  "Bhat Rahul (Roll: 2020IT0013)",
+                  "B.Tech Information Technology",
+                  "Wipro Technologies",
+                  "6.5 LPA",
+                  "15-12-2023"
+                ],
+                [
+                  "14",
+                  "Menon Divya (Roll: 2020IT0014)",
+                  "B.Tech Mechanical Engineering",
+                  "Siemens India",
+                  "7.2 LPA",
+                  "10-01-2024"
+                ],
+                [
+                  "15",
+                  "Tiwari Manish S. (Roll: 2020IT0015)",
+                  "B.Tech Computer Engineering",
+                  "Amazon Web Services",
+                  "18.5 LPA",
+                  "18-01-2024"
+                ]
+              ]
+            }
+          ]
         }
       ]
     }

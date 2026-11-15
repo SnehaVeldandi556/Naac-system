@@ -1,15 +1,13 @@
 // app/naac-upload/page.tsx
 'use client';
-import { useState, useCallback, Fragment } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import SignOutButton from '@/components/SignOutButton';
 import { parseFile } from '@/lib/naac/parseFile';
 import { detectHeaderRow } from '@/lib/naac/detectHeaderRow';
 import {
-  autoGuessMapping,
-  CANONICAL_FIELDS,
   ColumnMapping,
-  CanonicalKey,
+  CustomField,
   getMappingIssues,
 } from '@/lib/naac/columnMap';
 import { validateRows, CellError } from '@/lib/naac/validateRows';
@@ -53,14 +51,13 @@ export default function NaacUploadPage() {
   const [docProcessing, setDocProcessing] = useState(false);
   const [docError, setDocError] = useState<string | null>(null);
   const [docResult, setDocResult] = useState<PipelineResult | null>(null);
-  const [showRawText, setShowRawText] = useState(false);
-  const [expandedChunk, setExpandedChunk] = useState<number | null>(null);
 
   // --- Spreadsheets State ---
   const [rawHeaders, setRawHeaders] = useState<string[]>([]);
   const [rawDataRows, setRawDataRows] = useState<string[][]>([]);
+  const [customFields, setCustomFields] = useState<CustomField[]>([]);
   const [mapping, setMapping] = useState<ColumnMapping | null>(null);
-  const [rows, setRows] = useState<Record<CanonicalKey, string>[]>([]);
+  const [rows, setRows] = useState<Record<string, string>[]>([]);
   const [errors, setErrors] = useState<CellError[]>([]);
   const [override, setOverride] = useState(false);
   const [sheetFileName, setSheetFileName] = useState<string | null>(null);
@@ -90,7 +87,7 @@ export default function NaacUploadPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        setDocError(data.error ?? 'Document processing pipeline failed.');
+        setDocError(data.error ?? 'Document upload failed. Please try again.');
         return;
       }
 
@@ -103,26 +100,21 @@ export default function NaacUploadPage() {
   }
 
   // --- Spreadsheet Handlers ---
-  async function handleSpreadsheetFile(file: File) {
-    setSheetResult(null);
-    setSheetFileName(file.name);
+  function applyMapping(
+    map: ColumnMapping,
+    headers: string[],
+    dataRows: string[][],
+    fieldsList: CustomField[]
+  ) {
+    if (fieldsList.length === 0) {
+      setRows([]);
+      setErrors([]);
+      return;
+    }
 
-    const sheet = await parseFile(file);
-    const headerIdx = detectHeaderRow(sheet);
-    const headers = sheet[headerIdx].map(String);
-    const dataRows = sheet.slice(headerIdx + 1);
-
-    const guessedMap = autoGuessMapping(headers);
-    setRawHeaders(headers);
-    setRawDataRows(dataRows);
-    setMapping(guessedMap);
-    applyMapping(guessedMap, headers, dataRows);
-  }
-
-  function applyMapping(map: ColumnMapping, headers: string[], dataRows: string[][]) {
     const mapped = dataRows.map(r => {
-      const obj = {} as Record<CanonicalKey, string>;
-      for (const field of CANONICAL_FIELDS) {
+      const obj: Record<string, string> = {};
+      for (const field of fieldsList) {
         const colIdx = headers.indexOf(map[field.key] ?? '');
         obj[field.key] = colIdx >= 0 ? String(r[colIdx] ?? '') : '';
       }
@@ -132,12 +124,68 @@ export default function NaacUploadPage() {
     setErrors(validateRows(mapped).errors);
   }
 
-  function handleMappingChange(m: ColumnMapping) {
-    setMapping(m);
-    applyMapping(m, rawHeaders, rawDataRows);
+  async function handleSpreadsheetFile(file: File) {
+    setSheetResult(null);
+    setSheetFileName(file.name);
+
+    const sheet = await parseFile(file);
+    const headerIdx = detectHeaderRow(sheet);
+    const headers = sheet[headerIdx].map(String);
+    const dataRows = sheet.slice(headerIdx + 1);
+
+    setRawHeaders(headers);
+    setRawDataRows(dataRows);
+    setCustomFields([]);
+    setMapping({});
+    setRows([]);
+    setErrors([]);
   }
 
-  const onCellEdit = useCallback((r: number, field: CanonicalKey, value: string) => {
+  function handleAddCustomField(headerNameOrKey: string, customLabel?: string) {
+    const label = customLabel?.trim() || headerNameOrKey.trim();
+    const baseKey = label.toLowerCase().replace(/[^a-z0-9]/g, '_') || 'col';
+    let uniqueKey = baseKey;
+    let counter = 1;
+    while (customFields.some(f => f.key === uniqueKey)) {
+      uniqueKey = `${baseKey}_${counter++}`;
+    }
+
+    const newField: CustomField = {
+      key: uniqueKey,
+      label,
+      isCustom: true,
+    };
+
+    const nextCustomFields = [...customFields, newField];
+    setCustomFields(nextCustomFields);
+
+    const mappedHeader = rawHeaders.includes(headerNameOrKey) ? headerNameOrKey : (rawHeaders[0] ?? null);
+    const nextMapping: ColumnMapping = {
+      ...(mapping ?? {}),
+      [uniqueKey]: mappedHeader,
+    };
+    setMapping(nextMapping);
+
+    applyMapping(nextMapping, rawHeaders, rawDataRows, nextCustomFields);
+  }
+
+  function handleRemoveCustomField(fieldKey: string) {
+    const nextCustomFields = customFields.filter(f => f.key !== fieldKey);
+    setCustomFields(nextCustomFields);
+
+    const nextMapping = { ...(mapping ?? {}) };
+    delete nextMapping[fieldKey];
+    setMapping(nextMapping);
+
+    applyMapping(nextMapping, rawHeaders, rawDataRows, nextCustomFields);
+  }
+
+  function handleMappingChange(m: ColumnMapping) {
+    setMapping(m);
+    applyMapping(m, rawHeaders, rawDataRows, customFields);
+  }
+
+  const onCellEdit = useCallback((r: number, field: string, value: string) => {
     setRows(prev => {
       const next = [...prev];
       next[r] = { ...next[r], [field]: value };
@@ -168,8 +216,9 @@ export default function NaacUploadPage() {
     }
   }
 
-  const mappingIssues = mapping ? getMappingIssues(mapping) : [];
+  const mappingIssues = mapping ? getMappingIssues(customFields, mapping) : [];
   const hasBlockingIssues = errors.length > 0 || mappingIssues.length > 0;
+  const hasColumns = customFields.length > 0;
   const hasData = rows.length > 0;
 
   return (
@@ -310,14 +359,14 @@ export default function NaacUploadPage() {
 
               <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                 <p className="text-xs text-slate-400">
-                  Runs: Storage Upload → Text Extraction → Text Cleaning → Section Chunking → Validation → Database Persistence.
+                  Select your document and department to submit for NAAC reporting.
                 </p>
                 <button
                   onClick={handleProcessDocument}
                   disabled={!docFile || docProcessing}
-                  className="rounded-lg bg-slate-900 px-5 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-sm"
+                  className="rounded-lg bg-slate-900 px-5 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-50 transition-colors shadow-sm cursor-pointer"
                 >
-                  {docProcessing ? 'Processing Document...' : 'Upload & Run Cleaning Pipeline'}
+                  {docProcessing ? 'Uploading document...' : 'Upload Document'}
                 </button>
               </div>
             </div>
@@ -325,148 +374,55 @@ export default function NaacUploadPage() {
             {/* Error Display */}
             {docError && (
               <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-                <p className="font-semibold mb-1">Processing Error</p>
+                <p className="font-semibold mb-1">Upload Error</p>
                 <p className="text-xs whitespace-pre-wrap">{docError}</p>
               </div>
             )}
 
             {/* Processing Results Area */}
             {docResult && (
-              <div className="space-y-4">
-                {/* Status Bar */}
-                <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="text-xs font-semibold uppercase text-slate-400">Status:</span>
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                      docResult.extraction_status === 'extracted' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                    }`}>
-                      Extraction: {docResult.extraction_status}
-                    </span>
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                      docResult.processing_status === 'chunked' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'
-                    }`}>
-                      Processing: {docResult.processing_status}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      {docResult.chunks.length} clean chunks created
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setShowRawText(!showRawText)}
-                      className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-                    >
-                      {showRawText ? 'Hide Raw Extracted Text' : 'View Raw Extracted Text'}
-                    </button>
-                  </div>
-                </div>
-
-                {/* Storage & Database Details */}
-                <div className="rounded-xl border border-slate-200 bg-white p-4 text-xs text-slate-500 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  <div>
-                    <span className="font-semibold text-slate-700">Storage Bucket:</span> {docResult.storage_bucket}
-                  </div>
-                  <div>
-                    <span className="font-semibold text-slate-700">Raw Document ID:</span>{' '}
-                    <span className="font-mono text-slate-600">{docResult.documentId}</span>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-slate-700">File:</span> {docResult.file_name} ({docResult.file_type.toUpperCase()})
-                  </div>
-                </div>
-
-                {/* Raw Extracted Text Drawer */}
-                {showRawText && (
-                  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xs font-semibold uppercase text-slate-500">Raw Extracted Text</h3>
-                      <span className="text-xs text-slate-400">
-                        {docResult.raw_text ? `${docResult.raw_text.length} characters` : 'Empty'}
-                      </span>
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50/80 p-6 shadow-sm space-y-4 animate-in fade-in duration-200">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold border border-emerald-300">
+                      ✓
                     </div>
-                    <pre className="max-h-72 overflow-auto rounded-lg bg-slate-900 p-4 text-xs font-mono text-slate-200 whitespace-pre-wrap leading-relaxed">
-                      {docResult.raw_text || '(no text extracted)'}
-                    </pre>
+                    <div>
+                      <h3 className="text-base font-semibold text-emerald-950">
+                        Your file has been successfully uploaded and taken for review for the report.
+                      </h3>
+                      <p className="text-xs text-emerald-700 mt-0.5">
+                        Your document is securely registered and will be included in the NAAC SSR report generation.
+                      </p>
+                    </div>
                   </div>
-                )}
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                    Status: Under Review
+                  </span>
+                </div>
 
-                {/* Chunks Table */}
-                <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-                  <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
-                    <h3 className="text-sm font-semibold text-slate-900">
-                      Cleaned & Validated Chunks ({docResult.chunks.length})
-                    </h3>
-                    <span className="text-xs text-slate-400">Click any row to view full chunk content</span>
+                {/* File Details Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-emerald-200/80 text-xs">
+                  <div className="bg-white/95 p-3 rounded-lg border border-emerald-100 shadow-2xs">
+                    <span className="font-semibold text-slate-500 block">Uploaded File</span>
+                    <span className="font-medium text-slate-800 break-all">{docResult.file_name}</span>
                   </div>
+                  <div className="bg-white/95 p-3 rounded-lg border border-emerald-100 shadow-2xs">
+                    <span className="font-semibold text-slate-500 block">Department & Academic Year</span>
+                    <span className="font-medium text-slate-800">{docDepartment} ({academicYear})</span>
+                  </div>
+                </div>
 
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500 border-b border-slate-200">
-                        <tr>
-                          <th className="px-4 py-2.5 w-16">#</th>
-                          <th className="px-4 py-2.5 w-24">Type</th>
-                          <th className="px-4 py-2.5 w-24">Status</th>
-                          <th className="px-4 py-2.5">Section Heading</th>
-                          <th className="px-4 py-2.5">Flagged Reason</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-100">
-                        {docResult.chunks.map((chunk) => {
-                          const isOpen = expandedChunk === chunk.chunk_index;
-                          return (
-                            <Fragment key={chunk.chunk_index}>
-                              <tr
-                                onClick={() => setExpandedChunk(isOpen ? null : chunk.chunk_index)}
-                                className={`cursor-pointer hover:bg-slate-50 transition-colors ${
-                                  !chunk.is_valid ? 'bg-amber-50/40' : ''
-                                }`}
-                              >
-                                <td className="px-4 py-2.5 font-mono text-xs text-slate-500">{chunk.chunk_index}</td>
-                                <td className="px-4 py-2.5">
-                                  <span className={`px-2 py-0.5 rounded text-xs uppercase font-medium ${
-                                    chunk.chunk_type === 'table' ? 'bg-purple-100 text-purple-800' : 'bg-slate-100 text-slate-700'
-                                  }`}>
-                                    {chunk.chunk_type}
-                                  </span>
-                                </td>
-                                <td className="px-4 py-2.5">
-                                  <span className={`text-xs font-semibold ${chunk.is_valid ? 'text-green-600' : 'text-amber-600'}`}>
-                                    {chunk.is_valid ? '✓ Valid' : '✕ Flagged'}
-                                  </span>
-                                </td>
-                                <td className="px-4 py-2.5 font-medium text-slate-900">
-                                  {chunk.section_heading || '—'}
-                                </td>
-                                <td className="px-4 py-2.5 text-xs text-amber-700">
-                                  {chunk.flagged_reason || '—'}
-                                </td>
-                              </tr>
-                              {isOpen && (
-                                <tr>
-                                  <td colSpan={5} className="bg-slate-900 p-4 border-t border-b border-slate-800">
-                                    <p className="text-xs uppercase text-slate-400 font-semibold mb-1">
-                                      Chunk Content (Index {chunk.chunk_index})
-                                    </p>
-                                    <pre className="text-xs font-mono text-slate-200 whitespace-pre-wrap leading-relaxed max-h-60 overflow-y-auto">
-                                      {chunk.chunk_text}
-                                    </pre>
-                                  </td>
-                                </tr>
-                              )}
-                            </Fragment>
-                          );
-                        })}
-                        {docResult.chunks.length === 0 && (
-                          <tr>
-                            <td colSpan={5} className="px-4 py-8 text-center text-slate-400">
-                              No chunks generated for this document.
-                            </td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
+                <div className="flex items-center justify-end pt-1 text-xs">
+                  <button
+                    onClick={() => {
+                      setDocFile(null);
+                      setDocResult(null);
+                    }}
+                    className="font-semibold text-emerald-800 hover:text-emerald-950 underline cursor-pointer"
+                  >
+                    + Upload Another Document
+                  </button>
                 </div>
               </div>
             )}
@@ -479,7 +435,7 @@ export default function NaacUploadPage() {
             <header>
               <h2 className="text-lg font-semibold text-gray-900">NAAC Quantitative Data Ingestion</h2>
               <p className="text-sm text-gray-500 mt-1">
-                Upload a CSV or Excel file, map columns to canonical fields, validate records, and submit.
+                Upload a CSV or Excel file, add and map columns from your dataset attributes, review data, and submit.
               </p>
             </header>
 
@@ -501,16 +457,19 @@ export default function NaacUploadPage() {
             </section>
 
             {/* Step 2: Column mapping */}
-            {mapping && rawHeaders.length > 0 && (
+            {rawHeaders.length > 0 && (
               <section className="bg-white border border-gray-200 rounded-lg p-5 space-y-3 shadow-sm">
                 <SectionTitle step={2} title="Map Columns" />
                 <ColumnMappingPanel
-                  mapping={mapping}
+                  mapping={mapping ?? {}}
                   rawHeaders={rawHeaders}
+                  customFields={customFields}
                   onChange={handleMappingChange}
+                  onAddCustomField={handleAddCustomField}
+                  onRemoveCustomField={handleRemoveCustomField}
                 />
                 {mappingIssues.length > 0 && (
-                  <div className="bg-red-50 border border-red-200 rounded p-3">
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                     <ul className="text-red-700 text-sm list-disc pl-5 space-y-0.5">
                       {mappingIssues.map((issue, i) => <li key={i}>{issue}</li>)}
                     </ul>
@@ -520,22 +479,29 @@ export default function NaacUploadPage() {
             )}
 
             {/* Step 3: Review data */}
-            {hasData && (
+            {rawHeaders.length > 0 && (
               <section className="bg-white border border-gray-200 rounded-lg p-5 space-y-3 shadow-sm">
                 <div className="flex items-center justify-between">
                   <SectionTitle step={3} title="Review Data" />
-                  <span className={`text-sm font-medium ${errors.length > 0 ? 'text-red-600' : 'text-green-600'}`}>
-                    {errors.length > 0 ? `${errors.length} error(s)` : 'No errors'}
-                  </span>
+                  {hasColumns && (
+                    <span className={`text-sm font-medium ${errors.length > 0 ? 'text-red-600' : 'text-green-600'}`}>
+                      {errors.length > 0 ? `${errors.length} error(s)` : 'No errors'}
+                    </span>
+                  )}
                 </div>
-                <div className="overflow-x-auto border border-gray-100 rounded">
-                  <DataGrid rows={rows} errors={errors} onCellEdit={onCellEdit} />
-                </div>
+
+                {hasColumns ? (
+                  <DataGrid fields={customFields} rows={rows} errors={errors} onCellEdit={onCellEdit} />
+                ) : (
+                  <div className="text-center text-sm text-slate-400 py-8 border border-dashed border-slate-200 rounded-lg bg-slate-50/50">
+                    No columns added yet. Add columns in Step 2 above to review and preview dataset records.
+                  </div>
+                )}
               </section>
             )}
 
             {/* Empty state before any file is uploaded */}
-            {!hasData && (
+            {rawHeaders.length === 0 && (
               <div className="text-center text-sm text-gray-400 py-12 border border-dashed border-gray-200 rounded-lg bg-white">
                 No spreadsheet uploaded yet. Click &quot;Choose File&quot; above to begin.
               </div>

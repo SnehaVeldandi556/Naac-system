@@ -4,35 +4,49 @@ import { extractText } from './extractText';
 
 const STORAGE_BUCKET = 'naac-project';
 
-export async function processRawDocument(documentId: string): Promise<void> {
+export async function processRawDocument(documentId: string, cachedBuffer?: Buffer): Promise<void> {
   const supabase = getSupabaseAdminClient();
 
-  // 1. Fetch the row
-  const { data: doc, error: fetchError } = await supabase
-    .from('raw_documents')
-    .select('id, storage_path, file_type')
-    .eq('id', documentId)
-    .single();
+  let fileBuffer = cachedBuffer;
+  let fileType: 'pdf' | 'docx' | 'xlsx' | 'xls' = 'pdf';
 
-  if (fetchError || !doc) {
-    throw new Error(`Could not fetch document ${documentId}: ${fetchError?.message}`);
+  if (!fileBuffer) {
+    // 1. Fetch the row
+    const { data: doc, error: fetchError } = await supabase
+      .from('raw_documents')
+      .select('id, storage_path, file_type')
+      .eq('id', documentId)
+      .single();
+
+    if (fetchError || !doc) {
+      throw new Error(`Could not fetch document ${documentId}: ${fetchError?.message}`);
+    }
+
+    fileType = (doc.file_type as 'pdf' | 'docx' | 'xlsx' | 'xls') || 'pdf';
+
+    // 2. Download file from Storage
+    const { data: fileData, error: downloadError } = await supabase
+      .storage
+      .from(STORAGE_BUCKET)
+      .download(doc.storage_path);
+
+    if (downloadError || !fileData) {
+      await markFailed(documentId, `Download failed: ${downloadError?.message}`);
+      return;
+    }
+
+    fileBuffer = Buffer.from(await fileData.arrayBuffer());
+  } else {
+    const { data: doc } = await supabase
+      .from('raw_documents')
+      .select('file_type')
+      .eq('id', documentId)
+      .single();
+    if (doc?.file_type) fileType = doc.file_type as 'pdf' | 'docx' | 'xlsx' | 'xls';
   }
-
-  // 2. Download file from Storage
-  const { data: fileData, error: downloadError } = await supabase
-    .storage
-    .from(STORAGE_BUCKET)
-    .download(doc.storage_path);
-
-  if (downloadError || !fileData) {
-    await markFailed(documentId, `Download failed: ${downloadError?.message}`);
-    return;
-  }
-
-  const fileBuffer = Buffer.from(await fileData.arrayBuffer());
 
   // 3. Extract text from PDF or DOCX
-  const result = await extractText(fileBuffer, doc.file_type as 'pdf' | 'docx');
+  const result = await extractText(fileBuffer, fileType);
 
   // 4. Update raw_documents with result
   if (result.status === 'extracted') {

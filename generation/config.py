@@ -1,10 +1,10 @@
 import os
 from dotenv import load_dotenv
 
-# Load .env.local and .env files from project root (one level up from this script)
+# Load .env and .env.local files from project root (.env.local overrides .env)
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(dotenv_path=os.path.join(root_dir, '.env.local'))
-load_dotenv(dotenv_path=os.path.join(root_dir, '.env'))
+load_dotenv(dotenv_path=os.path.join(root_dir, '.env'), override=True)
+load_dotenv(dotenv_path=os.path.join(root_dir, '.env.local'), override=True)
 
 # Groq API Configuration for Qwen Inference
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")

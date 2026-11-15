@@ -2,8 +2,14 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
-const PUBLIC_PATHS = ["/login", "/accept-invite", "/request-access"];
-const PUBLIC_API_PATHS = ["/api/accept-invite"];
+const PUBLIC_PATHS = ["/login", "/accept-invite", "/request-access", "/reset-password", "/ssr_report.html"];
+const PUBLIC_API_PATHS = [
+  "/api/accept-invite",
+  "/api/reject-invite",
+  "/api/request-access",
+  "/api/forgot-password",
+  "/api/view-document",
+];
 
 export async function middleware(req: NextRequest) {
   let res = NextResponse.next({
@@ -107,5 +113,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:html|svg|png|jpg|jpeg|gif|webp)$).*)"],
 };

@@ -7,7 +7,6 @@ const NAV = [
   { href: "/admin/requests", label: "Invites & Requests" },
   { href: "/admin/reports", label: "Reports" },
   { href: "/naac-upload", label: "Uploads" },
-  { href: "/accept-invite", label: "Accept Invite" },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

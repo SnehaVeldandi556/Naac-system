@@ -5,7 +5,6 @@ const NAV = [
   { href: "/faculty", label: "Report & Uploads" },
   { href: "/faculty/members", label: "Members" },
   { href: "/naac-upload", label: "NAAC Uploads" },
-  { href: "/accept-invite", label: "Accept Invite" },
 ];
 
 export default function FacultyLayout({ children }: { children: React.ReactNode }) {
